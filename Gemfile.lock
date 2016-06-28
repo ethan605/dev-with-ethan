@@ -122,7 +122,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.12, >= 1.12.5)
   github-pages (~> 84)
   jekyll-paginate (~> 1.1)
 
