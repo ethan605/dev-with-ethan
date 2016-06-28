@@ -1,0 +1,40 @@
+name: Dev with Ethan
+description: Software Developments with Ethan
+meta_description: "Your New Jekyll Site, Blogging about stuffs"
+
+aboutPage: true
+
+markdown: redcarpet
+highlighter: pygments
+
+paginate: 20
+baseurl: /
+domain_name: 'http://dev.with-ethan.me'
+google_analytics: 'UA-XXXXXXXX-X'
+disqus: true
+disqus_shortname: 'dev-with-ethan'
+
+# Details for the RSS feed generator
+url:            'http://dev.with-ethan.me'
+author:         'Ethan Nguyen'
+authorTwitter:  'Ethan605'
+
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+      type: pages
+    values:
+      layout: default
+  -
+    scope:
+      path: "" # empty string for all files
+      type: posts
+    values:
+      layout: post
+  -
+    scope:
+      path: ""
+      type: drafts
+    values:
+      layout: post
