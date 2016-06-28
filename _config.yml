@@ -14,13 +14,13 @@ paginate: 20
 baseurl: /
 github:
   - url: /dev-with-ethan
-domain_name: 'http://ethanify.me'
+domain_name: 'http://dev.ethanify.me'
 # google_analytics: 'UA-XXXXXXXX-X'
 disqus: true
 disqus_shortname: 'dev-with-ethan'
 
 # Details for the RSS feed generator
-url:            'http://ethanify.me'
+url:            'http://dev.ethanify.me'
 author:         'Ethan Nguyen'
 authorTwitter:  'Ethan605'
 
