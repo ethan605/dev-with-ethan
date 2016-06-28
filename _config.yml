@@ -1,4 +1,4 @@
-name: Dev Wth Ethan
+name: Dev With Ethan
 description: Blog Lập trình cùng Ethan
 meta_description: "Blog Công nghệ, Lập trình, Mẹo hay by Ethan Nguyen"
 
@@ -12,10 +12,8 @@ timezone: Asia/Ho_Chi_Minh
 
 paginate: 20
 baseurl: /
-github:
-  - url: /dev-with-ethan
 domain_name: 'http://dev.ethanify.me'
-# google_analytics: 'UA-XXXXXXXX-X'
+google_analytics: 'UA-49527418-4'
 disqus: true
 disqus_shortname: 'dev-with-ethan'
 
@@ -23,6 +21,9 @@ disqus_shortname: 'dev-with-ethan'
 url:            'http://dev.ethanify.me'
 author:         'Ethan Nguyen'
 authorTwitter:  'Ethan605'
+
+gems:
+  - jekyll-seo-tag
 
 defaults:
   -

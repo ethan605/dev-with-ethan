@@ -2,6 +2,11 @@
 title: Tự tạo một Blog Lập trình với Jekyll & Github Pages
 date: 2016-06-28 6:27:00
 description: "Hướng dẫn tạo blog dành cho lập trình viên bằng một cách đơn giản bằng Jekyll & publish lên Github Pages"
+tags:
+- blog
+- jekyll
+- github
+- web
 ---
 
 Có nhiều cách để làm ra một blog: **Wordpress**, **Blogspot**, **Joomla**,... Đối với 1 lập trình viên, không gì đẹp đẽ hơn 1 blog đơn giản, chú trọng vào nội dung và dễ dàng quản trị thông qua **git repository** của mình. **Jekyll** - **Github Pages** & **Custom domain** là cách đơn giản nhất.
