@@ -1,5 +1,5 @@
 name: Dev Wth Ethan
-description: Blog Lập trình với Ethan
+description: Blog Lập trình cùng Ethan
 meta_description: "Blog Công nghệ, Lập trình, Mẹo hay by Ethan Nguyen"
 
 aboutPage: true
@@ -14,13 +14,13 @@ paginate: 20
 baseurl: /
 github:
   - url: /dev-with-ethan
-domain_name: 'http://dev.with-ethan.me'
+domain_name: 'http://ethanify.me'
 # google_analytics: 'UA-XXXXXXXX-X'
 disqus: true
 disqus_shortname: 'dev-with-ethan'
 
 # Details for the RSS feed generator
-url:            'http://dev.with-ethan.me'
+url:            'http://ethanify.me'
 author:         'Ethan Nguyen'
 authorTwitter:  'Ethan605'
 
