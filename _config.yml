@@ -1,11 +1,16 @@
 name: Dev Wth Ethan
-description: Lập trình với Ethan
-meta_description: "Blog Công nghệ, Lập trình & Mẹo hay"
+description: Blog Lập trình với Ethan
+meta_description: "Blog Công nghệ, Lập trình, Mẹo hay by Ethan Nguyen"
 
 aboutPage: true
 markdown: kramdown
+kramdown:
+  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
+  hard_wrap: false
+highlighter: rouge
+timezone: Asia/Ho_Chi_Minh
 
-# paginate: 20
+paginate: 20
 baseurl: /
 github:
   - url: /dev-with-ethan
