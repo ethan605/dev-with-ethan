@@ -5,12 +5,11 @@ meta_description: "Your New Jekyll Site, Blogging about stuffs"
 aboutPage: true
 
 markdown: kramdown
-highlighter: pygments
 
-paginate: 20
+# paginate: 20
 baseurl: /
 domain_name: 'http://dev.with-ethan.me'
-google_analytics: 'UA-XXXXXXXX-X'
+# google_analytics: 'UA-XXXXXXXX-X'
 disqus: true
 disqus_shortname: 'dev-with-ethan'
 
