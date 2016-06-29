@@ -292,31 +292,45 @@ hr {
 }
 
 code {
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  padding: 0;
-  padding-top: 0.2em;
-  padding-bottom: 0.2em;
-  margin: 0;
-  background-color: rgba(0,0,0,0.04);
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, Monaco, "DejaVu Sans Mono", "Courier New", monospace;
+  font-size: 0.8em;
+  color: #666;
+  padding: 0 5px 2px;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
   border-radius: 3px;
+  background-clip: padding-box;
 }
 
 pre {
-  font-family:Menlo, Monaco, Courier;
-  white-space:pre-wrap;
-  /*border: 1px solid #ddd;*/
-  padding:20px;
-  background-color:#fdfdfd;
-  /*font-size:14px;*/
-  overflow:auto;
-  border-radius: 3px;
+  white-space: pre-wrap;
+  padding: 10px;
   background: #272b2d;
-    font-family: 'Source Code Pro',Menlo,monospace;
-    font-size: 13px;
-    line-height: 1.5em;
-    font-weight: 500;
   color: #d0d4d7;
 
+  border: 1px solid #ddd;
+  border-bottom-width: 2px;
+
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  
+  -webkit-font-smoothing: auto;
+  overflow: auto;
+}
+
+pre code {
+  border: none;
+  color: #fff;
+  margin: 10px 0;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  font-weight: 500;
 }
 
 table {
