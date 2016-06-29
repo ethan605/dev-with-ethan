@@ -51,6 +51,14 @@ struct ComplexNumber: CustomStringConvertible {
   }
 
   var description: String {
+    if self.isNaN() {
+      return "C{NaN}"
+    }
+    
+    if im == 0 {
+      return "R{\(re)}"
+    }
+    
     let imSign = im > 0 ? "+" : "-"
     return "C{\(re) \(imSign) \(abs(im))i}"
   }
@@ -202,6 +210,7 @@ prefix operator - {}
 {% endhighlight %}
 
 Trong đó:
+
 * `associativity` quy định chiều của toán tử: `left` là tính toán từ trái qua phải, còn `right` là từ phải qua trái
 * `precedence` quy định ưu tiên của toán tử: `precedence` càng cao thì càng được ưu tiên và tính toán trước. Mặc định, các phép toán `+`, `-`, `*`, `/` có `precedence` là 150
 
