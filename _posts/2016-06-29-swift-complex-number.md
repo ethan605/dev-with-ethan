@@ -157,6 +157,54 @@ func dividedBy(factor: Double) -> ComplexNumber {
 }
 {% endhighlight %}
 
+# Sử dụng các toán tử #
+
+Nhưng nếu cứ dùng các methods như trên thì dài dòng quá. **Swift** cung cấp cho chúng ta các chức năng định nghĩa lại các toán tử:
+
+{% highlight swift %}
+prefix func -(c1: ComplexNumber) -> ComplexNumber {
+  return c1.reflection()
+}
+
+func +(c1: ComplexNumber, c2: ComplexNumber) -> ComplexNumber {
+  return c1.add(c2)
+}
+
+func -(c1: ComplexNumber, c2: ComplexNumber) -> ComplexNumber {
+  return c1.subtract(c2)
+}
+
+func *(c1: ComplexNumber, c2: ComplexNumber) -> ComplexNumber {
+  return c1.multiply(c2)
+}
+
+func *(c1: ComplexNumber, factor: Double) -> ComplexNumber {
+  return c1.multiply(factor)
+}
+
+func /(c1: ComplexNumber, c2: ComplexNumber) -> ComplexNumber {
+  return c1.divide(c2)
+}
+
+func /(c1: ComplexNumber, factor: Double) -> ComplexNumber {
+  return c1.divide(factor)
+}
+{% endhighlight %}
+
+Đối với các toán tử không phải là mặc định, ta có thể định nghĩa mới thông qua các khai báo `operator`, ví dụ:
+
+{% highlight swift %}
+infix operator + {associativity left precedence 150}
+infix operator - {associativity left precedence 150}
+infix operator * {associativity left precedence 150}
+infix operator / {associativity left precedence 150}
+prefix operator - {}
+{% endhighlight %}
+
+Trong đó:
+* `associativity` quy định chiều của toán tử: `left` là tính toán từ trái qua phải, còn `right` là từ phải qua trái
+* `precedence` quy định ưu tiên của toán tử: `precedence` càng cao thì càng được ưu tiên và tính toán trước. Mặc định, các phép toán `+`, `-`, `*`, `/` có `precedence` là 150
+
 [complex-number]:   https://vi.wikipedia.org/wiki/S%E1%BB%91_ph%E1%BB%A9c
 [oop]:              https://vi.wikipedia.org/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C6%B0%E1%BB%9Bng_%C4%91%E1%BB%91i_t%C6%B0%E1%BB%A3ng
 [fp]:               https://vi.wikipedia.org/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C3%A0m
