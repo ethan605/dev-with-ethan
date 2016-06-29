@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'jekyll'
 
 group :jekyll_plugins do
   gem 'github-pages', '~> 84'
@@ -6,3 +7,4 @@ group :jekyll_plugins do
   gem 'jekyll-tagging', '~> 1.0', '>= 1.0.1'
   gem 'jekyll-seo-tag', '~> 2.0'
 end
+

@@ -1,46 +1,43 @@
-name: Dev With Ethan
-description: Blog Lập trình cùng Ethan
-meta_description: "Blog Công nghệ, Lập trình, Mẹo hay by Ethan Nguyen"
+# Visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
+paginate: 10 # pagination based on number of posts
+paginate_path: "page:num"
+exclude: ["README.md"] # files to exclude
 
-aboutPage: true
 markdown: kramdown
 kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
   hard_wrap: false
 highlighter: rouge
 timezone: Asia/Ho_Chi_Minh
+repository: ethan605/dev-with-ethan
 
-paginate: 20
-baseurl: /
-domain_name: 'http://dev.ethanify.me'
+disqus: 'dev-with-ethan'
 google_analytics: 'UA-49527418-4'
-disqus: true
-disqus_shortname: 'dev-with-ethan'
-
-# Details for the RSS feed generator
-url:            'http://dev.ethanify.me'
-author:         'Ethan Nguyen'
-authorTwitter:  'Ethan605'
-
-gems:
-  - jekyll-seo-tag
 
 defaults:
   -
     scope:
       path: "" # empty string for all files
-      type: pages
     values:
-      layout: default
-  -
-    scope:
-      path: "" # empty string for all files
-      type: posts
-    values:
-      layout: post
-  -
-    scope:
-      path: ""
-      type: drafts
-    values:
-      layout: post
+      title: Dev With Ethan
+
+title: Dev With Ethan
+description: Blog Lập trình cùng Ethan
+author:
+  name: Ethan605
+  email: thanhnx.605@gmail.com
+  github: ethan605
+  twitter: ethan605
+  linkedin: ethan605
+  bio: Passionate about creating awesome products that help plenty of people improving their lives.
+  email_md5: 48698fe64e24d81467ccc86d3083052d
+
+rss_path: feed.xml
+categories_path: categories.html
+tags_path: tags.html
+
+BASE_PATH:
+
+gems:
+  - jekyll-paginate
+  - jekyll-seo-tag
