@@ -1,2 +1,2 @@
 # dev-with-ethan
-Dev with Ethan Blog. To be deployed to http://dev.with-ethan.me
+Dev With Ethan Blog. To be deployed to http://dev.ethanify.me
