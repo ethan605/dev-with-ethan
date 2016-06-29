@@ -71,3 +71,16 @@ article.home h6 {
 footer {
   font-family: 'Calibri', 'Helvetica Neue', 'San Francisco', Helvetica;
 }
+
+section.share {
+  width: 100%;
+}
+
+section.share div {
+  float: left;
+}
+
+section.share div.share-buttons {
+  line-height: 2.7em;
+  margin-left: 10px;
+}
