@@ -212,6 +212,9 @@ Trong đó:
 * `associativity` quy định chiều của toán tử: `left` là tính toán từ trái qua phải, còn `right` là từ phải qua trái
 * `precedence` quy định ưu tiên của toán tử: `precedence` càng cao thì càng được ưu tiên và tính toán trước. Mặc định, các phép toán `+`, `-`, `*`, `/` có `precedence` là 150
 
+***Cập nhật:***
+Các bạn có thể tải về file [ComplexNumber.playground][attachment] để cùng xem các cài đặt và ví dụ về số **Phức** trong **Swift** được sử dụng như thế nào
+
 [complex-number]:   https://vi.wikipedia.org/wiki/S%E1%BB%91_ph%E1%BB%A9c
 [oop]:              https://vi.wikipedia.org/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C6%B0%E1%BB%9Bng_%C4%91%E1%BB%91i_t%C6%B0%E1%BB%A3ng
 [fp]:               https://vi.wikipedia.org/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C3%A0m
@@ -219,3 +222,4 @@ Trong đó:
 [inheritance]:      https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)
 [arc]:              https://en.wikipedia.org/wiki/Automatic_Reference_Counting
 [modulus-argument]: https://vi.wikipedia.org/wiki/S%E1%BB%91_ph%E1%BB%A9c#Mo.C4.91un_v.C3.A0_Argumen
+[attachment]:       {{ site.BASE_PATH }}/downloads/2016-06-29-ComplexNumber.zip
