@@ -84,3 +84,16 @@ section.share div.share-buttons {
   line-height: 2.7em;
   margin-left: 10px;
 }
+
+small.tagline {
+  font-size: 50%;
+  text-shadow: none;
+}
+
+.navbar-nav {
+  margin: 0px -15px;
+}
+
+.navbar-brand {
+  padding: 7.5px 15px;
+}
