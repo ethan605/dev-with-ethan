@@ -134,6 +134,7 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 ## [2016-06-30] ##
 
 Để dùng được gem `jekyll-sitemap` thì cần phải có gem `github-pages`. [Xem chi tiết][github-sitemap]
+[Link hay][jekyll-seo] để config SEO cho Jekyll
 
 [github-homepage]:  https://github.com/
 [github-help]:      https://help.github.com/articles/set-up-git/
@@ -143,3 +144,4 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 [jekyll-themes]:    https://jekyllthemes.io
 [kramdown-ref]:     http://kramdown.gettalong.org/quickref.html
 [github-sitemap]:   https://help.github.com/articles/sitemaps-for-github-pages/
+[jekyll-seo]:       http://vdaubry.github.io/2014/10/21/SEO-for-your-Jekyll-blog/
