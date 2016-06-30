@@ -23,6 +23,7 @@ defaults:
 
 title: Dev With Ethan
 description: Blog Lập trình cùng Ethan
+url: dev.ethanify.me
 author:
   name: Ethan605
   email: thanhnx.605@gmail.com
@@ -31,6 +32,12 @@ author:
   linkedin: ethan605
   bio: Passionate about creating awesome products that help plenty of people improving their lives.
   email_md5: 48698fe64e24d81467ccc86d3083052d
+twitter:
+  username: ethan605
+facebook:
+  app_id: 1783427568545702
+  admins: 1119670477
+logo: http://www.gravatar.com/avatar/48698fe64e24d81467ccc86d3083052d
 
 rss_path: feed.xml
 categories_path: categories.html
