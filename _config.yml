@@ -1,5 +1,7 @@
 # Visit https://github.com/mojombo/jekyll/wiki/Configuration for more settings
 permalink: /:categories/:title
+post_dirs: false
+
 paginate: 10 # pagination based on number of posts
 paginate_path: "page:num"
 exclude: ["README.md"] # files to exclude
