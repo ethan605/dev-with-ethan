@@ -37,7 +37,6 @@ twitter:
 facebook:
   app_id: 1783427568545702
   admins: 1119670477
-logo: http://www.gravatar.com/avatar/48698fe64e24d81467ccc86d3083052d
 
 rss_path: feed.xml
 categories_path: categories.html
