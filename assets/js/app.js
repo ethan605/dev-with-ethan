@@ -1,6 +1,5 @@
 (function($) {
-
- function init() {
+  function init() {
     /* Sidebar height set */
     $sidebarStyles = $('.sidebar').attr('style')
     $sidebarStyles += ' min-height: ' + $(document).height() + 'px;';
@@ -34,7 +33,23 @@
     activateTab();
   };
 
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId   : '1783427568545702',
+      xfbml   : true,
+      version : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) { return; }
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
   // run init on document ready
   $(document).ready(init);
-
 })(jQuery);
