@@ -129,6 +129,12 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 
 **Lưu ý:** để sử dụng trang `https://<username>.github.io` (không có phần `<repo-name>` ở đằng sau), chúng ta cần tạo 1 repo có tên là `<username>.github.io` trên **Github** và thao tác giống như project `my-blog` ở trên.
 
+# Cập nhật #
+
+## [2016-06-30] ##
+
+Để dùng được gem `jekyll-sitemap` thì cần phải có gem `github-pages`. [Xem chi tiết][github-sitemap]
+
 [github-homepage]:  https://github.com/
 [github-help]:      https://help.github.com/articles/set-up-git/
 [github-new-repo]:  https://github.com/new
@@ -136,3 +142,4 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 [ruby-gems]:        https://rubygems.org/
 [jekyll-themes]:    https://jekyllthemes.io
 [kramdown-ref]:     http://kramdown.gettalong.org/quickref.html
+[github-sitemap]:   https://help.github.com/articles/sitemaps-for-github-pages/
