@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  {% seo %}
   <meta charset="utf-8">
-  <title>{{ page.title }}</title>
-  {% if page.description %}
-    <meta name="description" content="{{ page.description }}">
-  {% endif %}
+  {% seo %}
   <meta name="author" content="{{ site.author.name }}">
+
+  <!-- Facebook metadata -->
+  <meta property="fb:admins" content="1119670477" />
+  <meta property="fb:app_id" content="1783427568545702" /> 
+  <meta property="og:image" content="http://www.gravatar.com/avatar/{{site.author.email_md5}}?s=200" />
 
   <!-- Enable responsive viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
