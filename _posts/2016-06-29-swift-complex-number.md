@@ -1,29 +1,27 @@
 ---
+layout: post
 title: "[Swift] Biểu diễn số Phức và các phép toán"
-date: 2016-06-29 9:08:00 +0700
 description: Sử dụng Struct và các toán tử để biểu diễn số Phức trong Swift
-tags:
-- blog
-- swift
-- struct
-- complex
-- số phức
-- toán tử
+date: 2016-06-29 9:08:00 +0700
+categories: [tutorials]
+tags: [swift, struct, complex, 'số phức', 'toán tử']
+comments: true
 ---
 
-### Phát biểu bài toán ###
+# 1. Phát biểu bài toán #
 
 Trong toán học, chúng ta có 1 kiểu số gọi là số **Phức** (*Complex number*), tức là 1 số bao gồm 2 phần: phần **Thực** và phần **Ảo**, trong đó phần **Thực** là phần biểu diễn 1 số trong tập số thực, còn phần **Ảo** cũng là một số thực nhưng đi kèm với ký tự `i`, trong đó `i^2 = -1`. Các bạn có thể tham khảo thêm tại [trang Wikipedia][complex-number].
 
 Chúng ta cần lưu trữ và biểu diễn 1 số **Phức** bao gồm 2 số thực đại diện cho phần **Thực** và phần **Ảo**, kèm theo các phép tính toán đơn giản là **cộng**, **trừ**, **nhân**, **chia**
 
-# Biểu diễn số Phức #
+# 2. Biểu diễn số Phức #
 
 ## Class và Struct trong Swift ##
 
 **Swift** là 1 ngôn ngữ đa hình (multi paradigm), vậy nên nó hỗ trợ cả [Object-Oriented Programming][oop] lẫn [Functional Programming][fp], **Class** và **Struct** là 2 cách thể hiện của OOP trong Swift.
 
 Theo cuốn [The Swift Programming Language (2.2)][swift-book], **Class** và **Struct** tương đối giống nhau trong cách khai báo & ý nghĩa, tuy nhiên có 1 số khác nhau:
+
 1. **Class** thì có [Kế thừa][inheritance], **Struct** thì không
 2. Tại `run-time`, ta có thể kiểm tra kiểu của **Class**, **Struct** thì không làm được
 3. Class thì có các `deinitializers`, ta có thể giải phóng tài nguyên do 1 thực thể (*instance*) của **Class** nắm giữ
@@ -37,7 +35,7 @@ Cơ chế số **4.** tạo ra 1 sự khác biệt rất lớn trong cách dùng
 
 Như vậy, trong bài toán **Biểu diễn số Phức**, chúng ta sẽ dùng **Struct**
 
-# Định nghĩa số Phức #
+# 3. Định nghĩa Struct số Phức #
 
 Ta có thể định nghĩa 1 số **Phức** bằng **Struct** như thế này:
 {% highlight swift %}
@@ -90,7 +88,7 @@ c1.modulus()        // 3.16227766016838
 c1.argument()       // (1, 3)
 {% endhighlight %}
 
-# Định nghĩa các phép toán #
+# 4. Định nghĩa các phép toán #
 
 Số Phức có đầy đủ các phép toán giống như 1 số Thực: đối (`reflection`) ngịch đảo (`reciprocal`), cộng (`add`), trừ (`subtract`), nhân (`multiply`), chia (`divide`).
 
@@ -165,7 +163,7 @@ func dividedBy(factor: Double) -> ComplexNumber {
 }
 {% endhighlight %}
 
-# Sử dụng các toán tử #
+# 5. Sử dụng các toán tử #
 
 Nhưng nếu cứ dùng các methods như trên thì dài dòng quá. **Swift** cung cấp cho chúng ta các chức năng định nghĩa lại các toán tử:
 
@@ -214,6 +212,9 @@ Trong đó:
 * `associativity` quy định chiều của toán tử: `left` là tính toán từ trái qua phải, còn `right` là từ phải qua trái
 * `precedence` quy định ưu tiên của toán tử: `precedence` càng cao thì càng được ưu tiên và tính toán trước. Mặc định, các phép toán `+`, `-`, `*`, `/` có `precedence` là 150
 
+***Cập nhật:***
+Các bạn có thể tải về file [ComplexNumber.playground][attachment] để cùng xem các cài đặt và ví dụ về số **Phức** trong **Swift** được sử dụng như thế nào
+
 [complex-number]:   https://vi.wikipedia.org/wiki/S%E1%BB%91_ph%E1%BB%A9c
 [oop]:              https://vi.wikipedia.org/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C6%B0%E1%BB%9Bng_%C4%91%E1%BB%91i_t%C6%B0%E1%BB%A3ng
 [fp]:               https://vi.wikipedia.org/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C3%A0m
@@ -221,3 +222,4 @@ Trong đó:
 [inheritance]:      https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)
 [arc]:              https://en.wikipedia.org/wiki/Automatic_Reference_Counting
 [modulus-argument]: https://vi.wikipedia.org/wiki/S%E1%BB%91_ph%E1%BB%A9c#Mo.C4.91un_v.C3.A0_Argumen
+[attachment]:       {{ site.BASE_PATH }}/downloads/2016-06-29-ComplexNumber.zip
