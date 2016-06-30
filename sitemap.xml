@@ -6,13 +6,16 @@ sitemap: false
   {% for post in site.posts %}
     <url>
       <loc>{{ site.url }}{{ post.url }}</loc>
+      <xhtml:link rel="alternate" hreflang="vi" href="{{ site.url }}{{ post.url }}" />
       <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
     </url>
   {% endfor %}
+
   {% for page in site.pages %}
     {% if page.sitemap != false %}
       <url>
         <loc>{{ site.url }}{{ page.url }}</loc>
+        <xhtml:link rel="alternate" hreflang="vi" href="{{ site.url }}{{ post.url }}" />
         <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
       </url>
     {% endif %}
