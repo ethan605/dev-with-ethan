@@ -3,7 +3,7 @@ layout: post
 title: "[Swift] Biểu diễn số Phức và các phép toán"
 description: Sử dụng Struct và các toán tử để biểu diễn số Phức trong Swift
 date: 2016-06-29 9:08:00 +0700
-categories: [tutorials]
+categories: [swift]
 tags: [swift, struct, complex, 'số phức', 'toán tử']
 comments: true
 ---
