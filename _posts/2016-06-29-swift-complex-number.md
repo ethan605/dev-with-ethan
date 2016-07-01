@@ -14,9 +14,7 @@ Trong toán học, chúng ta có 1 kiểu số gọi là số **Phức** (*Compl
 
 Chúng ta cần lưu trữ và biểu diễn 1 số **Phức** bao gồm 2 số thực đại diện cho phần **Thực** và phần **Ảo**, kèm theo các phép tính toán đơn giản là **cộng**, **trừ**, **nhân**, **chia**
 
-# 2. Biểu diễn số Phức #
-
-## Class và Struct trong Swift ##
+# 2. Class và Struct trong Swift #
 
 **Swift** là 1 ngôn ngữ đa hình (multi paradigm), vậy nên nó hỗ trợ cả [Object-Oriented Programming][oop] lẫn [Functional Programming][fp], **Class** và **Struct** là 2 cách thể hiện của OOP trong Swift.
 
@@ -38,7 +36,8 @@ Như vậy, trong bài toán **Biểu diễn số Phức**, chúng ta sẽ dùng
 # 3. Định nghĩa Struct số Phức #
 
 Ta có thể định nghĩa 1 số **Phức** bằng **Struct** như thế này:
-{% highlight swift %}
+
+```swift
 struct ComplexNumber: CustomStringConvertible {
   var re: Double = 0
   var im: Double = 0
@@ -69,30 +68,30 @@ struct ComplexNumber: CustomStringConvertible {
     return (re, im)
   }
 }
-{% endhighlight %}
+```
 
 Ở đây, ta dùng protocol `CustomStringConvertible` với mục đích định nghĩa thuộc tính `description`, dùng để hiển thị ra 1 `String` dễ đọc trong trường hợp cần `print` hoặc *interpolate* số Phức này vào 1 `String`, ví dụ:
 
-{% highlight swift %}
+```swift
 let c1 = ComplexNumber(re: 1, im: 3)
 print(c1)
 
 let c2 = ComplexNumber(re: 2, im: -4)
 "Complex number 2: \(c2)"
-{% endhighlight %}
+```
 
 Ngoài ra, function `modulus` dùng để lấy **Mođun** và function `argument` dùng để lấy **Argumen** của số Phức này ([xem thêm][modulus-argument]). Ví dụ:
 
-{% highlight swift %}
+```swift
 c1.modulus()        // 3.16227766016838
 c1.argument()       // (1, 3)
-{% endhighlight %}
+```
 
 # 4. Định nghĩa các phép toán #
 
 Số Phức có đầy đủ các phép toán giống như 1 số Thực: đối (`reflection`) ngịch đảo (`reciprocal`), cộng (`add`), trừ (`subtract`), nhân (`multiply`), chia (`divide`).
 
-{% highlight swift %}
+```swift
 func reflection() -> ComplexNumber {
   var ref = self
   ref.im = -self.im
@@ -123,11 +122,11 @@ func divide(otherNumber: ComplexNumber) -> ComplexNumber {
   result.im = (self.im*otherNumber.re - self.re*otherNumber.im) / sumOfSquares
   return result
 }
-{% endhighlight %}
+```
 
 Ngoài ra còn có thêm các phép toán nhân với 1 số thực (`multiply:factor`), chia cho 1 số thực khác 0 (`divide:factor`) và bị chia bởi 1 số thực (`dividedBy:factor`). Do các phép chia đều phải kiểm tra số chia có bằng `0` hay không, nên ta có thêm 1 phương thức `isZero` kiểm tra điều kiện `re` và `im` đều bằng `0`. Trường hợp cố gắng chia cho 0, ta sẽ có 1 giá trị mặc định là `ComplexNumber.NaN` có cả `re` và `im` đều là `Double.NaN`
 
-{% highlight swift %}
+```swift
 static var NaN: ComplexNumber = ComplexNumber(re: Double.NaN, im: Double.NaN)
 
 func isZero() -> Bool {
@@ -161,13 +160,13 @@ func dividedBy(factor: Double) -> ComplexNumber {
   result = result.multiply(factor)
   return result
 }
-{% endhighlight %}
+```
 
 # 5. Sử dụng các toán tử #
 
 Nhưng nếu cứ dùng các methods như trên thì dài dòng quá. **Swift** cung cấp cho chúng ta các chức năng định nghĩa lại các toán tử:
 
-{% highlight swift %}
+```swift
 prefix func -(c1: ComplexNumber) -> ComplexNumber {
   return c1.reflection()
 }
@@ -195,17 +194,17 @@ func /(c1: ComplexNumber, c2: ComplexNumber) -> ComplexNumber {
 func /(c1: ComplexNumber, factor: Double) -> ComplexNumber {
   return c1.divide(factor)
 }
-{% endhighlight %}
+```
 
 Đối với các toán tử không phải là mặc định, ta có thể định nghĩa mới thông qua các khai báo `operator`, ví dụ:
 
-{% highlight swift %}
+```swift
 infix operator + {associativity left precedence 150}
 infix operator - {associativity left precedence 150}
 infix operator * {associativity left precedence 150}
 infix operator / {associativity left precedence 150}
 prefix operator - {}
-{% endhighlight %}
+```
 
 Trong đó:
 
