@@ -2,16 +2,16 @@
 <html>
 <head>
   <meta charset="utf-8">
-  {% seo %}
-  
-  <!-- Facebook metadata -->
+
+  <!-- Open Graph metadata -->
+  <meta property="og:type" content="article" />
+  <meta property="article:author" content="{{ site.author.name }}">
   <meta property="og:image" content="{{ site.url }}/assets/media/ethanify.png" />
   <meta property="og:image:width" content="200" />
   <meta property="og:image:height" content="200" />
+  {% seo %}
 
   <!-- Author -->
-  <meta property="og:type" content="article" />
-  <meta property="article:author" content="{{ site.author.name }}">
   <link rel="author" href="https://plus.google.com/+ThanhNguyen605"/>
 
   <!-- Enable responsive viewport -->
