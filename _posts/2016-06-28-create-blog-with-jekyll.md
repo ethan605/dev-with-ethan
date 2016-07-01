@@ -137,11 +137,28 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 [Link hay][jekyll-seo] để config SEO cho Jekyll
 
 [github-homepage]:  https://github.com/
+{:rel="nofollow"}
+
 [github-help]:      https://help.github.com/articles/set-up-git/
+{:rel="nofollow"}
+
 [github-new-repo]:  https://github.com/new
+{:rel="nofollow"}
+
 [rvm-io]:           https://rvm.io
+{:rel="nofollow"}
+
 [ruby-gems]:        https://rubygems.org/
+{:rel="nofollow"}
+
 [jekyll-themes]:    https://jekyllthemes.io
+{:rel="nofollow"}
+
 [kramdown-ref]:     http://kramdown.gettalong.org/quickref.html
+{:rel="nofollow"}
+
 [github-sitemap]:   https://help.github.com/articles/sitemaps-for-github-pages/
+{:rel="nofollow"}
+
 [jekyll-seo]:       http://vdaubry.github.io/2014/10/21/SEO-for-your-Jekyll-blog/
+{:rel="nofollow"}
