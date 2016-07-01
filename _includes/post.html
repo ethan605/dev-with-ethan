@@ -44,15 +44,14 @@
     {% endunless %}
 
     {% unless page.tags == empty %}
-      <ul class="list-inline">
+      <ul class="tag_box list-inline">
         <li><i class="fa fa-tags"></i></li>
         {% assign tags_list = page.tags %}
         {% if tags_list.first[0] == null %}
           {% for tag in tags_list %}
             <li>
               <a href="{{ site.BASE_PATH }}/{{ site.tags_path }}#{{ tag }}-ref">
-              {{ tag }} <span>({{ site.tags[tag].size }})</span>
-              {% unless forloop.last %},{% endunless %}
+                {{ tag }} <span>({{ site.tags[tag].size }})</span>{% unless forloop.last %},{% endunless %}
               </a>
             </li>
           {% endfor %}
@@ -60,8 +59,7 @@
           {% for tag in tags_list %}
             <li>
               <a href="{{ site.BASE_PATH }}/{{ site.tags_path }}#{{ tag[0] }}-ref">
-                {{ tag[0] }} <span>({{ tag[1].size }})</span>
-                {% unless forloop.last %},{% endunless %}
+                {{ tag[0] }} <span>({{ tag[1].size }})</span>{% unless forloop.last %},{% endunless %}
               </a>
             </li>
           {% endfor %}
