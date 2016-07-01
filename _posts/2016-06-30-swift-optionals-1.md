@@ -27,7 +27,7 @@ originalInt = 14
 optionalInt = 15
 ```
 
-Lúc này, biến `originalInt` có kiểu thuần `Int`, và việc gán nó bằng `nil` gây lỗi `Nil cannot initialize specified type 'Int'`, trong khi biến `optionalInt` có kiểu **Optional** `Int?`, không có lỗi gì xảy ra nếu được gán bằng `nil`. Ngoài điểm này ra, 2 biến này hoàn toàn bình đẳng trong các phép gán giá trị `Int` bình thường.
+Lúc này, biến `originalInt` có kiểu thuần `Int`, và việc gán nó bằng `nil` gây lỗi `Nil cannot initialize specified type 'Int'`, trong khi biến `optionalInt` có kiểu *optional* `Int?`, không có lỗi gì xảy ra nếu được gán bằng `nil`. Ngoài điểm này ra, 2 biến này hoàn toàn bình đẳng trong các phép gán giá trị `Int` bình thường.
 
 # 2. Wrap và Unwrap 1 giá trị kiểu Optional #
 
