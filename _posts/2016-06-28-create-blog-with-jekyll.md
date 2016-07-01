@@ -36,9 +36,9 @@ Một tài khoản **[Github][github-homepage]** còn hoạt động được. �
 
 Tại **Github**, ta tạo 1 [repository mới][github-new-repo], giả sử tên là `my-blog`, `clone` về máy của mình bằng dòng lệnh
 
-{% highlight shell %}
+```shell
 git clone git@github.com:<username>/my-blog.git
-{% endhighlight %}
+```
 
 Trong đó `<username>` là tên tài khoản của bạn trên **Github**
 
@@ -60,20 +60,20 @@ touch Gemfile
 
 Trong `Gemfile`, chúng ta khai báo các `gems` cần dùng với Jekyll
 
-{% highlight ruby %}
+```ruby
 source 'https://rubygems.org'
 
 group :jekyll_plugins do
   gem 'github-pages', '~> 84'
   gem 'jekyll-paginate', '~> 1.1'
 end
-{% endhighlight %}
+```
 
 Trong **Terminal** ta gọi `bundle` để cài đặt các `gems` đã khai báo trong `Gemfile`
 
-{% highlight shell %}
+```shell
 bundle
-{% endhighlight %}
+```
 
 # 4. Sử dụng custom theme #
 
@@ -94,9 +94,9 @@ Các bài blog được đặt trong thư mục `_posts`, có cú pháp đặt t
 
 Sau khi có bài viết bằng `markdown`, chạy lệnh `serve` để xem được bài viết
 
-{% highlight shell %}
+```shell
 jekyll serve
-{% endhighlight %}
+```
 
 Lúc này, toàn bộ blog sẽ truy cập được thông qua địa chỉ `localhost:4000` hoặc `127.0.0.1:4000`
 
@@ -106,24 +106,24 @@ Lúc này, toàn bộ blog sẽ truy cập được thông qua địa chỉ `loc
 
 Để deploy được lên **Github Pages**, tại Terminal, ta `commit` các thay đổi và `checkout` sang branch mới tên là `gh-pages`:
 
-{% highlight shell %}
+```shell
 # In master branch
 git checkout -b gh-pages
 
 # In gh-pages branch
 git push -u origin gh-pages
-{% endhighlight %}
+```
 
 Tại các lần sau, khi viết bài mới, ta vẫn làm việc ở `master`, nhưng khi muốn deploy thì `merge` các thay đổi vào `gh-pages` và `push` lên:
 
-{% highlight shell %}
+```shell
 # In master branch
 git checkout gh-pages
 
 # In gh-pages branch
 git merge master
 git push origin gh-pages
-{% endhighlight %}
+```
 
 Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<username>.github.io/<repo-name>`
 
