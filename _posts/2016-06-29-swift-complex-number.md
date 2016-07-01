@@ -235,4 +235,4 @@ Các bạn có thể tải về file [ComplexNumber.playground][attachment] đ�
 [modulus-argument]: https://vi.wikipedia.org/wiki/S%E1%BB%91_ph%E1%BB%A9c#Mo.C4.91un_v.C3.A0_Argumen
 {:rel="nofollow"}
 
-[attachment]:       /downloads/2016-06-29-ComplexNumber.zip
+[attachment]:       /assets/downloads/swift/2016-06-29-ComplexNumber.zip

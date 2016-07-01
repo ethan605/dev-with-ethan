@@ -97,3 +97,7 @@ small.tagline {
 .navbar-brand {
   padding: 7.5px 15px;
 }
+
+ul.tag_box li {
+  padding-right: 0;
+}
