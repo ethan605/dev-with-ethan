@@ -9,4 +9,7 @@ group :jekyll_plugins do
   # SEO
   gem 'jekyll-seo-tag', '~> 2.0'
   gem 'jekyll-sitemap', '~> 0.10.0'
+
+  # Debug
+  gem 'octopress-debugger', '~> 1.0', '>= 1.0.2'
 end
