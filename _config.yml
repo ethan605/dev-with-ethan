@@ -30,6 +30,10 @@ defaults:
       path: "" # empty string for all files
     values:
       title: Dev With Ethan
+      image:
+        path: /assets/media/ethanify.png
+        width: 200
+        height: 200
 
 title: Dev With Ethan
 description: Blog Lập trình cùng Ethan
@@ -47,6 +51,7 @@ twitter:
 facebook:
   app_id: 1783427568545702
   admins: 1119670477
+  publisher: 1119670477
 
 rss_path: feed.xml
 categories_path: categories.html
