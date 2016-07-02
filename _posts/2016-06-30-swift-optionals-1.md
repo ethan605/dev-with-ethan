@@ -89,11 +89,11 @@ if let checkedInt = optionalInt {
 }
 ```
 
-Tại dòng `if`, ta tiến hành **binding** biến `optionalInt` vào 1 biến tạm tên là `checkedInt`:
+Tại dòng số **3**, ta tiến hành **binding** biến `optionalInt` vào 1 biến tạm tên là `checkedInt`:
 
 * Trong trường hợp `optionalInt` có giá trị `nil`, lệnh **binding** này sẽ trả ra kết quả `false`, block `else` được thực thi
 * Ngược lại, nếu `optionalInt` có giá trị khác `nil`, block `if` được thực thi
 
 Lúc này chúng ta không cần phải **unwrap** nữa, cũng không cần khai báo `checkedInt` theo kiểu **unwrap tự động** gì cả
 
-***(còn tiếp...)***
+Trong bài viết [sau]({% post_url 2016-07-01-swift-optionals-2 %}), ta sẽ cùng xem cách dùng của kiểu **Optional** trong các vấn đề nâng cao hơn của **Swift**, đó là **Method chaining** và **Ép kiểu** (**Value casting**)

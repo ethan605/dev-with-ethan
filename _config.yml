@@ -10,6 +10,13 @@ markdown: kramdown
 kramdown:
   input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
   hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 highlighter: rouge
 timezone: Asia/Ho_Chi_Minh
 repository: ethan605/dev-with-ethan
@@ -53,4 +60,3 @@ gems:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
-  - octopress-debugger
