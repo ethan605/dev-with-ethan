@@ -1,5 +1,13 @@
 <span class="post-date">
-  {{ page.date | date: "%d" }}
-  Tháng {{ page.date | date: "%m" }},
-  {{ page.date | date: "%Y" }}
+  {% if include.date %}
+    {% assign post_date = include.date %}
+  {% else %}
+    {% assign post_date = page.date %}
+  {% endif %}
+
+  {% if post_date %}
+    {{ post_date | date: "%d" }}
+    Tháng {{ post_date | date: "%m" }},
+    {{ post_date | date: "%Y" }}
+  {% endif %}
 </span>
