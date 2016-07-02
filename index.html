@@ -7,9 +7,9 @@ tagline: "Chia sẻ các kinh nghiệm lập trình iOS & Web hiệu quả"
 {% for post in paginator.posts %}
   <article class="home">
     <span class="post-date">
-      {{ post.date | date: "%d" }}
-      Tháng {{ post.date | date: "%m" }},
-      {{ post.date | date: "%Y" }}
+      {{ page.date | date: "%d" }}
+      Tháng {{ page.date | date: "%m" }},
+      {{ page.date | date: "%Y" }}
     </span>
     
     <h2>
@@ -19,14 +19,12 @@ tagline: "Chia sẻ các kinh nghiệm lập trình iOS & Web hiệu quả"
     <div>
       {% if post.fullview %}
         {{ post.content }}
+      {% elsif post.shortinfo %}
+        {{ post.shortinfo }}
+      {% elsif post.description %}
+        {{ post.description }}
       {% else %}
-        {% if post.shortinfo %}
-          {{ post.shortinfo }}
-        {% elsif post.description %}
-          {{ post.description }}
-        {% else %}
-          {{ post.excerpt }}
-        {% endif %}
+        {{ post.excerpt }}
       {% endif %}
     </div>
   </article>
