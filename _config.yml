@@ -54,8 +54,8 @@ facebook:
   publisher: 1119670477
 
 rss_path: feed.xml
-categories_path: categories
-tags_path: tags
+categories_path: categories.html
+tags_path: tags.html
 
 BASE_PATH:
 
