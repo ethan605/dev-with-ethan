@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Ruby on Rails] Sử dụng Migration với PostgreSQL trong Rails"
+title: "[Ruby on Rails] Migration trong Rails: tạo mới Models với Active Record"
 description: Rào cản lớn nhất khi đến với stack công nghệ Ruby - Rails - PostgreSQL (hay bất kỳ SQL Database nào) là Migration. Hiểu và dùng thành thạo Migration sẽ khiến cho mọi thứ dễ dàng hơn rất nhiều.
 date: 2016-07-02 10:15:00 +0700
 categories: ['ruby-on-rails']
@@ -52,23 +52,194 @@ Ví dụ, ta có 1 ứng dụng tên là **SecretMessenger**. Ứng dụng này 
 * Lưu trữ các *tin nhắn* trong bảng `Message`, trong đó cũng biết được ai là người gửi (thông qua trường `from_user_id`), ai là người nhận (`to_user_id`), tin nhắn nào nằm trong cuộc hội thoại nào (`conversation_id`)
 * Tất cả các Model đều có các trường `created_at` và `updated_at` gọi là các **timestamps** lưu trữ các thông tin ngày giờ được khởi tạo và ghi vào bảng (**created**) và ngày giờ cập nhật giá trị mới (**updated**)
 
+Chúng ta sẽ đi vào chi tiết từng bước các cách **Migration** trong **Ruby on Rails**.
+
 # 3. Các thao tác với Migration trong Ruby on Rails #
 
 ## 3.1. Thêm mới 1 Model ##
 
-## 3.2. Thêm mới 1 trường trong Model  ##
+Ban đầu, khi chưa có gì cả, ta cần thêm mới Model. **Rails** cung cấp cho chúng ta 1 bộ công cụ dòng lệnh ([command line tools][command-line-tools]) tên là `rails generate` với các lệnh con (gọi là `generators`) như sau:
 
-## 3.3. Sửa 1 trường trong Model ##
+```shell
+$ rails generate
+Usage: rails generate GENERATOR [args] [options]
 
-### 3.3.1. Đổi tên ###
+General options:
+  -h, [--help]     # Print generator's options and usage
+  -p, [--pretend]  # Run but do not make any changes
+  -f, [--force]    # Overwrite files that already exist
+  -s, [--skip]     # Skip files that already exist
+  -q, [--quiet]    # Suppress status output
 
-### 3.3.2. Đổi kiểu dữ liệu ###
+Please choose a generator below.
 
-### 3.3.3. Đặt giá trị mặc định ###
+Rails:
+  channel
+  controller
+  generator
+  integration_test
+  job
+  mailer
+  migration
+  model
+  resource
+  responders_controller
+  scaffold
+  scaffold_controller
+  serializer
+  task
 
-### 3.3.4. Đặt giá trị khác `null` ###
+ActiveRecord:
+  active_record:devise
+  active_record:migration
+  active_record:model
 
-## 3.4. Đánh index cho các trường trong Model ##
+Devise:
+  devise
+  devise:controllers
+  devise:install
+  devise:views
+
+Mongoid:
+  mongoid:devise
+
+Responders:
+  responders:install
+
+TestUnit:
+  test_unit:controller
+  test_unit:generator
+  test_unit:helper
+  test_unit:integration
+  test_unit:job
+  test_unit:mailer
+  test_unit:model
+  test_unit:plugin
+  test_unit:scaffold
+```
+
+Đây là bộ công cụ cực kỳ hữu dụng vì nó làm giúp chúng ta hầu hết các phần đơn giản như: tạo các file với tên theo chuẩn, có sẵn các đoạn mã cơ bản để khởi tạo. Lệnh này cũng có cách viết tắt là `rails g` thay cho viết đầy đủ là `rails generate`
+
+Đúng ra để tạo mới 1 Model, ta sẽ dùng lệnh `rails generate model`:
+
+```shell
+$ rails generate model conversation title:string from_user:references to_user:references
+invoke  active_record
+      create    db/migrate/20160702073539_create_conversations.rb
+      create    app/models/conversation.rb
+```
+
+Tuy nhiên lệnh này chỉ tạo ra Model, chúng ta sẽ cần đến nhiều thành phần hơn:
+
+* `Controller` để xử lý các request liên quan đến các `Conversation`
+* `Serializer` để tự động hóa việc trả kết quả bằng `JSON`
+* `Routes` để cấu hình các URI (gọi là **[Routing][rails-routing]**) liên quan đến các `Conversation`
+* `Test` để viết các kiểm thử
+* ...
+
+Do đó ta sẽ dùng `scaffold` để tạo tất cả bằng 1 lệnh duy nhất:
+
+```shell
+$ rails generate scaffold conversation title:string from_user:references to_user:references
+invoke  active_record
+      create    db/migrate/20160702073626_create_conversations.rb
+      create    app/models/conversation.rb
+      invoke  resource_route
+       route    resources :conversations
+      invoke  serializer
+      create    app/serializers/conversation_serializer.rb
+      invoke  scaffold_controller
+      create    app/controllers/conversations_controller.rb
+```
+
+Mặc định, `rails generate` sẽ tạo ra rất nhiều các file phục vụ các tính năng khác nhau, ta có thể cấu hình bật/tắt các tính năng này bằng cách thêm lệnh `config.generators` trong file `configs/application.rb`:
+
+```ruby
+module SecretMessengerApi
+  class Application < Rails::Application
+    ...
+
+    config.generators do |g|
+      g.orm             :active_record
+      g.template_engine nil
+      g.test_framework  nil
+      g.stylesheets     false
+      g.javascripts     false
+    end
+
+    ...
+  end
+end
+```
+
+(trong trường hợp này, chúng ta sẽ không sinh ra bất kỳ file nào phục vụ cho web front-end như `template_engine`, `stylesheets`, `javascripts`,...)
+
+Sau khi tạo `scaffold`, chúng ta có 1 file mới tên là `db/migrate/20160702073626_create_conversations.rb` có nội dung:
+
+```ruby
+class CreateConversations < ActiveRecord::Migration[5.0]
+  def change
+    create_table :conversations do |t|
+      t.string :title
+      t.references :from_user, foreign_key: true
+      t.references :to_user, foreign_key: true
+
+      t.timestamps
+    end
+  end
+end
+```
+
+Ở đây chúng ta có 1 class tên là `CreateConversations`, kế thừa từ `ActiveRecord::Migration[5.0]`. Class này có 1 hàm tên `change`, với nội dung là:
+
+* Tạo mới (`create_table`) một bảng tên là `conversations`, trong bảng `conversations`:
+
+    - Tạo 1 trường kiểu `string` tên là `title`
+    - Tạo 1 trường liên kết ngoài bảng (`foreign_key`) tên là `from_user`
+    - Tạo 1 trường liên kết ngoài bảng (`foreign_key`) tên là `to_user`
+    - Tạo các trường thời gian `created_at` và `updated_at` (thông qua `timestamps`)
+
+Tuy nhiên, việc dùng `references` như ở trên không đúng ý đồ của chúng ta lắm, vì nó không thể hiện được rõ ràng mối quan hệ `n-1` giữa `Conversation` và `User`. Ta sẽ sửa lại file **Migration** này 1 chút như sau:
+
+```ruby
+class CreateConversations < ActiveRecord::Migration[5.0]
+  def change
+    create_table :conversations do |t|
+      t.string :title
+      t.belongs_to :from_user
+      t.belongs_to :to_user
+
+      t.timestamps
+    end
+  end
+end
+```
+
+Ngoài ra, trong file `app/models/conversation.rb`, chúng ta cũng có nội dung như sau:
+
+```ruby
+class Conversation < ApplicationRecord
+  belongs_to :from_user
+  belongs_to :to_user
+end
+```
+
+Lúc này, **Active Record** sẽ hiểu rằng, `Conversation` có quan hệ `n-1` với 2 Model `FromUser` và `ToUser`. Trong khi chúng ta chỉ có 1 Model là `User` mà thôi. Để **Active Record** hiểu đúng, ta cần sửa lại như sau:
+
+```ruby
+class Conversation < ApplicationRecord
+  belongs_to :from_user, class_name: "User"
+  belongs_to :to_user, class_name: "User"
+end
+```
+
+Cuối cùng, ta chạy lệnh `migrate` để thực hiện các thay đổi:
+
+```shell
+$ rails db:migrate
+```
+
+Trong bài viết [sau]({% post_url 2016-07-03-rails-migration-2 %}), ta sẽ làm việc sâu hơn với **Migration** trong **Rails** với các thao tác thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, đánh index cho các trường trong Model.
 
 [active-record]:    http://guides.rubyonrails.org/active_record_basics.html
 {:rel="nofollow"}
@@ -96,3 +267,9 @@ Ví dụ, ta có 1 ứng dụng tên là **SecretMessenger**. Ứng dụng này 
 
 [db-schema-1.0]:    /assets/media/posts/ruby-on-rails/2016-07-02-secret-messenger-db-schema-1.0.png
 {:class="img-responsive"}
+
+[command-line-tools]: http://guides.rubyonrails.org/command_line.html
+{:rel="nofollow"}
+
+[rails-routing]:    http://guides.rubyonrails.org/routing.html
+{:rel="nofollow"}
