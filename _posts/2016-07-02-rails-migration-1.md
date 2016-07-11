@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Ruby on Rails] Migration trong Rails: tạo mới Models với Active Record"
+title: "[Ruby on Rails] Migration trong Rails - Tạo mới Models với Active Record"
 description: Rào cản lớn nhất khi đến với stack công nghệ Ruby - Rails - PostgreSQL (hay bất kỳ SQL Database nào) là Migration. Hiểu và dùng thành thạo Migration sẽ khiến cho mọi thứ dễ dàng hơn rất nhiều.
 date: 2016-07-02 10:15:00 +0700
 categories: ['ruby-on-rails']
@@ -124,7 +124,7 @@ TestUnit:
 
 ```shell
 $ rails generate model conversation title:string from_user:references to_user:references
-invoke  active_record
+      invoke  active_record
       create    db/migrate/20160702073539_create_conversations.rb
       create    app/models/conversation.rb
 ```
@@ -141,7 +141,7 @@ Do đó ta sẽ dùng `scaffold` để tạo tất cả bằng 1 lệnh duy nh�
 
 ```shell
 $ rails generate scaffold conversation title:string from_user:references to_user:references
-invoke  active_record
+      invoke  active_record
       create    db/migrate/20160702073626_create_conversations.rb
       create    app/models/conversation.rb
       invoke  resource_route
@@ -239,7 +239,7 @@ Cuối cùng, ta chạy lệnh `migrate` để thực hiện các thay đổi:
 $ rails db:migrate
 ```
 
-Trong bài viết [sau]({% post_url 2016-07-03-rails-migration-2 %}), ta sẽ làm việc sâu hơn với **Migration** trong **Rails** với các thao tác thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, đánh index cho các trường trong Model.
+Trong bài viết [sau]({% post_url 2016-07-03-rails-migration-2 %}), ta sẽ làm việc sâu hơn với **Migration** trong **Rails** với các thao tác thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, xóa trường & đánh index cho các trường trong Model.
 
 [active-record]:    http://guides.rubyonrails.org/active_record_basics.html
 {:rel="nofollow"}
