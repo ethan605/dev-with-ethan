@@ -31,13 +31,11 @@ Tuy nhiên có 1 thứ mà bất kỳ ai cũng phải vượt qua, đó là **Mi
 
 Cách thứ nhất rất nhanh và dễ, nhưng là 1 thói quen xấu, đặc biệt khi dự án đã ra mắt người dùng cuối, chạy và ghi nhận dữ liệu thật, thì không có cách nào xóa trắng dữ liệu được cả. Vậy nên chúng ta cần đến cách thứ 2, đó là viết **Migration**.
 
-# 2. Migration #
+# 2. Bài toán cụ thể #
 
 **Migration** là cách để chúng ta định nghĩa 1 **schema** cần thay đổi ở đâu và như thế nào.
 
-## 2.1. Bài toán cụ thể ##
-
-Ví dụ, ta có 1 ứng dụng tên là **Secret Messenger**. Ứng dụng này cần có 3 models:
+Ví dụ, ta có 1 ứng dụng tên là **SecretMessenger**. Ứng dụng này cần có 3 models:
 
 * `User`: các dữ liệu liên quan đến người dùng đăng nhập vào hệ thống
 * `Conversation`: các *cuộc hội thoại* tạo ra giữa 2 người dùng với nhau
@@ -45,7 +43,32 @@ Ví dụ, ta có 1 ứng dụng tên là **Secret Messenger**. Ứng dụng này
 
 Đây là 1 thiết kế khá giống với hầu hết các ứng dụng nhắn tin hiện nay như [Messenger của Facebook][facebook-messenger], [Viber][viber] hay [Telegram][telegram]. Giả sử thiết kế ban đầu của chúng ta có dạng như thế này:
 
+![SecretMessenger - Database schema - v1.0][db-schema-1.0]
 
+Đây là thiết kế cơ bản nhất, cho phép ứng dụng **SecretMessenger** của chúng ta có thể:
+
+* Lưu trữ thông tin người dùng trong bảng `User`
+* Lưu trữ các *cuộc hội thoại* trong bảng `Conversation`, trong đó biết được ai là người gửi (thông qua trường `from_user_id`), ai là người nhận (`to_user_id`)
+* Lưu trữ các *tin nhắn* trong bảng `Message`, trong đó cũng biết được ai là người gửi (thông qua trường `from_user_id`), ai là người nhận (`to_user_id`), tin nhắn nào nằm trong cuộc hội thoại nào (`conversation_id`)
+* Tất cả các Model đều có các trường `created_at` và `updated_at` gọi là các **timestamps** lưu trữ các thông tin ngày giờ được khởi tạo và ghi vào bảng (**created**) và ngày giờ cập nhật giá trị mới (**updated**)
+
+# 3. Các thao tác với Migration trong Ruby on Rails #
+
+## 3.1. Thêm mới 1 Model ##
+
+## 3.2. Thêm mới 1 trường trong Model  ##
+
+## 3.3. Sửa 1 trường trong Model ##
+
+### 3.3.1. Đổi tên ###
+
+### 3.3.2. Đổi kiểu dữ liệu ###
+
+### 3.3.3. Đặt giá trị mặc định ###
+
+### 3.3.4. Đặt giá trị khác `null` ###
+
+## 3.4. Đánh index cho các trường trong Model ##
 
 [active-record]:    http://guides.rubyonrails.org/active_record_basics.html
 {:rel="nofollow"}
@@ -70,3 +93,6 @@ Ví dụ, ta có 1 ứng dụng tên là **Secret Messenger**. Ứng dụng này
 
 [telegram]:         https://telegram.org/
 {:rel="nofollow"}
+
+[db-schema-1.0]:    /assets/media/posts/ruby-on-rails/2016-07-02-secret-messenger-db-schema-1.0.png
+{:class="img-responsive"}
