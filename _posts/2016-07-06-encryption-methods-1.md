@@ -126,7 +126,7 @@ So với 2 phương pháp ở trên, **Mã hóa bằng hàm băm** đơn giản 
   * Dữ liệu truyền qua Internet 1 cách bình thường & kèm theo `digest` đã tính toán (do `digest` này có độ dài tối đa là 512 bytes nên hầu như nó không thể bị lỗi khi truyền)
   * Tại đích, ta lại tính toán `digest` của dữ liệu, nếu trùng khớp với `digest` tại nguồn thì tức là ta đã truyền tải thành công, còn nếu không, chắc chắn đã xảy ra lỗi ở đâu đó, ta cần truyền tải lại.
 
-Trong bài sau, chúng ta sẽ cùng tìm hiểu 1 số thuật toán phổ biến đối với từng phương pháp mã hóa này.
+Trong bài sau, chúng ta sẽ cùng tìm hiểu 1 số thuật toán mã hóa phổ biến và cách dùng chúng trong ngôn ngữ **Ruby**.
 
 [ww2]:              https://vi.wikipedia.org/wiki/Chi%E1%BA%BFn_tranh_th%E1%BA%BF_gi%E1%BB%9Bi_th%E1%BB%A9_hai
 {:rel="nofollow"}
