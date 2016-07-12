@@ -122,3 +122,8 @@ div.highlight pre {
 div.highlight pre.lineno {
   border-right: 1px solid #ccc;
 }
+
+div.article_body img {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
