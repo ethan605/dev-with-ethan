@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Cryptography trong Lập trình: Các thuật toán mã hóa thường dùng"
-description: "Hiểu 1 cách cơ bản các khái niệm thường dùng về mã hóa (Hash function, 1-way encryption, secret / public key encryption, symmetric / asymmetric cryptography) và những ứng dụng trong lập trình nói chung"
+title: "Cryptography: Các phương pháp mã hóa thường dùng"
+description: "Hiểu 1 cách đơn giản các phương pháp thường dùng trong mã hóa và những ứng dụng thực tiễn: đối xứng (symmetric), bất đối xứng (asymetric) & hàm băm (hash function)"
 date: 2016-07-06 09:00:00 +0700
 categories: [misc]
-tags: ['computer science', 'khoa học máy tính', ruby, cryptopgraphy, 'mã hóa', encryption, hash, md5, sha, aes]
+tags: [cryptopgraphy, encryption, 'mã hóa', symmetric, 'đối xứng', asymmetric, 'bất đối xứng', hash, 'hàm băm', md5, sha, aes, digest]
 comments: true
 ---
 
