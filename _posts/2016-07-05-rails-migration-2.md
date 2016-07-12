@@ -2,7 +2,7 @@
 layout: post
 title: "[Ruby on Rails] Migration trong Rails - Các thao tác với Migration"
 description: "Các thao tác chính với Migration: thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, xóa trường & đánh index cho các trường trong Model"
-date: 2016-07-03 10:15:00 +0700
+date: 2016-07-05 10:15:00 +0700
 categories: ['ruby-on-rails']
 tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
@@ -26,10 +26,10 @@ Lúc này, **command line tools** của **Rails** cung cấp cho chúng ta 1 l�
 ```shell
 $ rails generate migration AddDeliveryFieldsToMessage is_sent:boolean is_delivered:boolean is_read:boolean is_archived:boolean
       invoke  active_record
-      create    db/migrate/20160703090219_add_delivery_fields_to_message.rb
+      create    db/migrate/20160705090219_add_delivery_fields_to_message.rb
 ```
 
-và nhận được kết quả là file `db/migrate/20160703090219_add_delivery_fields_to_message.rb` như sau:
+và nhận được kết quả là file `db/migrate/20160705090219_add_delivery_fields_to_message.rb` như sau:
 
 ```ruby
 class AddDeliveryFieldsToMessage < ActiveRecord::Migration[5.0]
@@ -218,5 +218,5 @@ Nhìn chung, đối với những người mới bước chân vào thế giới
 [change_table-api-dock]:      http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/change_table
 {:rel="nofollow"}
 
-[db-schema-1.1]:    /assets/media/posts/ruby-on-rails/2016-07-03-secret-messenger-db-schema-1.1.png
+[db-schema-1.1]:    /assets/media/posts/ruby-on-rails/2016-07-05-secret-messenger-db-schema-1.1.png
 {:class="img-responsive"}
