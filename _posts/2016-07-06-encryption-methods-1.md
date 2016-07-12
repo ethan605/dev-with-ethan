@@ -122,11 +122,11 @@ So với 2 phương pháp ở trên, **Mã hóa bằng hàm băm** đơn giản 
 
 * Xác thực mật khẩu: chắc có nhiều người quen với việc dùng **MD5** hay **SHA** để lưu và xác thực 1 mật khẩu có đúng không. Ngoài ra việc lưu 1 mật khẩu dưới dạng `digest` trong database làm cho nó an toàn hơn rất nhiều: kể cả khi database có bị đánh cắp, mật khẩu người dùng cũng không bị lộ.
 * Xác thực độ toàn vẹn của 1 file hay 1 tin nhắn: việc truyền dữ liệu qua Internet không phải lúc nào cũng đảm bảo dữ liệu toàn vẹn 100%. Đôi khi những lúc mạng chậm, chập chờn hoặc có lỗi về đường truyền, chúng ta nhận được 1 file hoặc 1 thông điệp không toàn vẹn (thường là bị lỗi 1 phần). Nếu dữ liệu đủ nhỏ (1 tin nhắn vài dòng, 1 file dữ liệu vài kB) thì không nói làm gì vì ta có thể dễ dàng kiểm tra bằng mắt thường. Nhưng nếu dữ liệu lớn cỡ vài trăm MB hay GB thì không thể dùng mắt thường được. Khi đó:
-  * Tại nguồn của dữ liệu, ta tiến hành tính toán `digest` (thường là **SHA-128**, **SHA-256** hoặc **SHA-512** nếu dữ liệu rất lớn)
-  * Dữ liệu truyền qua Internet 1 cách bình thường & kèm theo `digest` đã tính toán (do `digest` này có độ dài tối đa là 512 bytes nên hầu như nó không thể bị lỗi khi truyền)
-  * Tại đích, ta lại tính toán `digest` của dữ liệu, nếu trùng khớp với `digest` tại nguồn thì tức là ta đã truyền tải thành công, còn nếu không, chắc chắn đã xảy ra lỗi ở đâu đó, ta cần truyền tải lại.
+  - Tại nguồn của dữ liệu, ta tiến hành tính toán `digest` (thường là **SHA-128**, **SHA-256** hoặc **SHA-512** nếu dữ liệu rất lớn)
+  - Dữ liệu truyền qua Internet 1 cách bình thường & kèm theo `digest` đã tính toán (do `digest` này có độ dài tối đa là 512 bytes nên hầu như nó không thể bị lỗi khi truyền)
+  - Tại đích, ta lại tính toán `digest` của dữ liệu, nếu trùng khớp với `digest` tại nguồn thì tức là ta đã truyền tải thành công, còn nếu không, chắc chắn đã xảy ra lỗi ở đâu đó, ta cần truyền tải lại.
 
-Trong bài sau, chúng ta sẽ cùng tìm hiểu 1 số thuật toán mã hóa phổ biến và cách dùng chúng trong ngôn ngữ **Ruby**.
+Trong bài [sau]({% post_url 2016-07-07-encryption-methods-2 %}), chúng ta sẽ cùng tìm hiểu 1 số thuật toán mã hóa phổ biến và cách dùng chúng trong ngôn ngữ **Ruby**.
 
 [ww2]:              https://vi.wikipedia.org/wiki/Chi%E1%BA%BFn_tranh_th%E1%BA%BF_gi%E1%BB%9Bi_th%E1%BB%A9_hai
 {:rel="nofollow"}
