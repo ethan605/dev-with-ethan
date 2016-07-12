@@ -148,7 +148,7 @@ File.write("private_key.pem", secured_key)
 
 Do **private key** rất nhạy cảm, và thường thì file `private_key.pem` sẽ được lưu trữ tại máy tính của chúng ta, điều đó có nghĩa là cứ ai truy cập được vào máy tính của ta là sẽ có **private key** này. Vì vậy ta làm thêm 1 bước là mã hóa **private key** vừa tạo bằng thuật toán **AES** 256 bit, và *export* nó ra thành dữ liệu kiểu **String** bằng lệnh `key.export()`.
 
-Các bạn có thể download 2 file này ở [đây][rsa-key-pairs]
+Các bạn có thể download 2 file này ở [đây][rsa-key-pairs].
 
 ### 4.2.2. Đọc dữ liệu public - private key từ file ##
 
