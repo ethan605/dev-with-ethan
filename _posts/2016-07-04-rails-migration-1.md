@@ -2,7 +2,7 @@
 layout: post
 title: "[Ruby on Rails] Migration trong Rails - Tạo mới Models với Active Record"
 description: Rào cản lớn nhất khi đến với stack công nghệ Ruby - Rails - PostgreSQL (hay bất kỳ SQL Database nào) là Migration. Hiểu và dùng thành thạo Migration sẽ khiến cho mọi thứ dễ dàng hơn rất nhiều.
-date: 2016-07-02 10:15:00 +0700
+date: 2016-07-04 10:15:00 +0700
 categories: ['ruby-on-rails']
 tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
@@ -125,7 +125,7 @@ TestUnit:
 ```shell
 $ rails generate model conversation title:string from_user:references to_user:references
       invoke  active_record
-      create    db/migrate/20160702073539_create_conversations.rb
+      create    db/migrate/20160704073539_create_conversations.rb
       create    app/models/conversation.rb
 ```
 
@@ -142,7 +142,7 @@ Do đó ta sẽ dùng `scaffold` để tạo tất cả bằng 1 lệnh duy nh�
 ```shell
 $ rails generate scaffold conversation title:string from_user:references to_user:references
       invoke  active_record
-      create    db/migrate/20160702073626_create_conversations.rb
+      create    db/migrate/20160704073626_create_conversations.rb
       create    app/models/conversation.rb
       invoke  resource_route
        route    resources :conversations
@@ -174,7 +174,7 @@ end
 
 (trong trường hợp này, chúng ta sẽ không sinh ra bất kỳ file nào phục vụ cho web front-end như `template_engine`, `stylesheets`, `javascripts`,...)
 
-Sau khi tạo `scaffold`, chúng ta có 1 file mới tên là `db/migrate/20160702073626_create_conversations.rb` có nội dung:
+Sau khi tạo `scaffold`, chúng ta có 1 file mới tên là `db/migrate/20160704073626_create_conversations.rb` có nội dung:
 
 ```ruby
 class CreateConversations < ActiveRecord::Migration[5.0]
@@ -265,7 +265,7 @@ Trong bài viết [sau]({% post_url 2016-07-03-rails-migration-2 %}), ta sẽ l�
 [telegram]:         https://telegram.org/
 {:rel="nofollow"}
 
-[db-schema-1.0]:    /assets/media/posts/ruby-on-rails/2016-07-02-secret-messenger-db-schema-1.0.png
+[db-schema-1.0]:    /assets/media/posts/ruby-on-rails/2016-07-04-secret-messenger-db-schema-1.0.png
 {:class="img-responsive"}
 
 [command-line-tools]: http://guides.rubyonrails.org/command_line.html
