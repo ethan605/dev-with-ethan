@@ -4,7 +4,7 @@ title: "Cryptography: Sử dụng các thuật toán mã hóa phổ biến trong
 description: "Dùng Ruby để mã hóa / giải mã thông điệp bằng các thuật toán phổ biến: AES, RSA, MD5, SHA"
 date: 2016-07-07 17:00:00 +0700
 categories: [misc]
-tags: [cryptopgraphy, encryption, 'mã hóa', symmetric, 'đối xứng', asymmetric, 'bất đối xứng', hash, 'hàm băm', md5, sha, aes, digest]
+tags: [cryptopgraphy, encryption, 'mã hóa', symmetric, 'đối xứng', asymmetric, 'bất đối xứng', hash, 'hàm băm', md5, sha, aes, digest, ruby]
 comments: true
 ---
 
@@ -249,7 +249,7 @@ digest.base64digest             # /n+8lP6elE8UNN+wl61EvQ==
 
 ### Salt ###
 
-Trước đây, khi **MD5** mới ra đời, người ta nhận thấy đây là 1 thuật toán hiệu quả để lưu trữ các dữ liệu nhạy cảm như **mật khẩu** hay các thông tin xác thực. Hàng loạt các server lúc đó sử dụng **MD5** làm phương thức xác thực chính (bên cạnh **SHA** được phát triển từ trước). Tuy nhiên qua thời gian, **MD5** bộc lộ các điểm yếu và được chứng minh là không an toàn trước các tấn công quy mô lớn, sử dụng những kỹ thuật tấn công phức tạp và công phu.
+Trước đây, khi **MD5** mới ra đời, người ta nhận thấy đây là 1 thuật toán hiệu quả để lưu trữ các dữ liệu nhạy cảm như **mật khẩu** hay các thông tin xác thực. Hàng loạt các server lúc đó sử dụng **MD5** làm phương thức xác thực chính (bên cạnh **SHA** được phát triển từ trước). Tuy nhiên qua thời gian, **MD5** bộc lộ các điểm yếu và được chứng minh là không an toàn trước các tấn công quy mô lớn, sử dụng các kỹ thuật phức tạp và công phu.
 
 Do vậy, người ta nghĩ ra **salt** để *cứu* các hệ thống sử dụng **MD5** này. Cách sử dụng **salt** dựa trên nguyên lý rất đơn giản: khi nấu ăn chúng ta cho thêm muối để vừa miệng, khi tính toán `digest`, ta thêm **salt** để tạo ra `digest` *khó xơi* hơn. Mục đích chính của **salt** là làm cho các mật khẩu khó đoán hơn, và ngay cả đối với các mật khẩu cực kì đơn giản, khi thêm **salt** vào sẽ trở nên phức tạp hơn nhiều. Vậy nên nếu các hackers có nắm giữ được database mật khẩu người dùng, và có 1 danh sách các mật khẩu hay gặp, thì cũng không thể nào dò đúng được mật khẩu.
 

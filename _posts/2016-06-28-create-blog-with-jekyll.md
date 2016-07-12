@@ -34,7 +34,7 @@ Do **Jekyll** được **Github** tích hợp rất sâu, nên chúng ta sẽ s�
 
 Một tài khoản **[Github][github-homepage]** còn hoạt động được. Đối với những ai chưa quen dùng **Github**, cần đọc qua series **[Hướng dẫn của Github][github-help]** trước
 
-Tại **Github**, ta tạo 1 [repository mới][github-new-repo], giả sử tên là `my-blog`, `clone` về máy của mình bằng dòng lệnh
+Tại **Github**, ta tạo 1 repository mới, giả sử tên là `my-blog`, `clone` về máy của mình bằng dòng lệnh
 
 ```shell
 git clone git@github.com:<username>/my-blog.git
@@ -46,7 +46,7 @@ Trong đó `<username>` là tên tài khoản của bạn trên **Github**
 
 Đầu tiên là **Ruby**, phiên bản ổn định nhất hiện tại là 2.2.4. Đối với các bạn dùng Mac OS thì đã có sẵn Ruby rồi, nhưng là phiên bản 1.9.x. Tốt nhất nên cài qua **[RVM][rvm-io]**
 
-Sau khi đã có **Ruby**, ta cần cài đặt 1 `gem` có tên là `bundler`. (**[Gem][ruby-gems]** là các bộ thư viện được cộng đồng viết cho **Ruby**)
+Sau khi đã có **Ruby**, ta cần cài đặt 1 `gem` có tên là `bundler`. (**Gem** là các bộ thư viện được cộng đồng viết cho **Ruby**)
 
 {% highlight shell %}
 gem install bundler
@@ -77,13 +77,13 @@ bundle
 
 # 4. Sử dụng custom theme #
 
-Cộng đồng lập trình viên ưa thích **Jekyll** đã tạo ra rất nhiều bộ theme đẹp, tiện dụng và public lên các trang chia sẻ theme của **Jekyll** (tính năng này giống với **Wordpress** hay **Joomla**). Một trong các trang tập hợp các theme đẹp là **[JekyllThemes][jekyll-themes]**
+Cộng đồng lập trình viên ưa thích **Jekyll** đã tạo ra rất nhiều bộ theme đẹp, tiện dụng và public lên các trang chia sẻ theme của **Jekyll** (tính năng này giống với **Wordpress** hay **Joomla**). Một trong các trang tập hợp các theme đẹp là **JekyllThemes.io**
 
 Sau khi chọn được 1 theme ưng ý, các bạn download và giải nén vào thư mục `my-blog` của mình. *Chú ý:* cần phải giải nén toàn bộ nội dung vào thư mục gốc `my-blog`, dễ nhận thấy nhất là có file `_config.yml`, đây là file chứa các cài đặt gốc của blog viết bằng **Jekyll**
 
 # 5. Viết post bằng Jekyll #
 
-Các bài post của chúng ta sẽ được viết bằng `markdown`, sử dụng các cú pháp **[kramdown][kramdown-ref]**
+Các bài post của chúng ta sẽ được viết bằng `markdown`, sử dụng các cú pháp **kramdown**
 
 Các bài blog được đặt trong thư mục `_posts`, có cú pháp đặt tên theo dạng `yyyy-mm-dd-<post-name>.markdown`, trong đó
 
@@ -133,8 +133,8 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 
 ## [2016-06-30] ##
 
-Để dùng được gem `jekyll-sitemap` thì cần phải có gem `github-pages`. [Xem chi tiết][github-sitemap]
-[Link hay][jekyll-seo] để config SEO cho Jekyll
+* Để dùng được gem `jekyll-sitemap` thì cần phải có gem `github-pages`. [Xem chi tiết][github-sitemap]
+* [Link hay][jekyll-seo] để config SEO cho Jekyll
 
 [github-homepage]:  https://github.com/
 {:rel="nofollow"}
@@ -142,19 +142,7 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 [github-help]:      https://help.github.com/articles/set-up-git/
 {:rel="nofollow"}
 
-[github-new-repo]:  https://github.com/new
-{:rel="nofollow"}
-
 [rvm-io]:           https://rvm.io
-{:rel="nofollow"}
-
-[ruby-gems]:        https://rubygems.org/
-{:rel="nofollow"}
-
-[jekyll-themes]:    https://jekyllthemes.io
-{:rel="nofollow"}
-
-[kramdown-ref]:     http://kramdown.gettalong.org/quickref.html
 {:rel="nofollow"}
 
 [github-sitemap]:   https://help.github.com/articles/sitemaps-for-github-pages/

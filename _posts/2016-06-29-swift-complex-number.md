@@ -10,20 +10,20 @@ comments: true
 
 # 1. Phát biểu bài toán #
 
-Trong toán học, chúng ta có 1 kiểu số gọi là số **Phức** (*Complex number*), tức là 1 số bao gồm 2 phần: phần **Thực** và phần **Ảo**, trong đó phần **Thực** là phần biểu diễn 1 số trong tập số thực, còn phần **Ảo** cũng là một số thực nhưng đi kèm với ký tự `i`, trong đó `i^2 = -1`. Các bạn có thể tham khảo thêm tại [trang Wikipedia][complex-number].
+Trong toán học, chúng ta có 1 kiểu số gọi là số **Phức** (*Complex number*), tức là 1 số bao gồm 2 phần: phần **Thực** và phần **Ảo**, trong đó phần **Thực** là phần biểu diễn 1 số trong tập số thực, còn phần **Ảo** cũng là một số thực nhưng đi kèm với ký tự `i`, trong đó `i^2 = -1`.
 
 Chúng ta cần lưu trữ và biểu diễn 1 số **Phức** bao gồm 2 số thực đại diện cho phần **Thực** và phần **Ảo**, kèm theo các phép tính toán đơn giản là **cộng**, **trừ**, **nhân**, **chia**
 
 # 2. Class và Struct trong Swift #
 
-**Swift** là 1 ngôn ngữ đa hình (multi paradigm), vậy nên nó hỗ trợ cả [Object-Oriented Programming][oop] lẫn [Functional Programming][fp], **Class** và **Struct** là 2 cách thể hiện của OOP trong Swift.
+**Swift** là 1 ngôn ngữ đa hình (multi paradigm), vậy nên nó hỗ trợ cả **Object-Oriented Programming** lẫn **Functional Programming**, **Class** và **Struct** là 2 cách thể hiện của OOP trong Swift.
 
-Theo cuốn [The Swift Programming Language (2.2)][swift-book], **Class** và **Struct** tương đối giống nhau trong cách khai báo & ý nghĩa, tuy nhiên có 1 số khác nhau:
+Theo cuốn **The Swift Programming Language (2.2)**, **Class** và **Struct** tương đối giống nhau trong cách khai báo & ý nghĩa, tuy nhiên có 1 số khác nhau:
 
-1. **Class** thì có [Kế thừa][inheritance], **Struct** thì không
+1. **Class** thì có **Kế thừa** (Inheritance), **Struct** thì không
 2. Tại `run-time`, ta có thể kiểm tra kiểu của **Class**, **Struct** thì không làm được
 3. Class thì có các `deinitializers`, ta có thể giải phóng tài nguyên do 1 thực thể (*instance*) của **Class** nắm giữ
-4. Theo cơ chế **[Automatic Reference Counting][arc]**, 1 instance của **Class** có thể có nhiều tham chiếu (*references*), trong khi **Struct** thì không
+4. Theo cơ chế **Automatic Reference Counting**, 1 instance của **Class** có thể có nhiều tham chiếu (*references*), trong khi **Struct** thì không
 
 Cơ chế số **4.** tạo ra 1 sự khác biệt rất lớn trong cách dùng của **Class** và **Struct** như sau:
 
@@ -80,7 +80,7 @@ let c2 = ComplexNumber(re: 2, im: -4)
 "Complex number 2: \(c2)"
 ```
 
-Ngoài ra, function `modulus` dùng để lấy **Mođun** và function `argument` dùng để lấy **Argumen** của số Phức này ([xem thêm][modulus-argument]). Ví dụ:
+Ngoài ra, function `modulus` dùng để lấy **Mođun** và function `argument` dùng để lấy **Argumen** của số Phức này. Ví dụ:
 
 ```swift
 c1.modulus()        // 3.16227766016838
@@ -213,26 +213,5 @@ Trong đó:
 
 ***Cập nhật:***
 Các bạn có thể tải về file [ComplexNumber.playground][attachment] để cùng xem các cài đặt và ví dụ về số **Phức** trong **Swift** được sử dụng như thế nào
-
-[complex-number]:   https://vi.wikipedia.org/wiki/S%E1%BB%91_ph%E1%BB%A9c
-{:rel="nofollow"}
-
-[oop]:              https://vi.wikipedia.org/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C6%B0%E1%BB%9Bng_%C4%91%E1%BB%91i_t%C6%B0%E1%BB%A3ng
-{:rel="nofollow"}
-
-[fp]:               https://vi.wikipedia.org/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C3%A0m
-{:rel="nofollow"}
-
-[swift-book]:       https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/
-{:rel="nofollow"}
-
-[inheritance]:      https://en.wikipedia.org/wiki/Inheritance_(object-oriented_programming)
-{:rel="nofollow"}
-
-[arc]:              https://en.wikipedia.org/wiki/Automatic_Reference_Counting
-{:rel="nofollow"}
-
-[modulus-argument]: https://vi.wikipedia.org/wiki/S%E1%BB%91_ph%E1%BB%A9c#Mo.C4.91un_v.C3.A0_Argumen
-{:rel="nofollow"}
 
 [attachment]:       /assets/downloads/swift/2016-06-29-ComplexNumber.zip
