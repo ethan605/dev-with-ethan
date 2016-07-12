@@ -30,7 +30,7 @@ Có 3 phương pháp **Mã hóa** mà người ta hay dùng:
 
 * **Mã hóa đối xứng** (Symmetric cryptography) - hay còn gọi là **Mã hóa sử dụng khóa bí mật** (Secret key encryption)
 * **Mã hóa bất đối xứng** (Asymmetric cryptography) - hay còn gọi là **Mã hóa sử dụng khóa công khai** (Public key encryption)
-* **Mã hóa bằng bảng băm** (Cryptographic hash function) - hay còn gọi là **Mã hóa 1 chiều** (One-way encryption)
+* **Mã hóa bằng hàm băm** (Cryptographic hash function) - hay còn gọi là **Mã hóa 1 chiều** (One-way encryption)
 
 ## 2.1. Mã hóa đối xứng ##
 
@@ -107,7 +107,26 @@ Một ứng dụng rất hay của **Mã hóa bất đối xứng** chính là *
 * Bất kỳ ai cố tình sinh ra 1 chữ ký giả đều không thể vượt qua bài kiểm tra **public key** của người gửi được.
 * Bất kỳ ai cố tình sửa chữ ký cũng sẽ bị phát hiện do chữ ký đã sửa không khớp với bài kiểm tra **public key**.
 
-## 2.3. Mã hóa bằng bảng băm ##
+## 2.3. Mã hóa bằng hàm băm ##
+
+Về lý thuyết, 1 phép **Mã hóa bằng hàm băm** được định nghĩa là 1 thuật toán biến 1 chuỗi thông tin có độ dài bất kỳ thành 1 chuỗi thông tin có độ dài cố định. Thông tin có độ dài bất kỳ như vậy được gọi là `message` (hay thông điệp), còn thông tin được tính toán ra có độ dài cố định được gọi là `digest` (hay tóm tắt của thông điệp). Một thuật toán như vậy được gọi là lý tưởng nếu nó đảm bảo 4 điều kiện:
+
+* Dễ dàng và tốn ít thời gian để tính toán được ra `digest` của 1 `message` bất kỳ
+* Rất khó khăn và tốn kém tài nguyên để lần ngược `message` từ 1 `digest` có sẵn, hoặc phải thử toàn bộ các trường hợp khả thi và đối chiếu với `digest` để tìm ra `message` đúng
+* Một thay đổi nhỏ trong `message` cũng dẫn đến thay đổi rất lớn ở `digest` tính toán ra, dẫn đến việc 2 `message` gần gần giống nhau sẽ sinh ra 2 `digest` hoàn toàn khác biệt.
+* Rất khó khăn và gần như không thể tìm được 2 `message` khác nhau sinh ra cùng 1 `digest` giống nhau.
+
+Chính do những tính chất như vậy mà **Mã hóa bằng hàm băm** còn được gọi là **Mã hóa 1 chiều**.
+
+So với 2 phương pháp ở trên, **Mã hóa bằng hàm băm** đơn giản hơn ở chỗ: chúng ta không cần dùng đến chìa khóa & ổ khóa để mã hóa, nhưng cũng do nó là 1 chiều, nên thường thuật toán này không dùng để truyền thông điệp, mà nó được ứng dụng nhiều hơn trong **xác thực**:
+
+* Xác thực mật khẩu: chắc có nhiều người quen với việc dùng **MD5** hay **SHA** để lưu và xác thực 1 mật khẩu có đúng không. Ngoài ra việc lưu 1 mật khẩu dưới dạng `digest` trong database làm cho nó an toàn hơn rất nhiều: kể cả khi database có bị đánh cắp, mật khẩu người dùng cũng không bị lộ.
+* Xác thực độ toàn vẹn của 1 file hay 1 tin nhắn: việc truyền dữ liệu qua Internet không phải lúc nào cũng đảm bảo dữ liệu toàn vẹn 100%. Đôi khi những lúc mạng chậm, chập chờn hoặc có lỗi về đường truyền, chúng ta nhận được 1 file hoặc 1 thông điệp không toàn vẹn (thường là bị lỗi 1 phần). Nếu dữ liệu đủ nhỏ (1 tin nhắn vài dòng, 1 file dữ liệu vài kB) thì không nói làm gì vì ta có thể dễ dàng kiểm tra bằng mắt thường. Nhưng nếu dữ liệu lớn cỡ vài trăm MB hay GB thì không thể dùng mắt thường được. Khi đó:
+  * Tại nguồn của dữ liệu, ta tiến hành tính toán `digest` (thường là **SHA-128**, **SHA-256** hoặc **SHA-512** nếu dữ liệu rất lớn)
+  * Dữ liệu truyền qua Internet 1 cách bình thường & kèm theo `digest` đã tính toán (do `digest` này có độ dài tối đa là 512 bytes nên hầu như nó không thể bị lỗi khi truyền)
+  * Tại đích, ta lại tính toán `digest` của dữ liệu, nếu trùng khớp với `digest` tại nguồn thì tức là ta đã truyền tải thành công, còn nếu không, chắc chắn đã xảy ra lỗi ở đâu đó, ta cần truyền tải lại.
+
+Trong bài sau, chúng ta sẽ cùng tìm hiểu 1 số thuật toán phổ biến đối với từng phương pháp mã hóa này.
 
 [ww2]:              https://vi.wikipedia.org/wiki/Chi%E1%BA%BFn_tranh_th%E1%BA%BF_gi%E1%BB%9Bi_th%E1%BB%A9_hai
 {:rel="nofollow"}
