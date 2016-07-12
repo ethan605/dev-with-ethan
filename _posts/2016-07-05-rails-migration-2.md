@@ -8,7 +8,7 @@ tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
 ---
 
-*... tiếp theo bài viết [[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record]({% post_url 2016-07-02-rails-migration-1 %})*
+*... tiếp theo bài viết [[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record]({% post_url 2016-07-04-rails-migration-1 %})*
 
 # 3. Các thao tác với Migration trong Ruby on Rails #
 

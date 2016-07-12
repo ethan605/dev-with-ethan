@@ -239,7 +239,7 @@ Cuối cùng, ta chạy lệnh `migrate` để thực hiện các thay đổi:
 $ rails db:migrate
 ```
 
-Trong bài viết [sau]({% post_url 2016-07-03-rails-migration-2 %}), ta sẽ làm việc sâu hơn với **Migration** trong **Rails** với các thao tác thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, xóa trường & đánh index cho các trường trong Model.
+Trong bài viết [sau]({% post_url 2016-07-05-rails-migration-2 %}), ta sẽ làm việc sâu hơn với **Migration** trong **Rails** với các thao tác thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, xóa trường & đánh index cho các trường trong Model.
 
 [active-record]:    http://guides.rubyonrails.org/active_record_basics.html
 {:rel="nofollow"}
