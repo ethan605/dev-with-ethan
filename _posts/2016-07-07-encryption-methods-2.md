@@ -46,6 +46,8 @@ Trong **Ruby**, chúng ta dùng **AES** thông qua bộ thư viện `OpenSSL::Ci
 Ta sẽ dùng `key` có độ dài 256 (phức tạp nhất) và `block` có chế độ `CBC`:
 
 ```ruby
+require 'openssl'
+
 cipher = OpenSSL::Cipher::AES.new(256, :CBC)
 ```
 
@@ -118,12 +120,131 @@ decrypted_content << decipher.final         # Mã hóa đối xứng bằng thu�
 
 # 4. Mã hóa bất đối xứng #
 
+Đối với **Mã hóa bất đối xứng**, **RSA** là 1 đại diện rất tiêu biểu. Đây là 1 trong những thuật toán ra đời sớm nhất và vẫn còn được sử dụng rộng rãi đến ngày hôm nay.
+
 ## 4.1. Thuật toán RSA ##
+
+Thuật toán này được đặt tên theo họ của 3 nhà khoa học đồng phát minh ra nó là Ron **Rivest**, Adi **Shamir**, and Leonard **Adleman**. **RSA** dựa trên nguyên lý: tích của 2 số nguyên tố thì rất dễ để tính ra, nhưng sẽ rất vất vả để tìm ra 2 số ban đầu là số nào.
 
 ## 4.2. Sử dụng RSA trong Ruby ##
 
+### 4.2.1. Khởi tạo cặp public - private key ##
+
+Giống như **AES**, **Ruby** cung cấp sẵn các cài đặt của **RSA** thông qua bộ thư viện `OpenSSL`:
+
+```ruby
+require 'openssl'
+
+key = OpenSSL::PKey::RSA.new(4096)
+File.write("public_key.pem", key.public_key.to_pem)
+
+cipher = OpenSSL::Cipher::AES.new(256, :CBC)
+pass_phrase = "rsa@dev.ethanify.me(c)2016"
+secured_key = key.export(cipher, pass_phrase)
+File.write("private_key.pem", secured_key)
+```
+
+Ở đây, chúng ta dùng 1 **RSA** `key` có độ lớn `4096 bit`. Do cả **public key** và **private key** đều lớn và cần được dùng đi dùng lại nhiều lần, nên chúng ta sẽ ghi ra file, ở đây là `public_key.pem` và `private_key.pem`. **PEM** là viết tắt của **Privacy-enhanced Electronic Mail**, có định dạng là 1 file text với nội dung nằm giữa 2 dòng `-----BEGIN CERTIFICATE-----` và `-----END CERTIFICATE-----`.
+
+Do **private key** rất nhạy cảm, và thường thì file `private_key.pem` sẽ được lưu trữ tại máy tính của chúng ta, điều đó có nghĩa là cứ ai truy cập được vào máy tính của ta là sẽ có **private key** này. Vì vậy ta làm thêm 1 bước là mã hóa **private key** vừa tạo bằng thuật toán **AES** 256 bit, và *export* nó ra thành dữ liệu kiểu **String** bằng lệnh `key.export()`.
+
+Các bạn có thể download 2 file này ở [đây][rsa-key-pairs]
+
+### 4.2.2. Đọc dữ liệu public - private key từ file ##
+
+Do đã lưu vào file, mỗi lần cần dùng, ta phải đọc các dữ liệu từ 2 file này để có được cặp **public key** & **private key** đúng.
+
+Để đọc 1 key file không bị mã hóa:
+
+```ruby
+public_key_content = File.read("public_key.pem")
+public_key = OpenSSL::PKey::RSA.new(public_key_content)
+```
+
+Để đọc 1 key file đã bị mã hóa:
+
+```ruby
+private_key_content = File.read("private_key.pem")
+private_key = OpenSSL::PKey::RSA.new(private_key_content, pass_phrase)
+```
+
+**RSA** cung cấp cho chúng ta 2 hàm `public?()` và `private?()` để kiểm tra xem 1 key có đúng là **public key** hay **private key** hay không:
+
+```ruby
+public_key.public?          # true
+private_key.public?         # false
+
+public_key.private?         # false
+private_key.private?        # true
+```
+
+### 4.2.3. Mã hóa - giải mã ##
+
+Để mã hóa 1 thông điệp, ta dùng `public_key`, để giải mã, ta dùng `private_key`:
+
+```ruby
+encrypted_data = public_key.public_encrypt("Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit")
+encrypted_base64 = Base64.encode64(encrypted_data)
+```
+
+```ruby
+encrypted_data = Base64.decode64(encrypted_base64)
+decrypted_data = private_key.private_decrypt(encrypted_data)        # Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit
+```
+
 # 5. Mã hóa bằng hàm băm trong Ruby #
+
+Các thuật toán **Mã hóa bằng hàm băm** phổ biến nhất hiện nay là **MD5** (Message Digest 5) và **SHA** (Secure Hash Algorithm), cũng nằm trong bộ thư viện `stdlib` của **Ruby**. Do không sử dụng cơ chế chìa khóa - ổ khóa như 2 phương pháp mã hóa trên, nên cách dùng của **Mã hóa bằng hàm băm** đơn giản hơn nhiều.
 
 ## 5.1. Thuật toán MD5 ##
 
+Để tính `digest` của 1 `message`, ta chỉ cần gọi:
+
+```ruby
+require 'digest'
+
+Digest::MD5.digest("Mã hóa bằng hàm băm với thuật toán MD5")       # \xFE\x7F\xBC\x94\xFE\x9E\x94O\x144\xDF\xB0\x97\xADD\xBD
+```
+
+Cũng giống như **AES** hay **RSA**, mặc định các thuật toán này trả về các giá trị dạng binary. Tuy nhiên bộ thư viện `Digest` cung cấp luôn cho chúng ta 2 phương pháp *encode* là `hexdigest` và `base64digest`:
+
+```ruby
+Digest::MD5.hexdigest("Mã hóa bằng hàm băm với thuật toán MD5")         # fe7fbc94fe9e944f1434dfb097ad44bd
+
+Digest::MD5.base64digest("Mã hóa bằng hàm băm với thuật toán MD5")      # /n+8lP6elE8UNN+wl61EvQ==
+```
+
+Ngoài ra, ta cũng có thể dùng hàm `update()` hoặc toán tử `<<` để chèn thêm các nội dung mà ta muốn mã hóa:
+
+```ruby
+digest = Digest::MD5.new
+digest.update("Mã hóa bằng hàm băm")
+digest << " với thuật toán MD5"
+digest.hexdigest                # fe7fbc94fe9e944f1434dfb097ad44bd
+digest.base64digest             # /n+8lP6elE8UNN+wl61EvQ==
+```
+
 ## 5.2. Thuật toán SHA ##
+
+Cũng giống như **MD5**, **SHA** là 1 thuật toán rất nổi tiếng và được sử dụng rộng rãi. Tuy nhiên khác với **MD5**, **SHA** cung cấp 3 chế độ mã hóa với các chuẩn `256`, `384` và `512` bit (. Nói chung, **SHA** càng dài thì càng an toàn, nhưng cũng mất nheiefu thời gian để tính toán hơn, đặc biệt với các tập dữ liệu lớn.
+
+Cách sử dụng của **SHA** không khác với **MD5**:
+
+```ruby
+digest = Digest::SHA256.new
+digest.update("Mã hóa bằng hàm băm")
+digest << " với thuật toán MD5"
+digest.hexdigest                # 2e22dfb0aed5c8b078a13b996790b522bad45b4207009bb32daf571776a75808
+
+digest = Digest::SHA384.new
+digest.update("Mã hóa bằng hàm băm")
+digest << " với thuật toán MD5"
+digest.hexdigest                # d526adc561a59241c5d864f65a684a02f6c8f27c53a522177a6e709e5dd3a3f1
+
+digest = Digest::SHA512.new
+digest.update("Mã hóa bằng hàm băm")
+digest << " với thuật toán MD5"
+digest.hexdigest                # 0953e45472e0d2e0a668c2812358d6a29d8277c86a7ff0d120be2db84f0f021d5afd44b26bc6d5f25dfdcf8b605c5c18f66c1cc831168f4a954c861b1e97f751
+```
+
+[rsa-key-pairs]:        /assets/downloads/misc/2016-07-07-rsa-key-pairs.zip
