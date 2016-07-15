@@ -119,7 +119,7 @@ ta sẽ gặp lỗi
 
 ![Lỗi ép kiểu với giá trị nil][casting-nil-value-error]
 
-Các bạn có thể tải về file [Optionals.playground][attachment] để cùng xem các ví dụ về **Optional** trong **Swift**
+Mời các bạn tải về file [Optionals.playground][attachment] để cùng xem các ví dụ về **Optional** trong **Swift**.
 
 [casting-nil-value-error]:  /assets/media/posts/swift/2016-07-01-casting-nil-value-error.png
 {:class="img-responsive"}

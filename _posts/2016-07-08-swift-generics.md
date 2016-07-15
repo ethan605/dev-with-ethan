@@ -141,7 +141,7 @@ objectGreeting(Animal.self)         \\ "Hi, I'm a Animal"
 
 Lúc này, khi gọi hàm `objectGreeting()` với các tham số lần lượt là `Base.self`, `Person.self` & `Animal.self`, ta sẽ nhận được các *lời chào* tương ứng.
 
-Có 1 điểm đặc biệt ở đây, là do việc tạo 1 object `classType.init()` đang sử dụng dạng **dynamic** thay vì `Base()`, `Person()` hay `Animal()` thông thường, **Swift** yêu cầu chúng ta phải định nghĩa hàm `required init()`:
+Có 1 điểm đặc biệt ở đây, là do việc tạo 1 object `classType.init()` đang sử dụng dạng **dynamic** thay vì `Base()`, `Person()` hay `Animal()` thông thường, **Swift** yêu cầu chúng ta phải định nghĩa hàm `required init()` và sử dụng `classType.init()` thay vì `classType()` như bình thường:
 
 ```swift
 class Base: NSObject {
@@ -149,3 +149,7 @@ class Base: NSObject {
   ...
 }
 ```
+
+Các bạn có thể tải về file [Generics.playground][attachment] để cùng xem các ví dụ về **Generics** đã trình bày trong bài.
+
+[attachment]:               /assets/downloads/swift/2016-07-08-Generics.zip
