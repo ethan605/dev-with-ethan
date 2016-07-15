@@ -70,7 +70,7 @@ func genericsMax<T: Comparable>(number1: T, _ number2: T) -> T {
 }
 ```
 
-Trong trường hợp này, chúng ta kiểu tra xem `T` có phải là `Double` hay không, nếu đúng thì in ra 1 dòng **Compare Double numbers [number1] & [number2]**.
+Trong trường hợp này, chúng ta kiểu tra xem `T` có phải là `Double` hay không, nếu đúng thì in ra 1 dòng **Compare Double numbers _number1_ & _number2_**.
 
 Khi gọi `genericsMax(1, 2)`, vì trình biên dịch tự động nhận kiểu là `Int`, nên đoạn `if` không được thực thi, nhưng khi gọi `genericsMax(1.5, 2.8)` thì do kiểu của 2 tham số là `Double`, nên có 1 dòng in ra **Compare Double numbers 1.5 & 2.8**.
 
