@@ -12,17 +12,17 @@ comments: true
 
 Để đảm bảo chúng ta có cùng 1 cách hiểu về **Migration** trong **Ruby on Rails**, mời các bạn xem qua 1 vài tài liệu về **[Active Record][active-record]** từ trang hướng dẫn chính thức của **Ruby on Rails**.
 
-Để hiểu 1 cách đơn giản, **Active Record** là 1 khái niệm được dùng trong các công nghệ làm web back-end hiện đại theo mô hình **[Model - View - Controller][mvc]**, trong đó **Model** là các luồng làm việc với dữ liệu, **View** là các xử lý liên quan đến giao diện, tương tác đối với người dùng cuối (end-user) hoặc front-end (web app, mobile app), còn **Controller** là tất cả những logic cầu nối giữa **Model** và **View**.
+Để hiểu 1 cách đơn giản, **Active Record** là 1 khái niệm được dùng trong các công nghệ làm web back-end hiện đại theo mô hình **Model - View - Controller** (viết tắt là **MVC**), trong đó **Model** là các luồng làm việc với dữ liệu, **View** là các xử lý liên quan đến giao diện, tương tác đối với người dùng cuối (end-user) hoặc front-end (web app, mobile app), còn **Controller** là tất cả những logic cầu nối giữa **Model** và **View**.
 
 Khi mới ra đời, việc sử dụng các **raw query** (các câu lệnh query trực tiếp dữ liệu từ database) ngay trong các Controller là khá phổ biến, nhưng bộc lộ rất nhiều nhược điểm như:
 
 * Không tường minh: các câu lệnh dài dằng dặc, nối vài bảng với nhau gây rối rắm và không rõ ràng về chức năng
 * Khó bảo trì: vì lý do ở trên nên thường việc debug một đoạn code viết bằng **raw query** rất đau đầu và mất nhiều thời gian, đôi khi còn không hiệu quả bằng đoạn code viết ban đầu (?!)
-* Không an toàn: [SQL injection][sql-injection] là 1 thủ thuật (thủ đoạn ?!) được các hacker đời đầu ưa chuộng, vì nó đơn giản, đánh vào các câu query được viết ẩu & các server không được đầu tư kỹ về bảo mật
+* Không an toàn: **SQL injection** là 1 thủ thuật (thủ đoạn ?!) được các hacker đời đầu ưa chuộng, vì nó đơn giản, đánh vào các câu query được viết ẩu & các server không được đầu tư kỹ về bảo mật
 
 Do vậy, cần có 1 tầng logic nằm giữa các nhu cầu xử lý dữ liệu của lập trình viên và các lệnh cấp thấp tương tác trực tiếp với **database engine** (như **MySQL** hoặc **PostgreSQL**). **Active Record** là 1 kỹ thuật nhằm giải quyết vấn đề này.
 
-Trong **Ruby on Rails**, **Active Record** được thiết kế rất gần với cấu trúc và đặc tính của các SQL database, vậy nên đối với các bạn đã thành thạo 1 SQL database từ trước là 1 lợi thế. Ngược lại, những ai đã từng làm việc với **NoSQL** như **MongoDB** trong **Ruby on Rails** (thông qua 1 [ORM][orm] tên là [Mongoid][mongoid]), cũng không khó khăn lắm để làm quen với các khái niệm trong **Active Record** (vì **Mongoid** được làm ra dựa trên Active Record nhưng chỉ dành cho NoSQL).
+Trong **Ruby on Rails**, **Active Record** được thiết kế rất gần với cấu trúc và đặc tính của các SQL database, vậy nên đối với các bạn đã thành thạo 1 SQL database từ trước là 1 lợi thế. Ngược lại, những ai đã từng làm việc với **NoSQL** như **MongoDB** trong **Ruby on Rails** (thông qua 1 **Object-Relational Mapping** - **ORM** tên là **Mongoid**), cũng không khó khăn lắm để làm quen với các khái niệm trong **Active Record** (vì **Mongoid** được làm ra dựa trên Active Record nhưng chỉ dành cho NoSQL).
 
 Tuy nhiên có 1 thứ mà bất kỳ ai cũng phải vượt qua, đó là **Migration**. Về cơ bản, các SQL database đều quy định khá chặt chẽ về cấu trúc các bảng dữ liệu, được gọi là **schema**. Mỗi khi chúng ta định nghĩa 1 bảng dữ liệu, 1 **schema** được sinh ra để lưu lại cấu trúc của bảng đó. Tuy nhiên trong quá trình phát triển dự án, **schema** cần luôn luôn thay đổi 1 cách linh hoạt. Nếu chỉ tiến hành thay đổi tại **Active Record**, các **database engine** sẽ báo lỗi do sự sai khác về định nghĩa. Lúc này có 2 cách để tiếp tục làm việc:
 
@@ -41,7 +41,7 @@ Ví dụ, ta có 1 ứng dụng tên là **SecretMessenger**. Ứng dụng này 
 * `Conversation`: các *cuộc hội thoại* tạo ra giữa 2 người dùng với nhau
 * `Message`: các *tin nhắn* mà 2 người dùng trao đổi trong 1 cuộc hội thoại
 
-Đây là 1 thiết kế khá giống với hầu hết các ứng dụng nhắn tin hiện nay như [Messenger của Facebook][facebook-messenger], [Viber][viber] hay [Telegram][telegram]. Giả sử thiết kế ban đầu của chúng ta có dạng như thế này:
+Đây là 1 thiết kế khá giống với hầu hết các ứng dụng nhắn tin hiện nay như **Messenger** của Facebook, **Viber** hay **Telegram**. Giả sử thiết kế ban đầu của chúng ta có dạng như thế này:
 
 ![SecretMessenger - Database schema - v1.0][db-schema-1.0]
 
@@ -58,7 +58,7 @@ Chúng ta sẽ đi vào chi tiết từng bước các cách **Migration** trong
 
 ## 3.1. Thêm mới 1 Model ##
 
-Ban đầu, khi chưa có gì cả, ta cần thêm mới Model. **Rails** cung cấp cho chúng ta 1 bộ công cụ dòng lệnh ([command line tools][command-line-tools]) tên là `rails generate` với các lệnh con (gọi là `generators`) như sau:
+Ban đầu, khi chưa có gì cả, ta cần thêm mới Model. **Rails** cung cấp cho chúng ta 1 bộ công cụ dòng lệnh (*command line tools*) tên là `rails generate` với các lệnh con (gọi là `generators`) như sau:
 
 ```shell
 $ rails generate
@@ -133,7 +133,7 @@ Tuy nhiên lệnh này chỉ tạo ra Model, chúng ta sẽ cần đến nhiều
 
 * `Controller` để xử lý các request liên quan đến các `Conversation`
 * `Serializer` để tự động hóa việc trả kết quả bằng `JSON`
-* `Routes` để cấu hình các URI (gọi là **[Routing][rails-routing]**) liên quan đến các `Conversation`
+* `Routes` để cấu hình các URI (gọi là **Routing**) liên quan đến các `Conversation`
 * `Test` để viết các kiểm thử
 * ...
 
@@ -244,32 +244,11 @@ Trong bài viết [sau]({% post_url 2016-07-05-rails-migration-2 %}), ta sẽ l�
 [active-record]:    http://guides.rubyonrails.org/active_record_basics.html
 {:rel="nofollow"}
 
-[mvc]:              https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
-{:rel="nofollow"}
-
-[sql-injection]:    https://en.wikipedia.org/wiki/SQL_injection
-{:rel="nofollow"}
-
 [orm]:              https://en.wikipedia.org/wiki/Object-relational_mapping
-{:rel="nofollow"}
-
-[mongoid]:          https://docs.mongodb.com/ecosystem/tutorial/ruby-mongoid-tutorial/#ruby-mongoid-tutorial
-{:rel="nofollow"}
-
-[facebook-messenger]: https://www.messenger.com/
-{:rel="nofollow"}
-
-[viber]:            https://www.viber.com/
-{:rel="nofollow"}
-
-[telegram]:         https://telegram.org/
 {:rel="nofollow"}
 
 [db-schema-1.0]:    /assets/media/posts/ruby-on-rails/2016-07-04-secret-messenger-db-schema-1.0.png
 {:class="img-responsive"}
 
 [command-line-tools]: http://guides.rubyonrails.org/command_line.html
-{:rel="nofollow"}
-
-[rails-routing]:    http://guides.rubyonrails.org/routing.html
 {:rel="nofollow"}
