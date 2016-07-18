@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Swift] Kiểu giá trị Optional - Các trường hợp nâng cao"
+title: "[Swift] Kiểu giá trị Optional: Các trường hợp nâng cao"
 description: "Sử dụng tính năng Optional trong các trường hợp nâng cao: Optional chaining & Ép kiểu (as, as? & as!)"
 date: 2016-07-01 10:00:00 +0700
 categories: [swift]
