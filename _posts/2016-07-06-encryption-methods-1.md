@@ -12,13 +12,15 @@ comments: true
 
 # 1. Mã hóa trong lịch sử Khoa học Máy tính #
 
-**Mã hóa** là 1 khái niệm xuất hiện từ rất lâu trong lịch sử phát triển của loài người, đặc biệt là trong các lĩnh vực quân sự, chính trị, truyền tin - liên lạc. Nói chung con người là 1 loài kỳ lạ: mất hàng chục ngàn năm để phát triển các công cụ giao tiếp ưu việt (ngôn ngữ nói, ngôn ngữ viết) hơn các loài khác, để rồi lại mất hàng ngàn năm để tìm ra những cách thức *mã hóa* chúng, làm cho mọi thứ trở nên *bí hiểm*, *khó hiểu*, thậm chí là *không thể phá giải* nổi (thật sự là trong [Thế chiến II][ww2], có 1 khoảng thời gian dài mà cỗ máy mã hóa [Enigma][enigma] của Đức Quốc Xã đã làm toàn bộ Châu Âu điên đầu, cho đến khi [Alan Turing][alan-turing] ra tay! - Nếu bạn là tín đồ phim ảnh thì đừng bỏ qua [The Immitation Game][immitation-game], bộ phim kể về chính sự kiện này).
+**Mã hóa** là 1 khái niệm xuất hiện từ rất lâu trong lịch sử phát triển của loài người, đặc biệt là trong các lĩnh vực quân sự, chính trị, truyền tin - liên lạc. Nói chung con người là 1 loài kỳ lạ: mất hàng chục ngàn năm để phát triển các công cụ giao tiếp ưu việt (ngôn ngữ nói, ngôn ngữ viết) hơn các loài khác, để rồi lại mất hàng ngàn năm để tìm ra những cách thức *mã hóa* chúng, làm cho mọi thứ trở nên *bí hiểm*, *khó hiểu*, thậm chí là *không thể phá giải* nổi.
 
-Nói vui là vậy, còn quả thật, các tiến bộ của ngành [**Mật mã học** (**Cryptography**)][cryptography] đã giúp ích rất nhiều cho sự phát triển của **Khoa học Máy tính**, kèm theo đó là những kỹ thuật mã hóa cao cấp, hiện diện trong hầu hết các lĩnh vực điện tử trong đời sống của chúng ta hiện nay, ví dụ như:
+(Thật sự là trong **Thế chiến II**, có 1 khoảng thời gian dài mà cỗ máy mã hóa **Enigma** của Đức Quốc Xã đã làm toàn bộ Châu Âu điên đầu, cho đến khi **Alan Turing** ra tay! - Nếu bạn là tín đồ phim ảnh thì đừng bỏ qua **The Immitation Game**, bộ phim kể về chính sự kiện này)
 
-* **Giao thức thần thánh [HTTPS][https]** cho phép chúng ta thực hiện các giao dịch điện tử (chuyển tiền, thanh toán online,...) một cách an toàn, giảm thiểu lo ngại đối với những thành phần phá hoại (hackers, attackers)
-* **Xác thực điện tử** (bao gồm [Chữ ký điện tử][digital-signature], xác thực file, [xác thực thông điệp][message-auth]): không chỉ các giao dịch liên quan đến tiền bạc, các hợp đồng hay thông điệp truyền tin qua mạng bây giờ cũng rất cần đến bảo mật. Tưởng tượng rằng chúng ta nhận được 1 tin nhắn từ 1 người *(mà chúng ta nghĩ là)* bạn hỏi mượn tiền, làm sao ta biết được người đó đúng là bạn ta để quyết định có cho mượn tiền không? *(nghe quen nhỉ?)*
-* **Quân sự - Chính trị** *(tất nhiên rồi!)*: nhưng khác với trong quá khứ, Quân sự & Chính trị giờ đây đã được hiện đại hóa nhiều hơn, đồng nghĩa với việc nó cũng trở nên mỏng manh hơn, dễ bị tấn công hơn (ai cũng có máy tính, và hacker thì càng ngày càng trẻ). Và cuộc chiến giữa *mã hóa*, *bảo mật* với *tấn công*, *bẻ khóa* càng ngày càng tinh vi hơn. Những ai có hứng thú và muốn cống hiến tài năng của mình với nền Bảo mật Quốc phòng nước nhà, có thể nộp đơn vào [Học viện Kỹ thuật Mật mã][actvn] ngay bây giờ!
+Nói vui là vậy, còn quả thật, các tiến bộ của ngành **Mật mã học** (*Cryptography*) đã giúp ích rất nhiều cho sự phát triển của **Khoa học Máy tính**, kèm theo đó là những kỹ thuật mã hóa cao cấp, hiện diện trong hầu hết các lĩnh vực điện tử trong đời sống của chúng ta hiện nay, ví dụ như:
+
+* **Giao thức thần thánh HTTPS** cho phép chúng ta thực hiện các giao dịch điện tử (chuyển tiền, thanh toán online,...) một cách an toàn, giảm thiểu lo ngại đối với những thành phần phá hoại (hackers, attackers)
+* **Xác thực điện tử** (bao gồm *Chữ ký điện tử, *Xác thực tập tin*, *Xác thực thông điệp*): không chỉ các giao dịch liên quan đến tiền bạc, các hợp đồng hay thông điệp truyền tin qua mạng bây giờ cũng rất cần đến bảo mật. Tưởng tượng rằng chúng ta nhận được 1 tin nhắn từ 1 người *(mà chúng ta nghĩ là)* bạn hỏi mượn tiền, làm sao ta biết được người đó đúng là bạn ta để quyết định có cho mượn tiền không? *(nghe quen nhỉ?)*
+* **Quân sự - Chính trị** *(tất nhiên rồi!)*: nhưng khác với trong quá khứ, Quân sự & Chính trị giờ đây đã được hiện đại hóa nhiều hơn, đồng nghĩa với việc nó cũng trở nên mỏng manh hơn, dễ bị tấn công hơn (ai cũng có máy tính, và hacker thì càng ngày càng trẻ). Và cuộc chiến giữa *mã hóa*, *bảo mật* với *tấn công*, *bẻ khóa* càng ngày càng tinh vi hơn. Những ai có hứng thú và muốn cống hiến tài năng của mình với nền Bảo mật Quốc phòng nước nhà, có thể nộp đơn vào **Học viện Kỹ thuật Mật mã** ngay bây giờ!
 
 # 2. Các phương pháp Mã hóa cơ bản #
 
@@ -128,38 +130,11 @@ So với 2 phương pháp ở trên, **Mã hóa bằng hàm băm** đơn giản 
 
 Trong bài [sau]({% post_url 2016-07-07-encryption-methods-2 %}), chúng ta sẽ cùng tìm hiểu 1 số thuật toán mã hóa phổ biến và cách dùng chúng trong ngôn ngữ **Ruby**.
 
-[ww2]:              https://vi.wikipedia.org/wiki/Chi%E1%BA%BFn_tranh_th%E1%BA%BF_gi%E1%BB%9Bi_th%E1%BB%A9_hai
-{:rel="nofollow"}
-
-[enigma]:           https://vi.wikipedia.org/wiki/M%C3%A1y_Enigma
-{:rel="nofollow"}
-
-[alan-turing]:      https://vi.wikipedia.org/wiki/Alan_Turing
-{:rel="nofollow"}
-
-[immitation-game]:  http://www.imdb.com/title/tt2084970/
-{:rel="nofollow"}
-
-[cryptography]:     https://vi.wikipedia.org/wiki/M%E1%BA%ADt_m%C3%A3_h%E1%BB%8Dc
-{:rel="nofollow"}
-
-[https]:            https://en.wikipedia.org/wiki/HTTPS
-{:rel="nofollow"}
-
-[message-auth]:     https://en.wikipedia.org/wiki/Message_authentication_code
-{:rel="nofollow"}
-
-[digital-signature]:  https://en.wikipedia.org/wiki/Digital_signature
-{:rel="nofollow"}
-
-[actvn]:            http://actvn.edu.vn/
-{:rel="nofollow"}
-
-[symmetric-crypt-demo]:   /assets/media/posts/misc/2016-07-06-symmetric-crypt-demo.jpg
+[symmetric-crypt-demo]:     /assets/media/posts/misc/2016-07-06-symmetric-crypt-demo.jpg
 {:class="img-responsive"}
 
-[asymmetric-crypt-demo]:  /assets/media/posts/misc/2016-07-06-asymmetric-crypt-demo.jpg
-{:class="img-responsive", :title="Test title"}
+[asymmetric-crypt-demo]:    /assets/media/posts/misc/2016-07-06-asymmetric-crypt-demo.jpg
+{:class="img-responsive"}
 
-[gigatux-nl]:       http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html
+[gigatux-nl]:               http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html
 {:rel="nofollow"}
