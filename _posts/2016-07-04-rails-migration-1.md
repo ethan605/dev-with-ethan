@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Ruby on Rails] Migration trong Rails - Tạo mới Models với Active Record"
+title: "[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record"
 description: Rào cản lớn nhất khi đến với stack công nghệ Ruby - Rails - PostgreSQL (hay bất kỳ SQL Database nào) là Migration. Hiểu và dùng thành thạo Migration sẽ khiến cho mọi thứ dễ dàng hơn rất nhiều.
 date: 2016-07-04 10:15:00 +0700
 categories: ['ruby-on-rails']
