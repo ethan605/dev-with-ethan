@@ -5,7 +5,6 @@ group :jekyll_plugins do
   gem 'github-pages', '~> 85'
   gem 'jekyll-github-metadata', '~> 2.0', '>= 2.0.2'
   gem 'jekyll-paginate', '~> 1.1'
-  gem 'jekyll-redirect-from'
 
   # SEO
   gem 'jekyll-seo-tag', '~> 2.0'
