@@ -6,6 +6,8 @@ date: 2016-06-29 9:08:00 +0700
 categories: [swift]
 tags: [swift, struct, complex, 'số phức', 'toán tử']
 comments: true
+redirect_from:
+  - /tutorials/2016/06/29/swift-complex-number
 ---
 
 # 1. Phát biểu bài toán #
