@@ -32,16 +32,16 @@ tagline: "Chia sẻ các kinh nghiệm lập trình iOS & Web hiệu quả"
   {% if paginator.previous_page %}
     <li class="previous">
       {% if paginator.previous_page == 1 %}
-        <a href="{{ site.BASE_PATH }}/">&larr; Cũ hơn</a>
+        <a href="{{ site.BASE_PATH }}/">&larr; Mới hơn</a>
       {% else %}
         <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.previous_page }}">
-          &larr; Cũ hơn
+          &larr; Mới hơn
         </a>
       {% endif %}
     </li>
   {% else %}
     <li class="previous disabled">
-      <a>&larr; Cũ hơn</a>
+      <a>&larr; Mới hơn</a>
     </li>
   {% endif %}
   
@@ -52,12 +52,12 @@ tagline: "Chia sẻ các kinh nghiệm lập trình iOS & Web hiệu quả"
   {% if paginator.next_page %}
     <li class="next">
       <a href="{{ site.BASE_PATH }}/{{ site.paginate_path | replace: ':num', paginator.next_page }}">
-        Mới hơn &rarr;
+        Cũ hơn &rarr;
       </a>
     </li>
   {% else %}
     <li class="next disabled">
-      <a>Mới hơn &rarr;</a>        
+      <a>Cũ hơn &rarr;</a>        
     </li>
   {% endif %}
 </ul>
