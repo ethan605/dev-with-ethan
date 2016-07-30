@@ -1,11 +1,13 @@
 ---
 layout: post
-title: "Bộ thư viện RubifiedSwift với CocoaPods"
+title: "[Swift] Bộ thư viện RubifiedSwift với CocoaPods"
 description: "Viết code Swift theo phong cách Ruby, dành cho Rubists"
 date: 2016-07-22 11:30:00 +0700
-categories: [misc]
+categories: [swift]
 tags: [swift, ruby, cocoapods, 'thư viện']
 comments: true
+redirect_from:
+  - /misc/rubified-swift-created
 ---
 
 ***[RubifiedSwift][]*** *là bộ thư viện viết ra nhằm cung cấp các APIs cho lập trình viên Swift để làm việc hiệu quả hơn trên các kiểu dữ liệu phổ biến như Int, Double, String, Array, Dictionary,..., nhưng đặc biệt ở chỗ là nó sẽ sử dụng các ký pháp và phong cách viết hàm của Ruby, như một món quà dành cho những người yêu thích cả 2 ngôn ngữ lập trình này.*
