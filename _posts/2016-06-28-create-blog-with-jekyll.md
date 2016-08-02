@@ -138,6 +138,16 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 * Để dùng được gem `jekyll-sitemap` thì cần phải có gem `github-pages`. [Xem chi tiết][github-sitemap]
 * [Link hay][jekyll-seo] để config SEO cho Jekyll
 
+## [2016-08-01] ##
+
+* Tại Terminal, nếu chỉ gọi `jekyll serve` thì có thể gặp lỗi `GitHub Metadata: No GitHub API authentication could be found. Some fields may be missing or have incorrect data.`. Lỗi này xảy ra do server tại local của ta không có biến môi trường `$JEKYLL_GITHUB_TOKEN`. Để không gặp lỗi này nữa, ta chạy lệnh sau:
+
+```shell
+JEKYLL_GITHUB_TOKEN=jkghtoken jekyll serve
+```
+
+Trong đó `jkghtoken` là 1 chuỗi bất kỳ, thế nào cũng được.
+
 [github-homepage]:  https://github.com/
 {:rel="nofollow"}
 
