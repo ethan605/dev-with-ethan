@@ -10,9 +10,9 @@ comments: true
 
 *... tiếp theo bài viết [[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record]({% post_url 2016-07-04-rails-migration-1 %})*
 
-# 3. Các thao tác với Migration trong Ruby on Rails #
+## 3. Các thao tác với Migration trong Ruby on Rails ##
 
-## 3.2. Thêm mới 1 trường trong Model  ##
+### 3.2. Thêm mới 1 trường trong Model  ###
 
 Một tính năng quan trọng của 1 ứng dụng nhắn tin đó là theo dõi và thông báo trạng thái gửi đi của 1 tin nhắn. Các trường thông tin cơ bản của Model `Message` có thể bao gồm:
 
@@ -61,9 +61,9 @@ end
 
 Ở đây, chúng ta dùng block `change_table` để tiến hành sửa nhiều trường trong cùng bảng `messages`, thay vì lệnh nào cũng phải khai báo bảng này. Ngoài ra, chúng ta còn có thể thêm các tùy chọn như `null: false` hay `default: true` để khai báo các trường này không được phép nhận giá trị `null`, và giá trị mặc định sẽ là `true` hoặc `false` tùy theo từng trường.
 
-## 3.3. Sửa 1 trường trong Model ##
+### 3.3. Sửa 1 trường trong Model ###
 
-### 3.3.1. Đổi tên ###
+#### 3.3.1. Đổi tên ####
 
 Việc đổi tên trường giống như thêm mới trường, ta có thể thực hiện bằng 2 cách:
 
@@ -89,7 +89,7 @@ class ChangeMessageIsReadField < ActiveRecord::Migration[5.0]
 end
 ```
 
-### 3.3.2. Đổi kiểu dữ liệu ###
+#### 3.3.2. Đổi kiểu dữ liệu ####
 
 Việc đổi kiểu dữ liệu của 1 trường được tiến hành qua hàm `change_column` hoặc `t.change` trong block `change_table`. Bản chất việc này là thay đổi toàn bộ định nghĩa của trường dữ liệu, vậy nên bạn cần định nghĩa rõ ràng toàn bộ các thông tin mà bạn muốn, kể cả khi bạn không có nhu cầu thay đổi. Ví dụ: chúng ta đã có trường `is_seen` có kiểu `boolean`, không nhận giá trị `null` và giá trị mặc định là `false`. Khi đó nếu ta muốn đổi nó thành kiểu `int`, ta phải khai báo lại toàn bộ các thuộc tính này:
 
@@ -115,7 +115,7 @@ class ChangeMessageIsSeenField < ActiveRecord::Migration[5.0]
 end
 ```
 
-### 3.3.3. Đặt giá trị mặc định ###
+#### 3.3.3. Đặt giá trị mặc định ####
 
 **Active Record** quy định, tất cả các trường đều có giá trị mặc định là `null` nếu không được đặt 1 giá trị mặc định (default value), kể cả khi trường đó có kiểu `integer` hay `boolean`. Việc đặt giá trị mặc định khi khai báo tạo mới 1 trường ta đã làm ở mục **3.2**, tuy nhiên đối với các trường đã có sẵn, nếu muốn sử dụng block `change_table`, ta phải dùng `t.change` vì block này không hỗ trợ thay đổi giá trị mặc định của 1 trường. Cách đơn giản hơn là ta dùng lệnh `change_column_default`:
 
@@ -127,7 +127,7 @@ class ChangeMessageIsSentDefault < ActiveRecord::Migration[5.0]
 end
 ```
 
-### 3.3.4. Đặt giá trị khác `null` ###
+#### 3.3.4. Đặt giá trị khác `null` ####
 
 Để đảm bảo 1 trường không bao giờ được nhận giá trị `null`, ta phải khai báo trường đó là `NOT NULL`. Cũng giống như việc đặt giá trị mặc định, cách đơn giản là ta dùng lệnh `chagne_column_null`:
 
@@ -141,7 +141,7 @@ end
 
 ***Lưu ý:*** lệnh này nhận 1 tham số `true` hoặc `false` thể hiện rằng trường này có thể nhận giá trị `null` hay không, tương đương với query trong PostgreSQL là `SET NOT NULL` nếu `false` hoặc không gì cả nếu `true`.
 
-## 3.4. Xóa 1 trường trong Model ##
+### 3.4. Xóa 1 trường trong Model ###
 
 Việc xóa 1 trường trong Model được thực hiện qua lệnh `remove_column`. Tuy nhiên, do cơ chế **Rollback** của **Migration**, chúng ta cần khai báo kiểu của trường đó để khi rollback, **Migration** biết phải tạo lại trường cũ có kiểu dữ liệu là gì. Tốt nhất là khai báo đầy đủ toàn bộ những thuộc tính mà ta muốn, ví dụ:
 
@@ -173,7 +173,7 @@ Cũng giống như tạo mới trường dữ liệu, **command line tools** cũ
 $ rails generate migration RemoveIsSeenFromMessage is_seen:integer
 ```
 
-## 3.5. Đánh index cho các trường trong Model ##
+### 3.5. Đánh index cho các trường trong Model ###
 
 **Indexing** là 1 đặc tính rất hay của các database, nó cho phép chúng ta **lưu trữ** 1 phần dữ liệu trong các bảng dưới dạng đặc biệt gọi là các **indexes**, để từ đó giúp tăng tốc độ truy suất, đặc biệt là đối với các trường cần được query nhiều và liên tục.
 

@@ -38,11 +38,6 @@
 	<meta name="apple-mobile-web-app-title" content="{% if page.title %}{{ page.title }}{% elsif site.name %}{{ site.name }}{% endif %}">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-	<!-- Search engine verifications -->
-	{% if site.bing != "" %}<meta name="msvalidate.01" content="{{ site.bing }}">{% endif %}
-	{% if site.yandex != "" %}<meta name="yandex-verification" content="{{ site.yandex }}">{% endif %}
-	{% if site.google != "" %}<meta name="google-site-verification" content="{{ site.google }}">{% endif %}
-
 	<!-- Favicon & RSS -->
   <link rel="alternate" hreflang="vi-vn" href="http://dev.ethanify.me" />
   <link rel="alternate"
@@ -101,8 +96,10 @@
 
 			</div><!-- div -->
 
+			<!-- About -->
+			<!-- <a href="http://ethanify.me/"><i class="icon-user"></i></a> -->
 			<!-- Mail -->
-			<a href="mailto:{{ site.author.email }}"><i class="icon-envelope-o"></i></a>
+      <a href="mailto:{{ site.author.email }}"><i class="icon-envelope-o"></i></a>
 
 		</section><!-- section -->
 

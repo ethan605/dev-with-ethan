@@ -34,29 +34,29 @@ repository: ethan605/dev-with-ethan
 
 paginate: 10
 paginateLabel: page
-paginate_path: "page/:num"
+paginate_path: 'page/:num'
 permalink: /:categories/:title
 baseurl: 
 
 # Includes
-addthisId: ""
-disqusUsername: 'dev-with-ethan'
-googleAnalyticsId: ''
+addthisId: ''
+disqusShortname: 'dev-with-ethan'
+googleAnalyticsId: 'UA-49527418-4'
 
 # Search engine verifications
-bing: ""
-yandex: ""
-google: ""
+bing: ''
+yandex: ''
+google: ''
 
 #Sitemap
 sitemap:
-  file: "/sitemap.xml"
+  file: '/sitemap.xml'
   exclude:
-    - "/404.html"
+    - '/404.html'
   include_posts:
-    - "/index.html"
-  change_frequency_name: "daily"
-  priority_name: "1.00"
+    - '/index.html'
+  change_frequency_name: 'daily'
+  priority_name: '1.00'
 
 gems:
   - github-pages

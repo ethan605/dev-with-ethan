@@ -24,6 +24,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-user:before {
+    content: "\e923"
+}
 .icon-envelope-o:before {
     content: "\f003";
 }

@@ -12,7 +12,7 @@ Trong các ứng dụng ngày nay, việc xử lý những tập dữ liệu l�
 
 Do **Swift** kế thừa rất nhiều triết lý của **Ruby**, và bản thân tôi cũng là người yêu cái đẹp của ngôn ngữ này, nên trong bài viết sẽ trình bày các tính năng **Map-Reduce** trong cả 2 ngôn ngữ để bạn đọc cùng theo dõi.
 
-# 1. Map-Reduce là gì? #
+## 1. Map-Reduce là gì? ##
 
 Tuy đây là 1 kỹ thuật ra đời khá lâu, nhưng có 1 số bạn vẫn chưa nắm rõ chúng thực sự là gì, tôi sẽ giới thiệu qua 1 vài khái niệm cơ bản. Trong phần sau, ta sẽ xét 1 vài ví dụ cụ thể để hiểu hơn về những tính năng này.
 
@@ -21,7 +21,7 @@ Tuy đây là 1 kỹ thuật ra đời khá lâu, nhưng có 1 số bạn vẫn 
 * **Filter** (lọc): là hành động so sánh từng giá trị của tập dữ liệu với 1 tiêu chí cụ thể, từ đó lấy ra được 1 danh sách nhỏ hơn, tập trung hơn vào thông tin mà ta muốn. Chức năng này tương đương với **Search** trong 1 vài ngôn ngữ khác.
 * **Flat map** (ánh xạ phẳng): đôi khi tập dữ liệu của chúng ta không *bằng phẳng* mà nó bao gồm nhiều tập dữ liệu con, các tập con này lại không có số lượng đều nhau. **Flat map** giúp chúng ta đưa tất cả các dữ liệu trong các tập con về 1 tập duy nhất, từ đó sử dụng được các chức năng **Map**, **Reduce** hay **Filter** một cách dễ dàng.
 
-# 2. Cách sử dụng #
+## 2. Cách sử dụng ##
 
 Xét ví dụ sau: giả sử ta có 1 tập dữ liệu bao gồm các thông tin như thế này:
 
@@ -43,7 +43,7 @@ let records : [[AnyObject]] = [
 ```
 
 ```ruby
-# Ruby
+## Ruby
 records = [
   [1, "Robert", "Baratheon", "Decreased King", 0],
   [2, "Jofrey", "Baratheon", "King of Westeros", 50000],
@@ -60,7 +60,7 @@ records = [
 
 Ta gọi là các **records**, mỗi **record** bao gồm 1 mảng các giá trị theo thứ tự đại diện cho **Id**, **First name** (tên), **Last name** (họ), **Title** (chức danh) và **Salary** (lương tháng) của 1 người cụ thể.
 
-## 2.1. Map ##
+### 2.1. Map ###
 
 Đầu tiên, ta cần tính toán xem trong 1 tháng ta phải trả cho tất cả những người này bao nhiêu tiền. Ta dùng hàm `map()` để làm việc này như sau:
 
@@ -71,14 +71,14 @@ print(allSalaries)      // [0, 50000, 10000, 9000, 8000, 7000, 8500, 6000, 7500,
 ```
 
 ```ruby
-# Ruby
+## Ruby
 all_salaries = records.map {|r| r.last}
-puts(all_salaries)      # [0, 50000, 10000, 9000, 8000, 7000, 8500, 6000, 7500, 7500]
+puts(all_salaries)      ### [0, 50000, 10000, 9000, 8000, 7000, 8500, 6000, 7500, 7500]
 ```
 
 Lúc này ta có `allSalaries` là 1 mảng `Int` chứa giá trị tất cả tiền lương trong 1 tháng của từng người. Tất nhiên ta mới chỉ lấy được dữ liệu chứ chưa biết tổng, vì hàm `map()` không có chức năng tính tổng! Ta sẽ biết tổng số lương cần phải trả trong tháng là bao nhiêu ở phần về hàm `reduce()`
 
-## 2.2. Filter ##
+### 2.2. Filter ###
 
 Tiếp đến, ta muốn *lọc* ra tất cả những người nhận *nhiều* lương, giả sử là `8000` trở lên, ta có:
 
@@ -88,7 +88,7 @@ let goodPays = records.filter { ($0.last as! Int) >= 8000 }
 ```
 
 ```ruby
-# Ruby
+## Ruby
 good_pays = records.select {|r| r.last >= 8000}
 ```
 
@@ -101,12 +101,12 @@ let names = goodPays.map { "\($0[1]) \($0[2])" }  // ["Jofrey Baratheon", "Tyrio
 ```
 
 ```ruby
-# Ruby
+## Ruby
 good_pays = records.select {|r| r.last >= 8000}
-names = good_pays.map {|r| "#{r[1]} #{r[2]}"}     # ["Jofrey Baratheon", "Tyrion Lannister", "Eddard Stark", "Daenerys Targaryen", "Cersei Lannister"]
+names = good_pays.map {|r| "#{r[1]} ##{r[2]}"}     ### ["Jofrey Baratheon", "Tyrion Lannister", "Eddard Stark", "Daenerys Targaryen", "Cersei Lannister"]
 ```
 
-## 2.3. Reduce ##
+### 2.3. Reduce ###
 
 Như đã nói ở trên, sau khi `map()`, ta nhận được 1 mảng các giá trị. Nhưng đối với trường hợp đầu tiên là 1 danh sách số tiền mà ta phải trả cho mỗi người hàng tháng, thì ta lại quan tâm thêm đến tổng số tiền. Tất nhiên có 1 cách là sau khi đã có mảng các giá trị đó, ta có thể dùng nhiều cách để tính tổng. **Ruby** có 1 hàm rất hay là `sum()` để tính tổng của 1 mảng các số, nhưng **Swift** thì không. Vậy nên `reduce()` trong **Swift** có giá trị rất lớn.
 
@@ -123,7 +123,7 @@ print(totalPays)        // 113500
 // Swift
 all_salaries = records.map {|r| r.last}
 total_pays = all_salaries.reduce(:+)
-puts(total_pays)        # 113500
+puts(total_pays)        ### 113500
 ```
 
 Trong **Swift**, khi muốn `reduce()` một mảng, ta cung cấp 1 giá trị khởi tạo và một **closure** ở tham số `combine`, lặp tuần tự:
@@ -173,7 +173,7 @@ print(goodPayNames)       // Jofrey BaratheonTyrion LannisterEddard StarkDaenery
 ```
 
 ```ruby
-# Ruby
+## Ruby
 good_pay_names = names.reduce(:+)
 puts(good_pay_names)       // Jofrey BaratheonTyrion LannisterEddard StarkDaenerys TargaryenCersei Lannister
 ```
@@ -193,11 +193,11 @@ print(goodPayNames)     // Jofrey Baratheon, Tyrion Lannister, Eddard Stark, Dae
 ```
 
 ```ruby
-# Ruby
+## Ruby
 good_pay_names = names.reduce {|temp, name|
-  temp.empty? ? name : temp + ", #{name}"
+  temp.empty? ? name : temp + ", ##{name}"
 }
-puts(good_pay_names)    # Jofrey Baratheon, Tyrion Lannister, Eddard Stark, Daenerys Targaryen, Cersei Lannister
+puts(good_pay_names)    ### Jofrey Baratheon, Tyrion Lannister, Eddard Stark, Daenerys Targaryen, Cersei Lannister
 ```
 
 Giờ đến yêu cầu phức tạp hơn: ta thấy, trong số 10 người xuất hiện những cặp có cùng họ, ví dụ `Baratheon`, `Lannister`,... Giờ ta sẽ tìm cách để nhóm những ai có cùng họ lại:
@@ -217,7 +217,7 @@ print(lastNameGroups)   // ["Stark": ["Eddard"], "Lannister": ["Tyrion", "Cersei
 ```
 
 ```ruby
-# Ruby
+## Ruby
 full_names = records.map {|r| [r[1], r[2]]}
 last_name_groups = full_names.reduce({}) {|temp, full_name|
   first_name, last_name = full_name
@@ -225,7 +225,7 @@ last_name_groups = full_names.reduce({}) {|temp, full_name|
   temp[last_name] << first_name
   temp
 }
-puts(last_name_groups)  # {"Baratheon"=>["Robert", "Jofrey"], "Lannister"=>["Tyrion", "Cersei"], "Stark"=>["Eddard"], "Targaryen"=>["Daenerys"], "Snow"=>["Jon"], "Drogo"=>["Khal"], "Baelish"=>["Petyr"], "of Lys"=>["Varys"]}
+puts(last_name_groups)  ### {"Baratheon"=>["Robert", "Jofrey"], "Lannister"=>["Tyrion", "Cersei"], "Stark"=>["Eddard"], "Targaryen"=>["Daenerys"], "Snow"=>["Jon"], "Drogo"=>["Khal"], "Baelish"=>["Petyr"], "of Lys"=>["Varys"]}
 ```
 
 Ở đây có 1 lưu ý: đó là biến `temp` trong **closure** được khai báo sau từ khóa `var`, tức là biến `temp` này có thể thay đổi được trong quá trình tính toán. Bình thường các tham số của hàm & closure trong **Swift** nếu là **value type** (`Int`, `String`, `Array`, `Dictionary`,...) sẽ không thể thay đổi giá trị trong suốt quá trình làm việc. Khai báo `var` cho phép chúng ta thay đổi.
@@ -252,7 +252,7 @@ let lastNameGroups = fullNames.reduce([String: [String]]()) { (temp: [String: [S
 
 Lúc này ta tạo ra 1 biến **local** cũng tên là `temp`, khác với tham số `temp`, nhưng biến `temp` này có thể thay đổi được giá trị và tiến hành các tính toán như bình thường.
 
-## 2.4. Flat-map ##
+### 2.4. Flat-map ###
 
 Hàm cuối cùng trong series này là `flatMap()`, cách dùng tương đối đơn giản:
 
@@ -263,9 +263,9 @@ print(flatRecords)  // [1, Robert, Baratheon, Decreased King, 0, 2, Jofrey, Bara
 ```
 
 ```ruby
-# Ruby
+## Ruby
 flat_records = records.flatten
-puts(flat_records)  # [1, "Robert", "Baratheon", "Decreased King", 0, 2, "Jofrey", "Baratheon", "King of Westeros", 50000, 3, "Tyrion", "Lannister", "Hand of the King", 10000, 4, "Eddard", "Stark", "Lord of Winterfell", 9000, 5, "Daenerys", "Targaryen", "Mother of Dragons", 8000, 6, "Jon", "Snow", "Bastard of Lord Stark", 7000, 7, "Cersei", "Lannister", "Queen of Westeros", 8500, 8, "Khal", "Drogo", "Khal of Dothraki", 6000, 9, "Petyr", "Baelish", "Littlefinger", 7500, 10, "Varys", "of Lys", "The Spider", 7500]
+puts(flat_records)  ### [1, "Robert", "Baratheon", "Decreased King", 0, 2, "Jofrey", "Baratheon", "King of Westeros", 50000, 3, "Tyrion", "Lannister", "Hand of the King", 10000, 4, "Eddard", "Stark", "Lord of Winterfell", 9000, 5, "Daenerys", "Targaryen", "Mother of Dragons", 8000, 6, "Jon", "Snow", "Bastard of Lord Stark", 7000, 7, "Cersei", "Lannister", "Queen of Westeros", 8500, 8, "Khal", "Drogo", "Khal of Dothraki", 6000, 9, "Petyr", "Baelish", "Littlefinger", 7500, 10, "Varys", "of Lys", "The Spider", 7500]
 ```
 
 Các bạn có thể tải về file [MapReduce.playground & map_reduce.rb][attachment] để cùng xem các ví dụ về **Map-Reduce** đã trình bày trong bài.

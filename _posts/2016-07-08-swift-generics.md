@@ -8,7 +8,7 @@ tags: [swift, generics, template, 'linh hoạt', 'kiểu dữ liệu', 'data typ
 comments: true
 ---
 
-# 1. Khái niệm Generics trong lập trình #
+## 1. Khái niệm Generics trong lập trình ##
 
 **Generics** là 1 tính năng xuất hiện khá sớm, từ các ngôn ngữ *cổ điển* như **C/C++** hay **Java**. Tính năng này xuất phát từ 1 thực tế: trong những ngôn ngữ **strong typing** (như **C/C++**, **Java** hay **Swift**), các nhiều kiểu dữ liệu khác nhau không thể được dùng lẫn lộn, và khi có 1 logic nào đó cần xử lý trên nhiều kiểu dữ liệu, ta lại phải định nghĩa hết các hàm tương ứng với từng kiểu dữ liệu đó.
 
@@ -29,7 +29,7 @@ max(2.8, 1.5)           // 2.8
 
 Mặc dù phải định nghĩa nhiều hàm như vậy, nhưng đến lúc gọi hàm, ta chỉ gọi duy nhất 1 lần `max()` cho từng kiểu dữ liệu. Với **Generics**, chúng ta có thể rút ngắn sự phiền toán này lại.
 
-# 2. Generics trong Swift #
+## 2. Generics trong Swift ##
 
 Quay trở lại với hàm `max()` ở trên, **Swift** cho phép chúng ta định nghĩa 1 hàm **Generics** như sau:
 
@@ -56,7 +56,7 @@ tức là ta muốn khai báo hàm `genericsMax()` sẽ làm việc trên 1 ki�
 
 Cái hay của **Generics** trong **Swift** là chúng ta không cần phải khai báo kiểu dữ liệu khi dùng, ví dụ như `genericsMax<Int>(1, 2)` hay `genericsMax<Double>(1.5, 2.8)` mà trình biên dịch sẽ tự động kiểm tra kiểu và xử lý cho phù hợp.
 
-# 3. Ép kiểu khi dùng Generics #
+## 3. Ép kiểu khi dùng Generics ##
 
 Tuy nhiên trong thực tế, có những lúc chúng ta cần phải đưa ra những cách xử lý khác nhau đối với các kiểu dữ liệu khác nhau, ví dụ:
 
@@ -85,7 +85,7 @@ genericsMax(1, 2) as Double
 
 Do ta khai báo kiểu trả về của `genericsMax()` cũng là `T`, nên nếu ta thông báo với trình biên dịch là ta muốn trả về kiểu `Double` thì trong thân hàm, `T` sẽ nhận kiểu `Double`
 
-# 4. Dùng kiểu dữ liệu như biến số #
+## 4. Dùng kiểu dữ liệu như biến số ##
 Ngoài ra, trong quá trình làm việc, người ta nhận thấy rằng đôi khi cần phải sử dụng các kiểu dữ liệu như **biến số** (*variable*). Xét ví dụ sau:
 
 ```swift

@@ -10,13 +10,13 @@ redirect_from:
   - /tutorials/2016/06/29/swift-complex-number
 ---
 
-# 1. Phát biểu bài toán #
+## 1. Phát biểu bài toán ##
 
 Trong toán học, chúng ta có 1 kiểu số gọi là số **Phức** (*Complex number*), tức là 1 số bao gồm 2 phần: phần **Thực** và phần **Ảo**, trong đó phần **Thực** là phần biểu diễn 1 số trong tập số thực, còn phần **Ảo** cũng là một số thực nhưng đi kèm với ký tự `i`, trong đó `i^2 = -1`.
 
 Chúng ta cần lưu trữ và biểu diễn 1 số **Phức** bao gồm 2 số thực đại diện cho phần **Thực** và phần **Ảo**, kèm theo các phép tính toán đơn giản là **cộng**, **trừ**, **nhân**, **chia**
 
-# 2. Class và Struct trong Swift #
+## 2. Class và Struct trong Swift ##
 
 **Swift** là 1 ngôn ngữ đa hình (multi paradigm), vậy nên nó hỗ trợ cả **Object-Oriented Programming** lẫn **Functional Programming**, **Class** và **Struct** là 2 cách thể hiện của OOP trong Swift.
 
@@ -35,7 +35,7 @@ Cơ chế số **4.** tạo ra 1 sự khác biệt rất lớn trong cách dùng
 
 Như vậy, trong bài toán **Biểu diễn số Phức**, chúng ta sẽ dùng **Struct**
 
-# 3. Định nghĩa Struct số Phức #
+## 3. Định nghĩa Struct số Phức ##
 
 Ta có thể định nghĩa 1 số **Phức** bằng **Struct** như thế này:
 
@@ -89,7 +89,7 @@ c1.modulus()        // 3.16227766016838
 c1.argument()       // (1, 3)
 ```
 
-# 4. Định nghĩa các phép toán #
+## 4. Định nghĩa các phép toán ##
 
 Số Phức có đầy đủ các phép toán giống như 1 số Thực: đối (`reflection`) ngịch đảo (`reciprocal`), cộng (`add`), trừ (`subtract`), nhân (`multiply`), chia (`divide`).
 
@@ -164,7 +164,7 @@ func dividedBy(factor: Double) -> ComplexNumber {
 }
 ```
 
-# 5. Sử dụng các toán tử #
+## 5. Sử dụng các toán tử ##
 
 Nhưng nếu cứ dùng các methods như trên thì dài dòng quá. **Swift** cung cấp cho chúng ta các chức năng định nghĩa lại các toán tử:
 

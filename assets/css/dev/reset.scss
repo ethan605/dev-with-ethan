@@ -30,21 +30,22 @@ strong {
 }/* strong */
 
 /* Codes and keyboard tags */
-// code:not([class*="language-"]), kbd {
-//   border: none;
-//   padding: 3px 6px;
-//   font-weight: bold;
-//   font-size: 80% !important;
-//   @include vendor1(border-radius, $articleImageBorderRadius);
-//   font-family: Menlo, Monaco, Consolas, "Courier New", monospace !important;
-// }
+code:not([class*="language-"]), kbd {
+  border: none;
+  padding: 3px 6px;
+  // font-weight: bold;
+  font-size: 80% !important;
+  @include vendor1(border-radius, $articleImageBorderRadius);
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace !important;
+}
 /* code, kbd */
 
 /* Codes */
-// code:not([class*="language-"]) {
-//   color: #c7254e !important;
-//   background-color: #f9f2f4;
-// }
+code:not([class*="language-"]) {
+  color: #000 !important;
+  background-color: #eee;
+  @include vendor1(border-radius, $articleImageBorderRadius);
+}
 /* code */
 
 /* Keyboard tags */
