@@ -17,11 +17,22 @@ facebook:
   admins: 1119670477
   publisher: 1119670477
 
-# Jekyll
-paginate: 10
-highlighter: rouge
 markdown: kramdown
-timezone: Asia/Hanoi
+kramdown:
+  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+highlighter: rouge
+timezone: Asia/Ho_Chi_Minh
+repository: ethan605/dev-with-ethan
+
+paginate: 10
 paginateLabel: page
 paginate_path: "page/:num"
 permalink: /:categories/:title

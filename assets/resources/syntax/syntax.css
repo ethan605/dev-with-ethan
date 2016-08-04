@@ -63,3 +63,30 @@
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+
+.highlight {
+  overflow-x: scroll;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.highlight pre {
+  border: none;
+  border-radius: 0;
+  margin: 0 !important;
+}
+
+.highlight td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.highlight td.gutter.gl {
+  padding: 5px;
+  border-right: 1px solid #ccc;
+}
+
+.highlight td.code {
+  padding-left: 5px;
+}
