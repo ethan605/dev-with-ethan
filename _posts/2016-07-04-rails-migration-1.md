@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record"
 description: Rào cản lớn nhất khi đến với stack công nghệ Ruby - Rails - PostgreSQL (hay bất kỳ SQL Database nào) là Migration. Hiểu và dùng thành thạo Migration sẽ khiến cho mọi thứ dễ dàng hơn rất nhiều.
 date: 2016-07-04 10:15:00 +0700
@@ -8,7 +8,7 @@ tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
 ---
 
-# 1. Active Record #
+## 1. Active Record ##
 
 Để đảm bảo chúng ta có cùng 1 cách hiểu về **Migration** trong **Ruby on Rails**, mời các bạn xem qua 1 vài tài liệu về **[Active Record][active-record]** từ trang hướng dẫn chính thức của **Ruby on Rails**.
 
@@ -31,7 +31,7 @@ Tuy nhiên có 1 thứ mà bất kỳ ai cũng phải vượt qua, đó là **Mi
 
 Cách thứ nhất rất nhanh và dễ, nhưng là 1 thói quen xấu, đặc biệt khi dự án đã ra mắt người dùng cuối, chạy và ghi nhận dữ liệu thật, thì không có cách nào xóa trắng dữ liệu được cả. Vậy nên chúng ta cần đến cách thứ 2, đó là viết **Migration**.
 
-# 2. Bài toán cụ thể #
+## 2. Bài toán cụ thể ##
 
 **Migration** là cách để chúng ta định nghĩa 1 **schema** cần thay đổi ở đâu và như thế nào.
 
@@ -54,9 +54,9 @@ Ví dụ, ta có 1 ứng dụng tên là **SecretMessenger**. Ứng dụng này 
 
 Chúng ta sẽ đi vào chi tiết từng bước các cách **Migration** trong **Ruby on Rails**.
 
-# 3. Các thao tác với Migration trong Ruby on Rails #
+## 3. Các thao tác với Migration trong Ruby on Rails ##
 
-## 3.1. Thêm mới 1 Model ##
+### 3.1. Thêm mới 1 Model ###
 
 Ban đầu, khi chưa có gì cả, ta cần thêm mới Model. **Rails** cung cấp cho chúng ta 1 bộ công cụ dòng lệnh (*command line tools*) tên là `rails generate` với các lệnh con (gọi là `generators`) như sau:
 
@@ -65,11 +65,11 @@ $ rails generate
 Usage: rails generate GENERATOR [args] [options]
 
 General options:
-  -h, [--help]     # Print generator's options and usage
-  -p, [--pretend]  # Run but do not make any changes
-  -f, [--force]    # Overwrite files that already exist
-  -s, [--skip]     # Skip files that already exist
-  -q, [--quiet]    # Suppress status output
+  -h, [--help]     ### Print generator's options and usage
+  -p, [--pretend]  ### Run but do not make any changes
+  -f, [--force]    ### Overwrite files that already exist
+  -s, [--skip]     ### Skip files that already exist
+  -q, [--quiet]    ### Suppress status output
 
 Please choose a generator below.
 

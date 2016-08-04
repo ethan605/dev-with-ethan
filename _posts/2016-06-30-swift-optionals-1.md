@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Swift] Kiểu giá trị Optional: Các cách khai báo & sử dụng"
 description: Tìm hiểu tính năng Optional với ký pháp '?' (question mark) và '!' (exclamation mark) trong Swift
 date: 2016-06-30 10:00:00 +0700
@@ -8,7 +8,7 @@ tags: [swift, optional, type, 'ký pháp ?', 'question mark', 'ký pháp !', 'ex
 comments: true
 ---
 
-# 1. Kiểu Optional trong Swift #
+## 1. Kiểu Optional trong Swift ##
 
 Giống với các ngôn ngữ khác (**C**/**C++**, **Java**, **Objective-C**,...), **Swift** cũng có 1 giá trị đặc biệt là `nil` (tương đương với `null`, `NULL`, `NIL`), mang ý nghĩa là **không có giá trị gì cả**. `nil` khác với `0`, `0.0`, `""`, `[]`, `[:]` ở 2 điểm:
 
@@ -29,7 +29,7 @@ optionalInt = 15
 
 Lúc này, biến `originalInt` có kiểu thuần `Int`, và việc gán nó bằng `nil` gây lỗi `Nil cannot initialize specified type 'Int'`, trong khi biến `optionalInt` có kiểu *optional* `Int?`, không có lỗi gì xảy ra nếu được gán bằng `nil`. Ngoài điểm này ra, 2 biến này hoàn toàn bình đẳng trong các phép gán giá trị `Int` bình thường.
 
-# 2. Wrap và Unwrap 1 giá trị kiểu Optional #
+## 2. Wrap và Unwrap 1 giá trị kiểu Optional ##
 
 Tuy nhiên, do **Optional** là 1 kiểu đặc biệt, vậy nên nó cũng được xử lý 1 cách đặc biệt. Đầu tiên là trong việc in ra hoặc chèn 1 biến **Optional** vào 1 `String`:
 
@@ -58,7 +58,7 @@ print(optionalInt!)                     // 10
 
 ***Lưu ý:*** nếu cố tình **unwrap** một biến `nil`, ta sẽ gặp lỗi `fatal error: unexpectedly found nil while unwrapping an Optional value`
 
-# 3. Unwrap tự động #
+## 3. Unwrap tự động ##
 
 Trong các trường hợp vẫn muốn dùng **Optional** nhưng không muốn lúc nào cũng phải **unwrap**, ta có thể dùng dấu `!` trong khai báo kiểu dữ liệu, thay cho `?`, việc này gọi là **unwrap tự động**, ví dụ:
 
@@ -73,7 +73,7 @@ print(autoUnwrap)                       // 10
 
 Tất nhiên, khi ta **unwrap tự động** 1 biến `nil` thì vẫn nhận được thông báo lỗi `fatal error: unexpectedly found nil while unwrapping an Optional value` như thường, vì bản chất việc này là ẩn dấu `!` mỗi lần sử dụng biến mà thôi
 
-# 4. Optional binding #
+## 4. Optional binding ##
 
 Trong **Swift** cũng như 1 số ngôn ngữ hiện đại khác như **Ruby**, **Javascript**, **HTML**,... ta có một thuật ngữ gọi là **binding**. Hiểu 1 cách đơn giản, **binding** là việc gán/đọc giá trị của 1 biến tại 1 thời điểm nhất định, trong 1 hoàn cảnh cụ thể. Cú pháp đơn giản nhất của **binding** trong Swift là khi dùng `if` như sau:
 

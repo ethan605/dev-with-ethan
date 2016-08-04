@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Swift] Kiểu giá trị Optional: Các trường hợp nâng cao"
 description: "Sử dụng tính năng Optional trong các trường hợp nâng cao: Optional chaining & Ép kiểu (as, as? & as!)"
 date: 2016-07-01 10:00:00 +0700
@@ -10,7 +10,7 @@ comments: true
 
 *... tiếp theo bài viết [[Swift] Kiểu giá trị Optional - Các cách khai báo & sử dụng]({% post_url 2016-06-30-swift-optionals-1 %})*
 
-# 5. Method chaining #
+## 5. Method chaining ##
 
 Trong **Swift** cũng như các ngôn ngữ hiện đại như **Ruby**, **Python**,... các lập trình viên rất thích sử dụng 1 cú pháp gọi là **method chaining**. Ví dụ:
 
@@ -33,7 +33,7 @@ number.add(2).multiply(5)                   // (10 + 2) * 5 = 60
 
 Điểm đặc biệt là do kết quả trả về vẫn là `Int`, nên với các công thức gồm nhiều phép tính, ta có thể gọi liên tiếp `add()` và `multiply()` mà không cần phải sử dụng đến 1 biến để lưu trữ các kết quả trung gian.
 
-# 6. Optional chaining #
+## 6. Optional chaining ##
 
 Giờ ta thêm 1 hàm nữa tên là `divide()`, có chức năng thực hiện phép chia:
 
@@ -78,7 +78,7 @@ Lúc này, **Swift** sẽ kiểm tra xem `divide()` có trả về giá trị `n
 * Nếu có, lập tức trả lại kết quả là `nil`, không quan tâm các hàm gọi sau có điều kiện là gì.
 * Nếu không, **unwrap** để lấy 1 giá trị `Int` và gọi tiếp các hàm ở sau.
 
-# 7. Value casting #
+## 7. Value casting ##
 
 Như đã nói trong các bài trước, **Swift** là 1 ngôn ngữ **hướng đối tượng**, vậy nên nó có tính **kế thừa**, tức là 1 `class` có thể kế thừa từ 1 `class` khác. Ta cũng biết `NSArray` và `NSDictionary` đều là các `class` kế thừa từ `NSObject`:
 

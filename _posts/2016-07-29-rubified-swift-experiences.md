@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Swift] Những bài học từ RubifiedSwift (P1)"
 description: "Trải nghiệm trong quá trình viết & duy trì bộ thư viện RubifiedSwift"
 date: 2016-07-29 11:50:00 +0700
@@ -10,7 +10,7 @@ comments: true
 
 *Như đã thông báo về* **[Bộ thư viện RubifiedSwift]({% post_url 2016-07-22-rubified-swift-created %})** *, mục đích chính của series* **Những bài học từ RubifiedSwift** *chủ yếu là để lưu lại những trải nghiệm, nhận định và bài học của bản thân mình về tất tần tật có liên quan đến project. Việc ghi lại mang tính chất nhật ký hơn là các bài viết hướng dẫn hay phân tích học thuật khác.*
 
-# 1. Optional quả là khó nhằn, nhưng vỡ ra được rồi thì cứ thấy sướng mãi #
+## 1. Optional quả là khó nhằn, nhưng vỡ ra được rồi thì cứ thấy sướng mãi ##
 
 **RubifiedSwift** bắt đầu với 1 hàm rất hay của **Ruby** là `compact()`. Mục tiêu của hàm này là lược hết tất cả các giá trị `nil` và trả về 1 mảng hoàn toàn *sạch sẽ*, tức là không bao giờ lo đến chuyện `undefined method ... for nil:NilClass`. Thật sự đây là 1 thông báo lỗi rất củ chuối của **Ruby**, vì trong khi việc viết code mang đến cho người ta cảm giác nhẹ nhàng thư thái bao nhiêu, thì việc bắt và xử lý các tình huống `nil` như thế này lại làm cho người ta cảm thấy khó chịu và xấu xí bấy nhiêu. Đây cũng là 1 trong những khác biệt cơ bản giữa 1 ngôn ngữ **dynamic** như **Ruby** với 1 ngôn ngữ **static** như **Swift**. Coi như Ruby chơi bài *sướng trước khổ sau*, thì **Swift** sẽ ngược lại, *khổ trước sướng sau*.
 

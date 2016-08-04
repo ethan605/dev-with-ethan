@@ -1,0 +1,32 @@
+<!-- Pagination bar -->
+<nav class="pagination {{ include.section }}">
+
+	<!-- First column -->
+	<div class="column column1">
+		{% if paginator.previous_page %}
+			{% if paginator.previous_page == 1 %}
+				<a href="{{ site.baseurl }}/">Mới hơn</a>
+			{% else %}
+				<a href="{{ site.baseurl }}/{{ site.paginateLabel }}/{{ paginator.previous_page }}">Cũ hơn</a>
+			{% endif %}
+		{% else %}
+			&nbsp;
+		{% endif %}
+	</div><!-- .column1 -->
+
+	<!-- Second column -->
+	<div class="column column2">
+		<span> 
+      Trang {{ paginator.page }} / {{ paginator.total_pages }}
+		</span>
+	</div><!-- .column2 -->
+
+	<!-- Third column -->
+	<div class="column column3">
+		{% if paginator.next_page %}
+			<a href="{{ site.baseurl }}/{{ site.paginateLabel }}/{{ paginator.next_page }}">Cũ hơn</a>
+		{% endif %}
+	</div><!-- .column3 -->
+
+	<div class="cb"></div>
+</nav><!-- .pagination -->

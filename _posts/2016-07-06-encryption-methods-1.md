@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Cryptography: Các phương pháp mã hóa thường dùng"
 description: "Hiểu 1 cách đơn giản các phương pháp thường dùng trong mã hóa và những ứng dụng thực tiễn: đối xứng (symmetric), bất đối xứng (asymetric) & hàm băm (hash function)"
 date: 2016-07-06 09:00:00 +0700
@@ -10,7 +10,7 @@ comments: true
 
 ***Disclaimer:*** *các kiến thức trong bài viết này hoàn toàn chỉ mang tính chất tham khảo, dựa trên những trải nghiệm của cá nhân người viết đối với các thuật toán mã hóa trong quá trình làm việc. Bản thân người viết chưa theo bất kỳ khóa học nào liên quan đến Bảo mật, Mã hóa hay An toàn thông tin.*
 
-# 1. Mã hóa trong lịch sử Khoa học Máy tính #
+## 1. Mã hóa trong lịch sử Khoa học Máy tính ##
 
 **Mã hóa** là 1 khái niệm xuất hiện từ rất lâu trong lịch sử phát triển của loài người, đặc biệt là trong các lĩnh vực quân sự, chính trị, truyền tin - liên lạc. Nói chung con người là 1 loài kỳ lạ: mất hàng chục ngàn năm để phát triển các công cụ giao tiếp ưu việt (ngôn ngữ nói, ngôn ngữ viết) hơn các loài khác, để rồi lại mất hàng ngàn năm để tìm ra những cách thức *mã hóa* chúng, làm cho mọi thứ trở nên *bí hiểm*, *khó hiểu*, thậm chí là *không thể phá giải* nổi.
 
@@ -22,7 +22,7 @@ Nói vui là vậy, còn quả thật, các tiến bộ của ngành **Mật mã
 * **Xác thực điện tử** (bao gồm *Chữ ký điện tử, *Xác thực tập tin*, *Xác thực thông điệp*): không chỉ các giao dịch liên quan đến tiền bạc, các hợp đồng hay thông điệp truyền tin qua mạng bây giờ cũng rất cần đến bảo mật. Tưởng tượng rằng chúng ta nhận được 1 tin nhắn từ 1 người *(mà chúng ta nghĩ là)* bạn hỏi mượn tiền, làm sao ta biết được người đó đúng là bạn ta để quyết định có cho mượn tiền không? *(nghe quen nhỉ?)*
 * **Quân sự - Chính trị** *(tất nhiên rồi!)*: nhưng khác với trong quá khứ, Quân sự & Chính trị giờ đây đã được hiện đại hóa nhiều hơn, đồng nghĩa với việc nó cũng trở nên mỏng manh hơn, dễ bị tấn công hơn (ai cũng có máy tính, và hacker thì càng ngày càng trẻ). Và cuộc chiến giữa *mã hóa*, *bảo mật* với *tấn công*, *bẻ khóa* càng ngày càng tinh vi hơn. Những ai có hứng thú và muốn cống hiến tài năng của mình với nền Bảo mật Quốc phòng nước nhà, có thể nộp đơn vào **Học viện Kỹ thuật Mật mã** ngay bây giờ!
 
-# 2. Các phương pháp Mã hóa cơ bản #
+## 2. Các phương pháp Mã hóa cơ bản ##
 
 Đối với những ai đã từng lập trình, hẳn sẽ không còn xa lạ với một vài cái tên như **MD5**, **SHA-1**, **SHA-256**, **AES**, **TEA**... Tuy nhiên có 1 vấn đề là đa số chúng ta không phân biệt các **phương pháp** mã hóa với nhau, đồng thời mỗi phương pháp lại có những **thuật toán** khác nhau ra đời nhằm nâng cấp, cải tiến hoặc phục vụ 1 nhu cầu khác.
 
@@ -34,7 +34,7 @@ Có 3 phương pháp **Mã hóa** mà người ta hay dùng:
 * **Mã hóa bất đối xứng** (Asymmetric cryptography) - hay còn gọi là **Mã hóa sử dụng khóa công khai** (Public key encryption)
 * **Mã hóa bằng hàm băm** (Cryptographic hash function) - hay còn gọi là **Mã hóa 1 chiều** (One-way encryption)
 
-## 2.1. Mã hóa đối xứng ##
+### 2.1. Mã hóa đối xứng ###
 
 Mã hóa đối xứng là phương pháp cổ điển nhất, dựa trên 1 cơ chế đơn giản mà chúng ta vẫn dùng hàng ngày, đó là **chìa khóa** & **ổ khóa**. Trong mỗi gia đình, chúng ta đều có những chiếc khóa cửa đúng không? Mỗi chiếc khóa đều đi kèm với 1 chìa khóa riêng, không giống với bất kỳ chiếc chìa khóa nào khác, và chỉ có chiếc chìa khóa đó mới mở được ổ khóa kia.
 
@@ -72,7 +72,7 @@ Tuy nhiên nó cũng có các nhược điểm:
 
 Do vậy, người ta mới sáng tạo ra phương pháp thứ 2, đó là **Mã hóa bất đối xứng**
 
-## 2.2. Mã hóa bất đối xứng ##
+### 2.2. Mã hóa bất đối xứng ###
 
 Quay trở lại ví dụ của chúng ta về chiếc hòm chứa vàng tên là `G`. Giờ chúng ta được yêu cầu thay đổi thiết kế để nâng cấp độ an toàn của chiếc hòm lên như sau:
 
@@ -109,7 +109,7 @@ Một ứng dụng rất hay của **Mã hóa bất đối xứng** chính là *
 * Bất kỳ ai cố tình sinh ra 1 chữ ký giả đều không thể vượt qua bài kiểm tra **public key** của người gửi được.
 * Bất kỳ ai cố tình sửa chữ ký cũng sẽ bị phát hiện do chữ ký đã sửa không khớp với bài kiểm tra **public key**.
 
-## 2.3. Mã hóa bằng hàm băm ##
+### 2.3. Mã hóa bằng hàm băm ###
 
 Về lý thuyết, 1 phép **Mã hóa bằng hàm băm** được định nghĩa là 1 thuật toán biến 1 chuỗi thông tin có độ dài bất kỳ thành 1 chuỗi thông tin có độ dài cố định. Thông tin có độ dài bất kỳ như vậy được gọi là `message` (hay thông điệp), còn thông tin được tính toán ra có độ dài cố định được gọi là `digest` (hay tóm tắt của thông điệp). Một thuật toán như vậy được gọi là lý tưởng nếu nó đảm bảo 4 điều kiện:
 
