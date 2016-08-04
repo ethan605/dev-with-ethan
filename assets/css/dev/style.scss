@@ -471,6 +471,14 @@ main {
 
 			}/* blockquote */
 
+      p {
+        width: 100%;
+      }
+
+      p img {
+        max-width: 100%;
+      }
+
 			/* If we're in index.html or page.html */
 			>.max-height {
 
