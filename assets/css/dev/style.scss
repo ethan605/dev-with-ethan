@@ -472,44 +472,39 @@ main {
 			}/* blockquote */
 
 			/* Aspect ratio container*/
-			img, pre {
-
-				/* Mobile */
-				@media(max-width:$mobile-max) {
-					margin-left: -$containerPadding-mobile !important;
-					@include vendor2(width, calc(100% + #{$containerPadding-mobile * 2}));
-				}
-				/* Tablet */
-				@media(min-width:$tablet-min) and (max-width:$tablet-max) {
-					margin-left: -$containerPadding-tablet !important;
-					@include vendor2(width, calc(100% + #{$containerPadding-tablet * 2}));
-				}
-				/* Computer */
-				@media(min-width:$computer-min) and (max-width:$computer-max) {
-					margin-left: -$containerPadding-computer !important;
-					@include vendor2(width, calc(100% + #{$containerPadding-computer * 2}));
-				}
-				/* Largescreen */
-				@media(min-width:$largescreen-min) and (max-width:$largescreen-max) {
-					margin-left: -$containerPadding-largescreen !important;
-					@include vendor2(width, calc(100% + #{$containerPadding-largescreen * 2}));
-				}
-				/* Widescreen */
-				@media(min-width:$widescreen-min) {
-					margin-left: -$containerPadding-widescreen !important;
-					@include vendor2(width, calc(100% + #{$containerPadding-widescreen * 2}));
-				}
-
-				/* Mobile devices */
-				@media(max-width:$tablet-max) {
-					@include vendor1(border-radius, 0 !important);
-				}
-				/* Personal computers */
-				@media(min-width:$computer-min) {
-					@include vendor1(border-radius, $articleImageBorderRadius !important);
-				}
-
-			}/* img, pre */
+			// img, pre {
+      // 
+			//   [> Mobile <]
+			//   @media(max-width:$mobile-max) {
+			//     @include vendor2(width, calc(100% + #{$containerPadding-mobile * 2}));
+			//   }
+			//   [> Tablet <]
+			//   @media(min-width:$tablet-min) and (max-width:$tablet-max) {
+			//     @include vendor2(width, calc(100% + #{$containerPadding-tablet * 2}));
+			//   }
+			//   [> Computer <]
+			//   @media(min-width:$computer-min) and (max-width:$computer-max) {
+			//     @include vendor2(width, calc(100% + #{$containerPadding-computer * 2}));
+			//   }
+			//   [> Largescreen <]
+			//   @media(min-width:$largescreen-min) and (max-width:$largescreen-max) {
+			//     @include vendor2(width, calc(100% + #{$containerPadding-largescreen * 2}));
+			//   }
+			//   [> Widescreen <]
+			//   @media(min-width:$widescreen-min) {
+			//     @include vendor2(width, calc(100% + #{$containerPadding-widescreen * 2}));
+			//   }
+      // 
+			//   [> Mobile devices <]
+			//   @media(max-width:$tablet-max) {
+			//     @include vendor1(border-radius, 0 !important);
+			//   }
+			//   [> Personal computers <]
+			//   @media(min-width:$computer-min) {
+			//     @include vendor1(border-radius, $articleImageBorderRadius !important);
+			//   }
+      // 
+			// }[> img, pre <]
 
 			/* If we're in index.html or page.html */
 			>.max-height {
