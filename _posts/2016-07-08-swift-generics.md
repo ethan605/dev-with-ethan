@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Swift] Kinh nghiệm sử dụng Generics"
 description: "Khám phá tính năng Generics của Swift để linh hoạt xử lý các kiểu dữ liệu khác nhau"
 date: 2016-07-08 16:43:00 +0700

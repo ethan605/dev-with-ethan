@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Cryptography: Các phương pháp mã hóa thường dùng"
 description: "Hiểu 1 cách đơn giản các phương pháp thường dùng trong mã hóa và những ứng dụng thực tiễn: đối xứng (symmetric), bất đối xứng (asymetric) & hàm băm (hash function)"
 date: 2016-07-06 09:00:00 +0700

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Swift] Bộ thư viện RubifiedSwift với CocoaPods"
 description: "Viết code Swift theo phong cách Ruby, dành cho Rubists"
 date: 2016-07-22 11:30:00 +0700

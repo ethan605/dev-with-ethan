@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Swift] Kiểu giá trị Optional: Các cách khai báo & sử dụng"
 description: Tìm hiểu tính năng Optional với ký pháp '?' (question mark) và '!' (exclamation mark) trong Swift
 date: 2016-06-30 10:00:00 +0700

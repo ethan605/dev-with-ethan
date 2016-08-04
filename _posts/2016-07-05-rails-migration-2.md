@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Ruby on Rails] Migration trong Rails: Các thao tác với Migration"
 description: "Các thao tác chính với Migration: thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, xóa trường & đánh index cho các trường trong Model"
 date: 2016-07-05 10:15:00 +0700

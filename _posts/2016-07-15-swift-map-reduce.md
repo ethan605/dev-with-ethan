@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Swift] Làm việc với các tập dữ liệu hiệu quả hơn với Map-Reduce"
 description: "Ý nghĩa và cách sử dụng của các hàm Map, Reduce, Filter & Flat Map trong Swift (có đối chiếu với các hàm tương ứng trong Ruby)"
 date: 2016-07-15 12:39:00 +0700

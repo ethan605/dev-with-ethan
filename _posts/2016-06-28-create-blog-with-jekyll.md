@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: Tự tạo một Blog Lập trình với Jekyll & Github Pages
 description: Hướng dẫn tạo blog dành cho lập trình viên bằng một cách đơn giản bằng Jekyll & publish lên Github Pages
 date: 2016-06-28 13:27:00 +0700

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "Cryptography: Sử dụng các thuật toán mã hóa phổ biến trong Ruby"
 description: "Dùng Ruby để mã hóa / giải mã thông điệp bằng các thuật toán phổ biến: AES, RSA, MD5, SHA"
 date: 2016-07-07 17:00:00 +0700

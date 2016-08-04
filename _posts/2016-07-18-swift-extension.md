@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: "[Swift] Mở rộng chức năng của các kiểu dữ liệu với Extension"
 description: "Hiểu & sử dụng Extension trong Swift để làm việc hiệu quả hơn với các kiểu dữ liệu"
 date: 2016-07-18 10:17:00 +0700
