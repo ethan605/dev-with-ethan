@@ -15,8 +15,10 @@ layout: default
 
 <!-- addthis -->
 {% if site.addthisId != "" %}
-	<div class="addthis_sharing_toolbox mt"></div>
-	<script async src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-{{ site.addthisId }}"></script>
+	<!-- <div class="addthis_sharing_toolbox mt"></div> -->
+	<!-- <script async src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-{{ site.addthisId }}"></script> -->
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a3570c515bce97"></script>
 {% endif %}
 
 <!-- disqus -->
@@ -34,9 +36,4 @@ layout: default
     })();
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-	<!-- <div class="full"> -->
-	<!--   <div id="disqus_thread" class="mt mb"></div> -->
-	<!--   <script async src="//{{ site.disqusUsername }}.disqus.com/embed.js"></script> -->
-	<!-- </div>[> .full <] -->
 {% endif %}
