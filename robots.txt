@@ -1,0 +1,7 @@
+---
+---
+# www.robotstxt.org/
+# https://support.google.com/webmasters/answer/6062608?hl=en&rd=1
+
+User-agent: *
+Sitemap: {{ site.url }}/sitemap.xml

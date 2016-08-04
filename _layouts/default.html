@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html> 
+<head>
+  <meta charset="UTF-8">
+
+  {% seo %}
+  <!-- Google+ author meta -->
+  <link rel="author" href="https://plus.google.com/+ThanhNguyen605"/>
+
+  <!-- Enable responsive viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+	<!-- Meta for robots -->
+	<meta name="revisit-after" content="1 days">
+	<meta name="robots" content="index, follow">
+	<meta name="author" content="{{ site.author.name }}">
+	<meta name="generator" content="Jekyll v{{ jekyll.version }}">
+
+	<!-- Google+ -->
+	<meta itemprop="name" content="{% if page.title %}{{ page.title }}{% elsif site.name %}{{ site.name }}{% endif %}">
+  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ page.content | strip_html | slice: 0, 150 }}{% endif %}">
+
+	<!-- If article has a cover photo -->
+	{% if page.coverPhoto %}
+		<meta itemprop="image" content="{{ page.coverPhoto }}">
+		<meta property="og:image" content="{{ page.coverPhoto }}">
+		<meta name="twitter:image" content="{{ page.coverPhoto }}">
+	{% endif %}
+
+	<!-- iOS web app -->
+	<meta name="format-detection" content="telephone=yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-title" content="{% if page.title %}{{ page.title }}{% elsif site.name %}{{ site.name }}{% endif %}">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<!-- Favicon & RSS -->
+  <link rel="alternate" hreflang="vi-vn" href="http://dev.ethanify.me" />
+  <link rel="alternate"
+        type="application/rss+xml"
+        title="{{ site.name }}"
+        href="{{ site.baseurl }}/feed.xml" />
+
+  <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script type="text/javascript"
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+          integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+          crossorigin="anonymous"></script>
+ 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="description" content="{{ site.description }}">
+  <meta name="author" content="{{ site.author.name }}">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ "assets/images/favicons/apple-touch-icon-57x57.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ "assets/images/favicons/apple-touch-icon-60x60.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ "assets/images/favicons/apple-touch-icon-72x72.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ "assets/images/favicons/apple-touch-icon-76x76.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ "assets/images/favicons/apple-touch-icon-114x114.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ "assets/images/favicons/apple-touch-icon-120x120.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ "assets/images/favicons/apple-touch-icon-144x144.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ "assets/images/favicons/apple-touch-icon-152x152.png" | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "assets/images/favicons/apple-touch-icon-180x180.png" | prepend: site.baseurl }}">
+  <link rel="icon" type="image/png" href="{{ "assets/images/favicons/favicon-32x32.png" | prepend: site.baseurl }}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ "assets/images/favicons/favicon-194x194.png" | prepend: site.baseurl }}" sizes="194x194">
+  <link rel="icon" type="image/png" href="{{ "assets/images/favicons/favicon-96x96.png" | prepend: site.baseurl }}" sizes="96x96">
+  <link rel="icon" type="image/png" href="{{ "assets/images/favicons/android-chrome-192x192.png" | prepend: site.baseurl }}" sizes="192x192">
+  <link rel="icon" type="image/png" href="{{ "assets/images/favicons/favicon-16x16.png" | prepend: site.baseurl }}" sizes="16x16">
+  <link rel="manifest" href="{{ "assets/images/favicons/manifest.json" | prepend: site.baseurl }}">
+  <link rel="shortcut icon" href="{{ "assets/images/favicons/favicon.ico" | prepend: site.baseurl }}">
+  <meta name="theme-color" content="#ffffff">
+
+	<!-- CSS & JS files -->
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/prod/style.min.css" />
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/resources/syntax/syntax.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+</head>
+<body>
+
+	<!-- Header -->
+	<header>
+
+		<!-- Header container -->
+		<section>
+
+			<!-- Homepage -->
+			<a href="{{ site.baseurl }}/"><i class="fa fa-home" aria-hidden="true"></i></a>
+
+			<!-- Site name & description -->
+			<div>
+
+				<!-- Display: table -->
+				<div class="dt">
+
+					<!-- Display: table-cell -->
+					<div class="dtc">
+
+						<h3>{{ site.name }}</h3>
+						<h6>{{ site.description }}</h6>
+
+					</div><!-- .dtc -->
+
+				</div><!-- .dt -->
+
+			</div><!-- div -->
+
+			<!-- About -->
+      <a href="http://ethanify.me/"><i class="fa fa-user" aria-hidden="true"></i></a>
+			<!-- Mail -->
+      <!-- <a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope" aria-hidden="true"></i></a> -->
+
+		</section><!-- section -->
+
+	</header><!-- header -->
+
+	<!-- Main -->
+	<main>
+
+		<!-- Main container -->
+		<section>
+
+			<!-- Content -->
+			{{ content }}
+
+		</section><!-- section -->
+
+	</main><!-- main -->
+
+	<!-- Footer -->
+	<footer>
+
+		<!-- Footer container -->
+		<section>
+
+			<!-- Display: table -->
+			<div class="dt">
+
+				<!-- Display: table-cell -->
+				<div class="dtc h6">
+
+					<!-- Copyright -->
+					<a href="{{ site.baseurl }}" class="h6">{{ site.name }}</a> &copy; {{ site.time | date: "%Y" }} &bull; All rights reserved.
+					<br />
+					Proudly published with <a href="https://github.com/jekyll/jekyll" class="h6" target="_blank">Jekyll</a> using <a href="https://github.com/ozgrozer/dasper" class="h6" target="_blank">Dasper</a> theme.
+
+				</div><!-- .dtc -->
+
+			</div><!-- .dt -->
+
+		</section><!-- section -->
+
+	</footer><!-- footer -->
+
+	<!-- If googleAnalyticsId declared -->
+	{% if site.googleAnalyticsId != "" %}
+
+		<!-- Google analytics tracking code -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', '{{ site.googleAnalyticsId }}', 'auto');
+			ga('send', 'pageview');
+		</script><!-- script -->
+
+	{% endif %}
+
+</body>
+</html>

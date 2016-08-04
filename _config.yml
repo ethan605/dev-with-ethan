@@ -1,0 +1,67 @@
+# Website details
+name: Dev With Ethan
+description: Blog Lập trình cùng Ethan
+url: http://dev.ethanify.me
+author:
+  name: Ethan605
+  email: thanhnx.605@gmail.com
+  github: ethan605
+  twitter: '@ethan605'
+  linkedin: ethan605
+  bio: Passionate about creating awesome products that help plenty of people improving their lives.
+  email_md5: 48698fe64e24d81467ccc86d3083052d
+twitter:
+  username: ethan605
+facebook:
+  app_id: 1783427568545702
+  admins: 1119670477
+  publisher: 1119670477
+
+markdown: kramdown
+kramdown:
+  input: GFM # Enable GitHub Flavored Markdown (fenced code blocks)
+  hard_wrap: false
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+highlighter: rouge
+timezone: Asia/Ho_Chi_Minh
+repository: ethan605/dev-with-ethan
+
+paginate: 10
+paginateLabel: page
+paginate_path: 'page/:num'
+permalink: /:categories/:title
+baseurl: 
+
+# Includes
+addthisId: 'ra-57a3570c515bce97'
+disqusShortname: 'dev-with-ethan'
+googleAnalyticsId: 'UA-49527418-4'
+
+# Search engine verifications
+bing: ''
+yandex: ''
+google: ''
+
+#Sitemap
+sitemap:
+  file: '/sitemap.xml'
+  exclude:
+    - '/404.html'
+  include_posts:
+    - '/index.html'
+  change_frequency_name: 'daily'
+  priority_name: '1.00'
+
+gems:
+  - github-pages
+  - jekyll-github-metadata
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-redirect-from

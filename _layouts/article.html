@@ -1,0 +1,37 @@
+---
+layout: default
+---
+
+<!-- Article -->
+<article{% if site.addthisId == "" && site.disqusUsername == "" %} class="noBorder"{% endif %}>
+	<h1>{{ page.title }}</h1>
+
+	<span class="article__date">
+    {{ page.date | date: "%-d" }} tháng {{ page.date | date: "%-m" }}, {{ page.date | date: "%Y" }}
+	</span>
+
+	<section>{{ page.content }}</section>
+</article><!-- article -->
+
+<!-- addthis -->
+{% if site.addthisId != "" %}
+  <!-- Go to www.addthis.com/dashboard to customize your tools -->
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ site.addthisId }}"></script>
+{% endif %}
+
+<!-- disqus -->
+{% if site.disqusShortname != "" %}
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = '{{ site.disqusShortname }}';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+{% endif %}
