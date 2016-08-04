@@ -15,10 +15,8 @@ layout: default
 
 <!-- addthis -->
 {% if site.addthisId != "" %}
-	<!-- <div class="addthis_sharing_toolbox mt"></div> -->
-	<!-- <script async src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-{{ site.addthisId }}"></script> -->
   <!-- Go to www.addthis.com/dashboard to customize your tools -->
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-57a3570c515bce97"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid={{ site.addthisId }}"></script>
 {% endif %}
 
 <!-- disqus -->
