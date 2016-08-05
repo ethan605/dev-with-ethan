@@ -10,13 +10,13 @@ comments: true
 
 Cho đến hôm nay, Blog **Lập trình cùng Ethan** đã ra mắt được gần 2 tháng. Nói chung mọi thứ với **Blogging** nói chung và **Jekyll** nói riêng đều khá mới lạ. Được cái mình thích mày mò nên cuối cùng cũng làm ra được những thứ mà mình thấy ưng ý. Kể từ khi bắt đầu, Blog đã *kịp* sử dụng đến 3 giao diện khác nhau:
 
-* Lần đầu là lúc mới làm, dùng theme **[Kactus][]**
+* Lần đầu là lúc mới làm, dùng theme **Kactus**
 
 ![Kactus theme][screenshot-kactus-1]
 <!-- ![Kactus theme][screenshot-kactus-2] -->
 ![Kactus theme][screenshot-kactus-3]
 
-* Lần thứ 2 là khi bó tay với bộ **highlighter** (để hiển thị code) của **Kactus**, cộng với tìm được 1 cái theme ưng ý hơn là **[Dbyll][]**, thế là tiến hành đổi theme.
+* Lần thứ 2 là khi bó tay với bộ **highlighter** (để hiển thị code) của **Kactus**, cộng với tìm được 1 cái theme ưng ý hơn là **Dbyll**, thế là tiến hành đổi theme.
 
 ![Dbyll theme][screenshot-dbyll-1]
 <!-- ![Dbyll theme][screenshot-dbyll-2] -->
@@ -40,13 +40,6 @@ Ngoài ra mình cũng chọn được 1 cái theme khá là cá tính cho trang 
 ![Dasper theme][screenshot-dasper-3]
 
 [Ethanify.me]:  http://ethanify.me
-
-[Kactus]:       http://nick.balestra.ch/2015/Kactus/
-{:rel="nofollow"}
-
-[Dbyll]:        http://dbtek.github.io/dbyll/
-{:rel="nofollow"}
-
 [Strata]:       http://davidforster.com/strata-jekyll/
 {:rel="nofollow"}
 
