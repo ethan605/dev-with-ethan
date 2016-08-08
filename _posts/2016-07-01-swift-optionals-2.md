@@ -8,7 +8,7 @@ tags: [swift, optional, type, 'ký pháp ?', 'question mark', 'ký pháp !', 'ex
 comments: true
 ---
 
-*... tiếp theo bài viết [[Swift] Kiểu giá trị Optional - Các cách khai báo & sử dụng]({% post_url 2016-06-30-swift-optionals-1 %})*
+*... tiếp theo bài viết [[Swift] Kiểu giá trị Optional - Các cách khai báo & sử dụng]()*
 
 ## 5. Method chaining ##
 
@@ -117,11 +117,14 @@ json["nil"] as! NSArray
 
 ta sẽ gặp lỗi
 
+{% include figure.html
+   filename="/assets/media/posts/swift/2016-07-01-casting-nil-value-error.png"
+   alt="Casting nil value error"
+   caption="Lỗi Casting nil value" %}
+
 ![Lỗi ép kiểu với giá trị nil][casting-nil-value-error]
 
 Mời các bạn tải về file [Optionals.playground][attachment] để cùng xem các ví dụ về **Optional** trong **Swift**.
 
-[casting-nil-value-error]:  {{ site.url }}/assets/media/posts/swift/2016-07-01-casting-nil-value-error.png
-{:class="img-responsive"}
-
+[part-1]:                   {{ site.url }}{% post_url 2016-06-30-swift-optionals-1 %}
 [attachment]:               {{ site.url }}/assets/downloads/swift/2016-07-01-Optionals.zip
