@@ -22,6 +22,7 @@ Vậy nên giờ mình quyết định sẽ làm 1 cái gì đó cho cả 2 th�
 * **Swift** là 1 ngôn ngữ đẹp theo nhiều nghĩa. Nhưng so với **Ruby** thì nó vẫn còn rất thô ráp. Nhiều APIs của **Swift** làm việc rất hiệu quả, nhưng nhìn chung vẫn thiếu nhiều so với **Ruby**. Nếu tính cả **Rails** thì còn kém nữa, nhưng không phải ai cũng thích **Rails**, nên mình vẫn nhắm tới **Ruby** là phần lớn.
 
 Ngoài ra, đây cũng là 1 cách thức để tự răn mình 2 việc:
+
 * Đối với **Swift** và **iOS**, vẫn còn rất nhiều cái ***phải học*** & ***phải hiểu***.
 * Làm ra 1 bộ thư viện là rất khó, nhưng để maintain nó còn khó hơn. Liệu mình có thể kiên trì với nó như **[Matt Thompson][]** & đồng sự đã làm với **AFNetworking** & bây giờ là **Alamofire** hay không?
 

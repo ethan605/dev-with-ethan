@@ -8,7 +8,7 @@ tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
 ---
 
-*... tiếp theo bài viết [[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record]()*
+*... tiếp theo bài viết [[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record][part-1]*
 
 ## 3. Các thao tác với Migration trong Ruby on Rails ##
 
@@ -221,6 +221,3 @@ Nhìn chung, đối với những người mới bước chân vào thế giới
 
 [change_table-api-dock]:      http://apidock.com/rails/ActiveRecord/ConnectionAdapters/SchemaStatements/change_table
 {:rel="nofollow"}
-
-[db-schema-1.1]:    /assets/media/posts/ruby-on-rails/2016-07-05-secret-messenger-db-schema-1.1.png
-{:class="img-responsive"}
