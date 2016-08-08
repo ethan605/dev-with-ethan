@@ -1,11 +1,16 @@
 figure {
   text-align: center;
+  margin-top: 20px;
   
   img {
     max-width: 100%;
   }
 
-  figcaption, figcaption > * {
+  figcaption {
+    margin-top: -20px;
+  }
+
+  figcaption, figcaption * {
     font-style: italic;
     font-size: 15px !important;
   }

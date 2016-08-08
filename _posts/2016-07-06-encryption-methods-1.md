@@ -47,9 +47,10 @@ Từ xa xưa con người đã sáng tạo ra ổ khóa, và công dụng của 
 
 Vậy là quá trình bảo mật & vận chuyển hòm vàng `G` diễn ra thành công tốt đẹp. **Mã hóa đối xứng** cũng hoạt động theo phương pháp tương tự:
 
-{% figure caption:"Mã hóa đối xứng *(Nguồn: [Gigatux.nl](http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html))" %} 
-![Symmetric cryptography demo]({{ site.url }}/assets/media/posts/misc/2016-07-06-symmetric-crypt-demo.jpg)
-{% endfigure %}
+{% include figure.html
+   filename="/assets/media/posts/misc/2016-07-06-symmetric-crypt-demo.jpg"
+   alt="Mã hóa đối xứng"
+   caption="Mã hóa đối xứng *(Nguồn: [Gigatux.nl](http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html))*" %}
 
 Trong trường hợp này:
 
@@ -80,9 +81,10 @@ Quay trở lại ví dụ của chúng ta về chiếc hòm chứa vàng tên l�
 
 Những yêu cầu này chính là cơ sở của cơ chế **Mã hóa bất đối xứng** như trong hình dưới đây:
 
-{% figure caption:"Mã hóa bất đối xứng *(Nguồn: [Gigatux.nl](http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html))" %} 
-![Asymmetric cryptography demo]({{ site.url }}/assets/media/posts/misc/2016-07-06-asymmetric-crypt-demo.jpg)
-{% endfigure %}
+{% include figure.html
+   filename="/assets/media/posts/misc/2016-07-06-asymmetric-crypt-demo.jpg"
+   alt="Mã hóa bất đối xứng"
+   caption="Mã hóa bất đối xứng *(Nguồn: [Gigatux.nl](http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html))*" %}
 
 Ở đây, ta sẽ có:
 
