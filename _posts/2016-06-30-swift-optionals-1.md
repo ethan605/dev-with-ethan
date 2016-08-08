@@ -6,6 +6,8 @@ date: 2016-06-30 10:00:00 +0700
 categories: [swift]
 tags: [swift, optional, type, 'ký pháp ?', 'question mark', 'ký pháp !', 'exclamation mark']
 comments: true
+instant_title: Khai báo & sử dụng Optional
+instant_kicker: Ngôn ngữ Swift
 ---
 
 ## 1. Kiểu Optional trong Swift ##

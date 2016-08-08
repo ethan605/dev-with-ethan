@@ -8,6 +8,8 @@ tags: [blog, jekyll, github, web]
 comments: true
 redirect_from:
   - /tutorials/2016/06/28/create-blog-with-jekyll
+instant_title: Tự tạo Blog lập trình một cách đơn giản
+instant_kicker: Thế giới Công nghệ
 ---
 
 Có nhiều cách để làm ra một blog: **Wordpress**, **Blogspot**, **Joomla**,... Đối với 1 lập trình viên, không gì đẹp đẽ hơn 1 blog đơn giản, chú trọng vào nội dung và dễ dàng quản trị thông qua **git repository** của mình. **Jekyll** - **Github Pages** & **Custom domain** là cách đơn giản nhất.

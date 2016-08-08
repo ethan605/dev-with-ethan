@@ -1,6 +1,6 @@
-<figure>
-  <img src="{{ site.url }}{{ include.filename }}" alt="{{ include.alt }}">
-  <figcaption>
-    {{ include.caption | markdownify }}
+<figure data-feedback="fb:likes, fb:comments">
+  <img src="{{ site.url }}{{ include.filename }}" alt="{{ include.alt }}"> 
+  <figcaption class="op-vertical-below op-center op-medium">
+    {{ include.caption | markdownify | remove: '<p>' | remove: '</p>'}}
   </figcaption>
 </figure>

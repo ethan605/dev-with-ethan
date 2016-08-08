@@ -6,6 +6,8 @@ date: 2016-07-06 09:00:00 +0700
 categories: [misc]
 tags: [cryptopgraphy, encryption, 'mã hóa', symmetric, 'đối xứng', asymmetric, 'bất đối xứng', hash, 'hàm băm', md5, sha, aes, digest]
 comments: true
+instant_title: Các phương pháp mã hóa thường dùng
+instant_kicker: Thế giới Công nghệ
 ---
 
 ***Disclaimer:*** *các kiến thức trong bài viết này hoàn toàn chỉ mang tính chất tham khảo, dựa trên những trải nghiệm của cá nhân người viết đối với các thuật toán mã hóa trong quá trình làm việc. Bản thân người viết chưa theo bất kỳ khóa học nào liên quan đến Bảo mật, Mã hóa hay An toàn thông tin.*

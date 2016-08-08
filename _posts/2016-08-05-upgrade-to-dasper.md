@@ -6,6 +6,8 @@ date: 2016-08-05 09:38:00 +0700
 categories: [misc]
 tags: [blog, 'about me', 'ethanify.me', theme, upgrade]
 comments: true
+instant_title: Cập nhật giao diện mới cho blog Ethanify.me
+instant_kicker: Thế giới Công nghệ
 ---
 
 Cho đến hôm nay, Blog **Lập trình cùng Ethan** đã ra mắt được gần 2 tháng. Nói chung mọi thứ với **Blogging** nói chung và **Jekyll** nói riêng đều khá mới lạ. Được cái mình thích mày mò nên cuối cùng cũng làm ra được những thứ mà mình thấy ưng ý. Kể từ khi bắt đầu, Blog đã *kịp* sử dụng đến 3 giao diện khác nhau:

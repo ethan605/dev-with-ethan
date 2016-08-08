@@ -6,6 +6,8 @@ date: 2016-07-29 11:50:00 +0700
 categories: [swift]
 tags: [swift, ruby, cocoapods, 'thư viện', 'trải nghiệm']
 comments: true
+instant_title: Những bài học từ RubifiedSwift (Phần 1)
+instant_kicker: Ngôn ngữ Swift
 ---
 
 *Như đã thông báo về* **[Bộ thư viện RubifiedSwift][rubified-swift-created]** *, mục đích chính của series* **Những bài học từ RubifiedSwift** *chủ yếu là để lưu lại những trải nghiệm, nhận định và bài học của bản thân mình về tất tần tật có liên quan đến project. Việc ghi lại mang tính chất nhật ký hơn là các bài viết hướng dẫn hay phân tích học thuật khác.*

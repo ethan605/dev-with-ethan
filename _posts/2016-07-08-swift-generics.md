@@ -6,6 +6,8 @@ date: 2016-07-08 16:43:00 +0700
 categories: [swift]
 tags: [swift, generics, template, 'linh hoạt', 'kiểu dữ liệu', 'data type']
 comments: true
+instant_title: Kinh nghiệm sử dụng Generics
+instant_kicker: Ngôn ngữ Swift
 ---
 
 ## 1. Khái niệm Generics trong lập trình ##

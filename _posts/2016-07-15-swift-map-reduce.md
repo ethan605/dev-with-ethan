@@ -6,6 +6,8 @@ date: 2016-07-15 12:39:00 +0700
 categories: [swift]
 tags: [array, dictionary, map, reduce, filter, flat, ruby, 'tập dữ liệu']
 comments: true
+instant_title: Kinh nghiệm sử dụng Map-Reduce
+instant_kicker: Ngôn ngữ Swift
 ---
 
 Trong các ứng dụng ngày nay, việc xử lý những tập dữ liệu lớn càng ngày càng trở thành 1 bài toán quan trọng. Không cần phải làm việc với các bảng dữ liệu hàng triệu bản ghi, chỉ cần xử lý 1 **Array** và **Dictionary** làm sao cho hiệu quả cũng là 1 vấn đề đau đầu. **Swift**, giống như những ngôn ngữ hiện đại khác, đưa vào các khái niệm **Map-Reduce** nhằm cung cấp cho các Lập trình viên một bộ thư viện linh hoạt, dễ sử dụng và mạnh mẽ.

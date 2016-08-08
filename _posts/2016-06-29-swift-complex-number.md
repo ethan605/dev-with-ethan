@@ -8,6 +8,8 @@ tags: [swift, struct, complex, 'số phức', 'toán tử']
 comments: true
 redirect_from:
   - /tutorials/2016/06/29/swift-complex-number
+instant_title: Cách biểu diễn số Phức
+instant_kicker: Ngôn ngữ Swift
 ---
 
 ## 1. Phát biểu bài toán ##

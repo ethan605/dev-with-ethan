@@ -6,6 +6,8 @@ date: 2016-07-07 17:00:00 +0700
 categories: [misc]
 tags: [cryptopgraphy, encryption, 'mã hóa', symmetric, 'đối xứng', asymmetric, 'bất đối xứng', hash, 'hàm băm', md5, sha, aes, digest, ruby]
 comments: true
+instant_title: Dùng Ruby để viết các thuật toán mã hóa phổ biến
+instant_kicker: Thế giới Công nghệ
 ---
 
 *... tiếp theo bài viết [Cryptography: Các phương pháp mã hóa thường dùng][part-1]*

@@ -6,6 +6,8 @@ date: 2016-07-01 10:00:00 +0700
 categories: [swift]
 tags: [swift, optional, type, 'ký pháp ?', 'question mark', 'ký pháp !', 'exclamation mark', 'optional chaining', 'ép kiểu', 'value casting', 'as']
 comments: true
+instant_title: Optional nâng cao
+instant_kicker: Ngôn ngữ Swift
 ---
 
 *... tiếp theo bài viết [[Swift] Kiểu giá trị Optional - Các cách khai báo & sử dụng][part-1]*

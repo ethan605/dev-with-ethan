@@ -6,6 +6,8 @@ date: 2016-07-18 10:17:00 +0700
 categories: [swift]
 tags: [extension, 'mở rộng']
 comments: true
+instant_title: Mở rộng kiểu dữ liệu với Extension
+instant_kicker: Ngôn ngữ Swift
 ---
 
 **Swift** cũng giống như **Objective-C**, cung cấp 1 tính năng rất hay đó là **Extension**, tức là mở rộng các phương thức của 1 kiểu dữ liệu có sẵn nào đó, ví dụ để đổi 1 giá trị kiểu `String` thành 1 số kiểu `Int`, ta không có sẵn 1 hàm nào, ví dụ là `toInt()` để gọi 1 cách nhanh chóng. Những lúc như thế này, Extension chính là giải pháp cực kỳ hiệu quả.

@@ -6,6 +6,8 @@ date: 2016-07-05 10:15:00 +0700
 categories: ['ruby-on-rails']
 tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
+instant_title: Các thao tác với Migration
+instant_kicker: Ruby on Rails
 ---
 
 *... tiếp theo bài viết [\[Ruby on Rails\] Migration trong Rails: Tạo mới Models với Active Record][part-1]*
