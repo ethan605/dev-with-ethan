@@ -216,4 +216,4 @@ Trong đó:
 ***Cập nhật:***
 Các bạn có thể tải về file [ComplexNumber.playground][attachment] để cùng xem các cài đặt và ví dụ về số **Phức** trong **Swift** được sử dụng như thế nào
 
-[attachment]:       /assets/downloads/swift/2016-06-29-ComplexNumber.zip
+[attachment]:       {{ site.url }}/assets/downloads/swift/2016-06-29-ComplexNumber.zip

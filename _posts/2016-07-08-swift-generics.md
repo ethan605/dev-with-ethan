@@ -152,4 +152,4 @@ class Base: NSObject {
 
 Các bạn có thể tải về file [Generics.playground][attachment] để cùng xem các ví dụ về **Generics** đã trình bày trong bài.
 
-[attachment]:               /assets/downloads/swift/2016-07-08-Generics.zip
+[attachment]:               {{ site.url }}/assets/downloads/swift/2016-07-08-Generics.zip

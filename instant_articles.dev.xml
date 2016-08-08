@@ -56,7 +56,7 @@ layout: null
                   {% if post.instantfeedback %}
                     {{ post.content | replace: '<figure>', '<figure data-feedback="fb:likes">' }}
                   {% else %}
-                    {{ post.content | replace: 'h3', 'h2' }}
+                    {{ post.content | replace: 'h3', 'h2' | replace: 'h4', 'h2' }}
                   {% endif %}
                   <footer>
                     <aside>Đăng bởi Thành Nguyễn (Ethan)</aside>

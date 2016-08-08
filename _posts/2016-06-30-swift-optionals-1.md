@@ -96,4 +96,6 @@ Tại dòng số **3**, ta tiến hành **binding** biến `optionalInt` vào 1 
 
 Lúc này chúng ta không cần phải **unwrap** nữa, cũng không cần khai báo `checkedInt` theo kiểu **unwrap tự động** gì cả
 
-Trong bài viết [sau]({% post_url 2016-07-01-swift-optionals-2 %}), ta sẽ cùng xem cách dùng của kiểu **Optional** trong các vấn đề nâng cao hơn của **Swift**, đó là **Method chaining** và **Ép kiểu** (**Value casting**)
+Trong bài viết [sau][part-2], ta sẽ cùng xem cách dùng của kiểu **Optional** trong các vấn đề nâng cao hơn của **Swift**, đó là **Method chaining** và **Ép kiểu** (**Value casting**)
+
+[part-2]:    {{ site.url }}{% post_url 2016-07-01-swift-optionals-2 %}

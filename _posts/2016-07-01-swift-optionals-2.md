@@ -121,7 +121,7 @@ ta sẽ gặp lỗi
 
 Mời các bạn tải về file [Optionals.playground][attachment] để cùng xem các ví dụ về **Optional** trong **Swift**.
 
-[casting-nil-value-error]:  /assets/media/posts/swift/2016-07-01-casting-nil-value-error.png
+[casting-nil-value-error]:  {{ site.url }}/assets/media/posts/swift/2016-07-01-casting-nil-value-error.png
 {:class="img-responsive"}
 
-[attachment]:               /assets/downloads/swift/2016-07-01-Optionals.zip
+[attachment]:               {{ site.url }}/assets/downloads/swift/2016-07-01-Optionals.zip

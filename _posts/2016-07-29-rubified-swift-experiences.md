@@ -8,7 +8,7 @@ tags: [swift, ruby, cocoapods, 'thư viện', 'trải nghiệm']
 comments: true
 ---
 
-*Như đã thông báo về* **[Bộ thư viện RubifiedSwift]({% post_url 2016-07-22-rubified-swift-created %})** *, mục đích chính của series* **Những bài học từ RubifiedSwift** *chủ yếu là để lưu lại những trải nghiệm, nhận định và bài học của bản thân mình về tất tần tật có liên quan đến project. Việc ghi lại mang tính chất nhật ký hơn là các bài viết hướng dẫn hay phân tích học thuật khác.*
+*Như đã thông báo về* **[Bộ thư viện RubifiedSwift][rubified-swift-created]** *, mục đích chính của series* **Những bài học từ RubifiedSwift** *chủ yếu là để lưu lại những trải nghiệm, nhận định và bài học của bản thân mình về tất tần tật có liên quan đến project. Việc ghi lại mang tính chất nhật ký hơn là các bài viết hướng dẫn hay phân tích học thuật khác.*
 
 ## 1. Optional quả là khó nhằn, nhưng vỡ ra được rồi thì cứ thấy sướng mãi ##
 
@@ -70,7 +70,7 @@ extension Optional: OptionalType {
 }
 ```
 
-Chúng ta đã biết `Optional` là 1 kiểu **[Generics]({% post_url 2016-07-08-swift-generics %})**, và trong khai báo của `Optional` ta có:
+Chúng ta đã biết `Optional` là 1 kiểu **[Generics][generics]**, và trong khai báo của `Optional` ta có:
 
 ```swift
 public enum Optional<Wrapped> : _Reflectable, NilLiteralConvertible {
@@ -127,3 +127,6 @@ print(array.unwrapped())            // nil
 array = [1, 2, "3", 4.0, 5]
 print(array.unwrapped())            // Optional[1, 2, 3, 4, 5]
 ```
+
+[rubified-swift-created]:        {{ site.url }}{% post_url 2016-07-22-rubified-swift-created %}
+[generics]:                      {{ site.url }}{% post_url 2016-07-08-swift-generics %}

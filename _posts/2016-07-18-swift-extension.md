@@ -117,4 +117,4 @@ extension String {
 
 Các bạn có thể tải về file [Extension.playground][attachment] để cùng xem các ví dụ về **Extension** đã trình bày trong bài.
 
-[attachment]:               /assets/downloads/swift/2016-07-18-Extension.zip
+[attachment]:               {{ site.url }}/assets/downloads/swift/2016-07-18-Extension.zip
