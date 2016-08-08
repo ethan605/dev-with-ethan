@@ -1,0 +1,12 @@
+figure {
+  text-align: center;
+  
+  img {
+    max-width: 100%;
+  }
+
+  figcaption, figcaption > * {
+    font-style: italic;
+    font-size: 15px !important;
+  }
+}

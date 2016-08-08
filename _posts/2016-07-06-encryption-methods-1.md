@@ -47,10 +47,9 @@ Từ xa xưa con người đã sáng tạo ra ổ khóa, và công dụng của 
 
 Vậy là quá trình bảo mật & vận chuyển hòm vàng `G` diễn ra thành công tốt đẹp. **Mã hóa đối xứng** cũng hoạt động theo phương pháp tương tự:
 
-![Symmetric cryptography demo][symmetric-crypt-demo]
-
-*(Nguồn: [Gigatux.nl][gigatux-nl])*
-{:style="text-align: right"}
+{% figure caption:"Mã hóa đối xứng *(Nguồn: [Gigatux.nl](http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html))" %} 
+![Symmetric cryptography demo]({{ site.url }}/assets/media/posts/misc/2016-07-06-symmetric-crypt-demo.jpg)
+{% endfigure %}
 
 Trong trường hợp này:
 
@@ -76,18 +75,14 @@ Do vậy, người ta mới sáng tạo ra phương pháp thứ 2, đó là **M�
 
 Quay trở lại ví dụ của chúng ta về chiếc hòm chứa vàng tên là `G`. Giờ chúng ta được yêu cầu thay đổi thiết kế để nâng cấp độ an toàn của chiếc hòm lên như sau:
 
-* Người `B` muốn chỉ 1 mình anh này giữ chìa khóa mà thôi, tức là kể cả người `A` cũng không có phiên bản nào chìa khóa `K` cả, do anh này nghĩ rằng:
-  * Không ai đủ tin tưởng để chia sẻ chiếc chìa khóa `K` ngoài bản thân mình.
-  * Mỗi khi muốn nâng cấp hệ thống khóa cho cái hòm, thì anh ta chỉ cần thay 1 bộ chìa khóa - ổ khóa khác, không cần phải gửi chìa khóa mới cho ai.
-  * Càng ít người biết về cái chìa khóa, càng ít người có khả năng mở khóa.
+* Người `B` muốn chỉ 1 mình anh này giữ chìa khóa mà thôi, tức là kể cả người `A` cũng không có phiên bản nào chìa khóa `K` cả, do anh này nghĩ rằng: 1 là không ai đủ tin tưởng để chia sẻ chiếc chìa khóa `K` ngoài bản thân mình; 2 là mỗi khi muốn nâng cấp hệ thống khóa cho cái hòm, thì anh ta chỉ cần thay 1 bộ chìa khóa - ổ khóa khác, không cần phải gửi chìa khóa mới cho ai; 3 là càng ít người biết về cái chìa khóa, càng ít người có khả năng mở khóa.
 * Cái hòm nếu chỉ chứa vàng của người `A` thì vẫn thừa chỗ, trong khi nếu làm thêm nhiều cái hòm nữa để những người khác (giả sử `C`, `D`, `E`,... nào đó) cùng gửi vàng cho người `B` thì lại tốn kém. Phải có cách nào đó để cái hòm `G` có thể nhận được nhiều vàng từ nhiều người, mà không làm thay đổi độ an toàn của cái hòm.
 
 Những yêu cầu này chính là cơ sở của cơ chế **Mã hóa bất đối xứng** như trong hình dưới đây:
 
-![Asymmetric cryptography demo][asymmetric-crypt-demo]
-
-*(Nguồn: [Gigatux.nl][gigatux-nl])*
-{:style="text-align: right"}
+{% figure caption:"Mã hóa bất đối xứng *(Nguồn: [Gigatux.nl](http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html))" %} 
+![Asymmetric cryptography demo]({{ site.url }}/assets/media/posts/misc/2016-07-06-asymmetric-crypt-demo.jpg)
+{% endfigure %}
 
 Ở đây, ta sẽ có:
 
@@ -123,18 +118,14 @@ Chính do những tính chất như vậy mà **Mã hóa bằng hàm băm** còn
 So với 2 phương pháp ở trên, **Mã hóa bằng hàm băm** đơn giản hơn ở chỗ: chúng ta không cần dùng đến chìa khóa & ổ khóa để mã hóa, nhưng cũng do nó là 1 chiều, nên thường thuật toán này không dùng để truyền thông điệp, mà nó được ứng dụng nhiều hơn trong **xác thực**:
 
 * Xác thực mật khẩu: chắc có nhiều người quen với việc dùng **MD5** hay **SHA** để lưu và xác thực 1 mật khẩu có đúng không. Ngoài ra việc lưu 1 mật khẩu dưới dạng `digest` trong database làm cho nó an toàn hơn rất nhiều: kể cả khi database có bị đánh cắp, mật khẩu người dùng cũng không bị lộ.
-* Xác thực độ toàn vẹn của 1 file hay 1 tin nhắn: việc truyền dữ liệu qua Internet không phải lúc nào cũng đảm bảo dữ liệu toàn vẹn 100%. Đôi khi những lúc mạng chậm, chập chờn hoặc có lỗi về đường truyền, chúng ta nhận được 1 file hoặc 1 thông điệp không toàn vẹn (thường là bị lỗi 1 phần). Nếu dữ liệu đủ nhỏ (1 tin nhắn vài dòng, 1 file dữ liệu vài kB) thì không nói làm gì vì ta có thể dễ dàng kiểm tra bằng mắt thường. Nhưng nếu dữ liệu lớn cỡ vài trăm MB hay GB thì không thể dùng mắt thường được. Khi đó:
-  - Tại nguồn của dữ liệu, ta tiến hành tính toán `digest` (thường là **SHA-128**, **SHA-256** hoặc **SHA-512** nếu dữ liệu rất lớn)
-  - Dữ liệu truyền qua Internet 1 cách bình thường & kèm theo `digest` đã tính toán (do `digest` này có độ dài tối đa là 512 bytes nên hầu như nó không thể bị lỗi khi truyền)
-  - Tại đích, ta lại tính toán `digest` của dữ liệu, nếu trùng khớp với `digest` tại nguồn thì tức là ta đã truyền tải thành công, còn nếu không, chắc chắn đã xảy ra lỗi ở đâu đó, ta cần truyền tải lại.
+* Xác thực độ toàn vẹn của 1 file hay 1 tin nhắn: việc truyền dữ liệu qua Internet không phải lúc nào cũng đảm bảo dữ liệu toàn vẹn 100%. Đôi khi những lúc mạng chậm, chập chờn hoặc có lỗi về đường truyền, chúng ta nhận được 1 file hoặc 1 thông điệp không toàn vẹn (thường là bị lỗi 1 phần). Nếu dữ liệu đủ nhỏ (1 tin nhắn vài dòng, 1 file dữ liệu vài kB) thì không nói làm gì vì ta có thể dễ dàng kiểm tra bằng mắt thường. Nhưng nếu dữ liệu lớn cỡ vài trăm MB hay GB thì không thể dùng mắt thường được.
 
-Trong bài [sau]({% post_url 2016-07-07-encryption-methods-2 %}), chúng ta sẽ cùng tìm hiểu 1 số thuật toán mã hóa phổ biến và cách dùng chúng trong ngôn ngữ **Ruby**.
+Khi đó:
 
-[symmetric-crypt-demo]:     /assets/media/posts/misc/2016-07-06-symmetric-crypt-demo.jpg
-{:class="img-responsive"}
+* Tại nguồn của dữ liệu, ta tiến hành tính toán `digest` (thường là **SHA-128**, **SHA-256** hoặc **SHA-512** nếu dữ liệu rất lớn)
+* Dữ liệu truyền qua Internet 1 cách bình thường & kèm theo `digest` đã tính toán (do `digest` này có độ dài tối đa là 512 bytes nên hầu như nó không thể bị lỗi khi truyền)
+* Tại đích, ta lại tính toán `digest` của dữ liệu, nếu trùng khớp với `digest` tại nguồn thì tức là ta đã truyền tải thành công, còn nếu không, chắc chắn đã xảy ra lỗi ở đâu đó, ta cần truyền tải lại.
 
-[asymmetric-crypt-demo]:    /assets/media/posts/misc/2016-07-06-asymmetric-crypt-demo.jpg
-{:class="img-responsive"}
+Trong bài [sau][part-2], chúng ta sẽ cùng tìm hiểu 1 số thuật toán mã hóa phổ biến và cách dùng chúng trong ngôn ngữ **Ruby**.
 
-[gigatux-nl]:               http://books.gigatux.nl/mirror/securitytools/ddu/ch09lev1sec1.html
-{:rel="nofollow"}
+[part-2]:     {{ site.url }}{% post_url 2016-07-07-encryption-methods-2 %}

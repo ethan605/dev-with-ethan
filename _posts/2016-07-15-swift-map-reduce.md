@@ -270,5 +270,5 @@ puts(flat_records)  ### [1, "Robert", "Baratheon", "Decreased King", 0, 2, "Jofr
 
 Các bạn có thể tải về file [MapReduce.playground & map_reduce.rb][attachment] để cùng xem các ví dụ về **Map-Reduce** đã trình bày trong bài.
 
-[var-param-warning]:      /assets/media/posts/swift/2016-07-15-closure-var-param-warning.png
-[attachment]:             /assets/downloads/swift/2016-07-15-MapReduce.zip
+[var-param-warning]:      {{ site.url }}/assets/media/posts/swift/2016-07-15-closure-var-param-warning.png
+[attachment]:             {{ site.url }}/assets/downloads/swift/2016-07-15-MapReduce.zip
