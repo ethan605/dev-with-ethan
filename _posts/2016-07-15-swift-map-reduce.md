@@ -232,8 +232,10 @@ puts(last_name_groups)  ### {"Baratheon"=>["Robert", "Jofrey"], "Lannister"=>["T
 
 Tuy nhiên kể từ **Swift 3**, chúng ta sẽ không thể dùng từ khóa `var` này nữa:
 
-![Closure var parameter warning][var-param-warning]
-{:style="text-align: center"}
+{% include figure.html
+   filename="/assets/media/posts/swift/2016-07-15-closure-var-param-warning.png"
+   alt="Closure var parameter warning"
+   caption="Warning: Closure var parameter" %}
 
 Nên ta cần sửa lại như sau:
 
@@ -270,5 +272,4 @@ puts(flat_records)  ### [1, "Robert", "Baratheon", "Decreased King", 0, 2, "Jofr
 
 Các bạn có thể tải về file [MapReduce.playground & map_reduce.rb][attachment] để cùng xem các ví dụ về **Map-Reduce** đã trình bày trong bài.
 
-[var-param-warning]:      {{ site.url }}/assets/media/posts/swift/2016-07-15-closure-var-param-warning.png
 [attachment]:             {{ site.url }}/assets/downloads/swift/2016-07-15-MapReduce.zip

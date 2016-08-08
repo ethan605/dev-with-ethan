@@ -8,7 +8,7 @@ tags: [swift, optional, type, 'ký pháp ?', 'question mark', 'ký pháp !', 'ex
 comments: true
 ---
 
-*... tiếp theo bài viết [[Swift] Kiểu giá trị Optional - Các cách khai báo & sử dụng]()*
+*... tiếp theo bài viết [[Swift] Kiểu giá trị Optional - Các cách khai báo & sử dụng][part-1]*
 
 ## 5. Method chaining ##
 
