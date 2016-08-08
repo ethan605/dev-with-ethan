@@ -38,25 +38,25 @@ layout: null
               <body>
                 <article>
                   <header>
-                      <h1>{{ post.title | xml_escape }}</h1>
-                      {% if post.imagefeature %}
-                      <figure>
-                        <img src="{{ post.imagefeature }}" alt=" {{ post.title }} ">
-                        <figcaption>{{ post.title }}</figcaption>
-                      </figure>
-                      {% else %}
-                      <figure>
-                        <img src="{{ site.baseurl | prepend: site.url }}/assets/media/ethanify.png" alt=" {{ post.title }} ">
-                        <figcaption>{{ post.title }}</figcaption>
-                      </figure>
-                      {% endif %}
-                      <time class="op-published" dateTime="{{ post.date | date: "%Y-%m-%d %H:%M:%S %Z" }}">{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</time>
-                      <time class="op-modified" dateTime="{{ post.modified | date: "%Y-%m-%d %H:%M:%S %Z" }}">{{ post.modified }}</time>
+                    <h1>{{ post.title | xml_escape }}</h1>
+                    {% if post.imagefeature %}
+                    <figure>
+                      <img src="{{ post.imagefeature }}" alt=" {{ post.title }} ">
+                      <figcaption>{{ post.title }}</figcaption>
+                    </figure>
+                    {% else %}
+                    <figure>
+                      <img src="{{ site.baseurl | prepend: site.url }}/assets/media/ethanify.png" alt=" {{ post.title }} ">
+                      <figcaption>{{ post.title }}</figcaption>
+                    </figure>
+                    {% endif %}
+                    <time class="op-published" dateTime="{{ post.date | date: "%Y-%m-%d %H:%M:%S %Z" }}">{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</time>
+                    <time class="op-modified" dateTime="{{ post.modified | date: "%Y-%m-%d %H:%M:%S %Z" }}">{{ post.modified }}</time>
                   </header>
                   {% if post.instantfeedback %}
                     {{ post.content | replace: '<figure>', '<figure data-feedback="fb:likes">' }}
                   {% else %}
-                    {{ post.content }}
+                    {{ post.content | replace: 'h3', 'h2' }}
                   {% endif %}
                   <footer>
                     <aside>Đăng bởi Thành Nguyễn (Ethan)</aside>
