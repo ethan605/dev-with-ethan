@@ -8,7 +8,7 @@ tags: [cryptopgraphy, encryption, 'mã hóa', symmetric, 'đối xứng', asymme
 comments: true
 ---
 
-*... tiếp theo bài viết [Cryptography: Các phương pháp mã hóa thường dùng]({% post_url 2016-07-06-encryption-methods-1 %})*
+*... tiếp theo bài viết [Cryptography: Các phương pháp mã hóa thường dùng][part-1]*
 
 Như đã nói trong bài trước, **Mã hóa** là 1 lĩnh vực quan trọng và thú vị. Rất nhiều nhà khoa học lỗi lạc đã dành cả đời mình nghiên cứu **Mã hóa** và đưa ra nhiều thuật toán có ý nghĩa lớn với toàn bộ nền **Khoa học Máy tính** nói chung. Trong bài này, tôi sẽ đưa ra 1 vài ví dụ về những thuật toán phổ biến, có thể dễ dàng cài đặt và sử dụng bằng Ruby. Một khi đã nắm vững cách sử dụng, các bạn có thể tiếp cận sử dụng với các bộ thư viện tương tự trong các ngôn ngữ khác 1 cách dễ dàng.
 
@@ -34,14 +34,17 @@ Trong **Ruby**, chúng ta dùng **AES** thông qua bộ thư viện `OpenSSL::Ci
 
 Để sử dụng AES trong Ruby, ta cần 2 tham số:
 
-* **key size** (độ lớn của `key`): nhận các giá trị 128, 192 hoặc 256 bit
-* **block cipher mode**: trong các thuật toán mã hóa sử dụng `block`, cần chỉ rõ ta muốn sử dụng chế độ nào để thao tác trên `block` đó. Các chế độ thường dùng bao gồm:
-    - Electronic Codebook (ECB)
-    - Cipher Block Chaining (CBC)
-    - Propagating Cipher Block Chaining (PCBC)
-    - Cipher Feedback (CFB)
-    - Output Feedback (OFB)
-    - Counter (CTR)
+* **key size** (độ lớn của `key`): nhận các giá trị 128, 192 hoặc 256 bit.
+* **block cipher mode**: trong các thuật toán mã hóa sử dụng `block`, cần chỉ rõ ta muốn sử dụng chế độ nào để thao tác trên `block` đó.
+
+Các chế độ thường dùng bao gồm:
+
+* Electronic Codebook (ECB)
+* Cipher Block Chaining (CBC)
+* Propagating Cipher Block Chaining (PCBC)
+* Cipher Feedback (CFB)
+* Output Feedback (OFB)
+* Counter (CTR)
 
 Ta sẽ dùng `key` có độ dài 256 (phức tạp nhất) và `block` có chế độ `CBC`:
 
@@ -289,4 +292,5 @@ digest << " với thuật toán MD5"
 digest.hexdigest                ### 0953e45472e0d2e0a668c2812358d6a29d8277c86a7ff0d120be2db84f0f021d5afd44b26bc6d5f25dfdcf8b605c5c18f66c1cc831168f4a954c861b1e97f751
 ```
 
-[rsa-key-pairs]:        /assets/downloads/misc/2016-07-07-rsa-key-pairs.zip
+[rsa-key-pairs]:        {{ site.url }}/assets/downloads/misc/2016-07-07-rsa-key-pairs.zip
+[part-1]:               {{ site.url }}{% post_url 2016-07-06-encryption-methods-1 %}
