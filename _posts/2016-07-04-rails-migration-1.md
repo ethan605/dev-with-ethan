@@ -43,7 +43,10 @@ Ví dụ, ta có 1 ứng dụng tên là **SecretMessenger**. Ứng dụng này 
 
 Đây là 1 thiết kế khá giống với hầu hết các ứng dụng nhắn tin hiện nay như **Messenger** của Facebook, **Viber** hay **Telegram**. Giả sử thiết kế ban đầu của chúng ta có dạng như thế này:
 
-![SecretMessenger - Database schema - v1.0][db-schema-1.0]
+{% include figure.html
+   filename="/assets/media/posts/ruby-on-rails/2016-07-04-secret-messenger-db-schema-1.0.png"
+   alt="SecretMessenger - Database schema - v1.0"
+   caption="Database schema v1.0" %}
 
 Đây là thiết kế cơ bản nhất, cho phép ứng dụng **SecretMessenger** của chúng ta có thể:
 
@@ -190,14 +193,12 @@ class CreateConversations < ActiveRecord::Migration[5.0]
 end
 ```
 
-Ở đây chúng ta có 1 class tên là `CreateConversations`, kế thừa từ `ActiveRecord::Migration[5.0]`. Class này có 1 hàm tên `change`, với nội dung là:
+Ở đây chúng ta có 1 class tên là `CreateConversations`, kế thừa từ `ActiveRecord::Migration[5.0]`. Class này có 1 hàm tên `change`, với nội dung là tạo mới (`create_table`) một bảng tên là `conversations`, trong bảng `conversations`:
 
-* Tạo mới (`create_table`) một bảng tên là `conversations`, trong bảng `conversations`:
-
-    - Tạo 1 trường kiểu `string` tên là `title`
-    - Tạo 1 trường liên kết ngoài bảng (`foreign_key`) tên là `from_user`
-    - Tạo 1 trường liên kết ngoài bảng (`foreign_key`) tên là `to_user`
-    - Tạo các trường thời gian `created_at` và `updated_at` (thông qua `timestamps`)
+* Tạo 1 trường kiểu `string` tên là `title`
+* Tạo 1 trường liên kết ngoài bảng (`foreign_key`) tên là `from_user`
+* Tạo 1 trường liên kết ngoài bảng (`foreign_key`) tên là `to_user`
+* Tạo các trường thời gian `created_at` và `updated_at` (thông qua `timestamps`)
 
 Tuy nhiên, việc dùng `references` như ở trên không đúng ý đồ của chúng ta lắm, vì nó không thể hiện được rõ ràng mối quan hệ `n-1` giữa `Conversation` và `User`. Ta sẽ sửa lại file **Migration** này 1 chút như sau:
 
@@ -239,16 +240,14 @@ Cuối cùng, ta chạy lệnh `migrate` để thực hiện các thay đổi:
 $ rails db:migrate
 ```
 
-Trong bài viết [sau]({% post_url 2016-07-05-rails-migration-2 %}), ta sẽ làm việc sâu hơn với **Migration** trong **Rails** với các thao tác thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, xóa trường & đánh index cho các trường trong Model.
+Trong bài viết [sau][part-2], ta sẽ làm việc sâu hơn với **Migration** trong **Rails** với các thao tác thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, xóa trường & đánh index cho các trường trong Model.
 
+[part-2]:           {{ site.url }}{% post_url 2016-07-05-rails-migration-2 %}
 [active-record]:    http://guides.rubyonrails.org/active_record_basics.html
 {:rel="nofollow"}
 
 [orm]:              https://en.wikipedia.org/wiki/Object-relational_mapping
 {:rel="nofollow"}
-
-[db-schema-1.0]:    /assets/media/posts/ruby-on-rails/2016-07-04-secret-messenger-db-schema-1.0.png
-{:class="img-responsive"}
 
 [command-line-tools]: http://guides.rubyonrails.org/command_line.html
 {:rel="nofollow"}

@@ -8,7 +8,7 @@ tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
 ---
 
-*... tiếp theo bài viết [[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record]({% post_url 2016-07-04-rails-migration-1 %})*
+*... tiếp theo bài viết [[Ruby on Rails] Migration trong Rails: Tạo mới Models với Active Record]()*
 
 ## 3. Các thao tác với Migration trong Ruby on Rails ##
 
@@ -203,7 +203,10 @@ end
 
 Cuối cùng, sử dụng **Migration** một cách nhuần nhuyễn, chúng ta có thể tạo ra được 1 database schema phức tạp hơn mà vẫn bảo toàn nguyên vẹn các dữ liệu được tạo ra trong quá trình làm việc:
 
-![SecretMessenger - Database schema - v1.1][db-schema-1.1]
+{% include figure.html
+   filename="/assets/media/posts/ruby-on-rails/2016-07-05-secret-messenger-db-schema-1.1.png"
+   alt="SecretMessenger - Database schema - v1.1"
+   caption="Database schema v1.1" %}
 
 **Ruby on Rails** cung cấp rất nhiều tính năng **Migration** khác nhau, các bạn nên tham khảo kỹ 2 trang sau đây để biết tất cả những tính năng được hỗ trợ:
 
@@ -212,6 +215,7 @@ Cuối cùng, sử dụng **Migration** một cách nhuần nhuyễn, chúng ta 
 
 Nhìn chung, đối với những người mới bước chân vào thế giới của **Ruby on Rails**, đặc biệt là với những bạn không quen với lập trình web back-end, việc viết các **Migration** khá khó và không quen. Tuy nhiên, lời khuyên chân thành của tôi là hãy thực hành viết và sử dụng tính năng này càng nhiều càng tốt, vì nó sẽ giúp các bạn tạo được 1 thói quen cực hiệu quả trong lập trình nói chung, cũng như trong quá trình phát triển ứng dụng của mình nói riêng.
 
+[part-1]:                     {{ site.url }}{% post_url 2016-07-04-rails-migration-1 %}
 [active-record-migrations]:   http://edgeguides.rubyonrails.org/active_record_migrations.html
 {:rel="nofollow"}
 
