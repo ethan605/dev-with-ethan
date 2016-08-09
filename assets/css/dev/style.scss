@@ -554,9 +554,55 @@ main {
 
 			/* Reset prism js values */
 			>section pre, code[class*="language-"] {
-				font: 14px/20px Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !important;
-				* {
-					font: 14px/20px Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !important;
+        font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !important;
+        * {
+          font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace !important;
+        }
+
+        /* Mobile */
+				@media(max-width:$mobile-max) {
+          font-size: $preFontSize-mobile !important;
+          line-height: $preLineHeight-mobile !important;
+          * { 
+            font-size: $preFontSize-tiny !important;
+            line-height: $preLineHeight-tiny !important;
+          }
+				}
+				/* Tablet */
+				@media(min-width:$tablet-min) and (max-width:$tablet-max) {
+          font-size: $preFontSize-tablet !important;
+          line-height: $preLineHeight-tablet !important;
+          * { 
+            font-size: $preFontSize-tablet !important;
+            line-height: $preLineHeight-tablet !important;
+          }
+				}
+				/* Computer */
+				@media(min-width:$computer-min) and (max-width:$computer-max) {
+          font-size: $preFontSize-computer !important;
+          line-height: $preLineHeight-computer !important;
+          * { 
+            font-size: $preFontSize-computer !important;
+            line-height: $preLineHeight-computer !important;
+          }
+				}
+				/* Largescreen */
+				@media(min-width:$largescreen-min) and (max-width:$largescreen-max) {
+          font-size: $preFontSize-largescreen !important;
+          line-height: $preLineHeight-largescreen !important;
+          * { 
+            font-size: $preFontSize-largescreen !important;
+            line-height: $preLineHeight-largescreen !important;
+          }
+				}
+				/* Widescreen */
+				@media(min-width:$widescreen-min) {
+          font-size: $preFontSize-widescreen !important;
+          line-height: $preLineHeight-widescreen !important;
+          * { 
+            font-size: $preFontSize-widescreen !important;
+            line-height: $preLineHeight-widescreen !important;
+          }
 				}
 			}/* code[class*="language-"] */
 
