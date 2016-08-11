@@ -86,11 +86,11 @@ Như đã nói trong các bài trước, **Swift** là 1 ngôn ngữ **hướng 
 
 ```swift
 public class NSArray : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
-  ...
+  // ...
 }
 
 public class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCoding, NSFastEnumeration {
-  ...
+  // ...
 }
 ```
 

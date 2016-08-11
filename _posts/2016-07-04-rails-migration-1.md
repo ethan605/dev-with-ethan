@@ -162,7 +162,7 @@ Mặc định, `rails generate` sẽ tạo ra rất nhiều các file phục v�
 ```ruby
 module SecretMessengerApi
   class Application < Rails::Application
-    ...
+    # ...
 
     config.generators do |g|
       g.orm             :active_record
@@ -172,7 +172,7 @@ module SecretMessengerApi
       g.javascripts     false
     end
 
-    ...
+    # ...
   end
 end
 ```
