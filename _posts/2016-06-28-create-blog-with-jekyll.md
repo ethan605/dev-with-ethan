@@ -43,6 +43,11 @@ Tại **Github**, ta tạo 1 repository mới, giả sử tên là `my-blog`, `c
 ```shell
 $ git clone git@github.com:<username>/my-blog.git
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/shell-1.png"
+   alt="Shell snippet 1"
+   caption="Clone repository"
+   instant_articles="true" %}
 
 Trong đó `<username>` là tên tài khoản của bạn trên **Github**
 
@@ -55,12 +60,22 @@ Sau khi đã có **Ruby**, ta cần cài đặt 1 `gem` có tên là `bundler`. 
 ```shell
 $ gem install bundler
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/shell-2.png"
+   alt="Shell snippet 2"
+   caption="Cài gem bundle"
+   instant_articles="true" %}
 
 Sau khi đã `clone` repository `my-blog` từ Github & cài đặt `bundler` thành công, ta tạo 1 file có tên `Gemfile` trong thư mục `my-blog`. `Gemfile` là cách mà **Ruby** quản lý các `gems` của project.
 
 ```shell
 $ touch Gemfile
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/shell-3.png"
+   alt="Shell snippet 3"
+   caption="Khởi tạo Gemfile"
+   instant_articles="true" %}
 
 Trong `Gemfile`, chúng ta khai báo các `gems` cần dùng với Jekyll
 
@@ -72,12 +87,22 @@ group :jekyll_plugins do
   gem 'jekyll-paginate', '~> 1.1'
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/ruby-1.png"
+   alt="Ruby code snippet 1"
+   caption="Thêm gem"
+   instant_articles="true" %}
 
 Trong **Terminal** ta gọi `bundle` để cài đặt các `gems` đã khai báo trong `Gemfile`
 
 ```shell
-$ bundle
+$ bundle install
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/shell-4.png"
+   alt="Shell snippet 4"
+   caption="Install bundle"
+   instant_articles="true" %}
 
 ## 4. Sử dụng custom theme ##
 
@@ -101,6 +126,11 @@ Sau khi có bài viết bằng `markdown`, chạy lệnh `serve` để xem đư�
 ```shell
 $ jekyll serve
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/shell-5.png"
+   alt="Shell snippet 5"
+   caption="Chạy Jekyll ở local"
+   instant_articles="true" %}
 
 Lúc này, toàn bộ blog sẽ truy cập được thông qua địa chỉ `localhost:4000` hoặc `127.0.0.1:4000`
 
@@ -117,6 +147,11 @@ $ git checkout -b gh-pages
 ## In gh-pages branch
 $ git push -u origin gh-pages
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/shell-6.png"
+   alt="Shell snippet 6"
+   caption="Tạo branch gh-pages"
+   instant_articles="true" %}
 
 Tại các lần sau, khi viết bài mới, ta vẫn làm việc ở `master`, nhưng khi muốn deploy thì `merge` các thay đổi vào `gh-pages` và `push` lên:
 
@@ -128,6 +163,11 @@ $ git checkout gh-pages
 $ git merge master
 $ git push origin gh-pages
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/shell-7.png"
+   alt="Shell snippet 7"
+   caption="Merge branch gh-pages"
+   instant_articles="true" %}
 
 Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<username>.github.io/<repo-name>`
 
@@ -147,6 +187,11 @@ Lúc này, các thay đổi sẽ được cập nhật lên trang `https://<user
 ```shell
 $ JEKYLL_GITHUB_TOKEN=jkghtoken jekyll serve
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-28/shell-8.png"
+   alt="Shell snippet 8"
+   caption="Chạy Jekyll tại local với Github Token"
+   instant_articles="true" %}
 
 Trong đó `jkghtoken` là 1 chuỗi bất kỳ, thế nào cũng được.
 

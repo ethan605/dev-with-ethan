@@ -73,6 +73,11 @@ struct ComplexNumber: CustomStringConvertible {
   }
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-29/swift-1.png"
+   alt="Swift code snippet 1"
+   caption="Khai báo class ComplexNumber"
+   instant_articles="true" %}
 
 Ở đây, ta dùng protocol `CustomStringConvertible` với mục đích định nghĩa thuộc tính `description`, dùng để hiển thị ra 1 `String` dễ đọc trong trường hợp cần `print` hoặc *interpolate* số Phức này vào 1 `String`, ví dụ:
 
@@ -83,6 +88,11 @@ print(c1)
 let c2 = ComplexNumber(re: 2, im: -4)
 "Complex number 2: \(c2)"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-29/swift-2.png"
+   alt="Swift code snippet 2"
+   caption="Sử dụng ComplexNumber"
+   instant_articles="true" %}
 
 Ngoài ra, function `modulus` dùng để lấy **Mođun** và function `argument` dùng để lấy **Argumen** của số Phức này. Ví dụ:
 
@@ -90,6 +100,11 @@ Ngoài ra, function `modulus` dùng để lấy **Mođun** và function `argumen
 c1.modulus()        // 3.16227766016838
 c1.argument()       // (1, 3)
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-29/swift-3.png"
+   alt="Swift code snippet 3"
+   caption="Tính Mođun & Argumen"
+   instant_articles="true" %}
 
 ## 4. Định nghĩa các phép toán ##
 
@@ -127,6 +142,11 @@ func divide(otherNumber: ComplexNumber) -> ComplexNumber {
   return result
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-29/swift-4.png"
+   alt="Swift code snippet 4"
+   caption="Thêm các phép toán"
+   instant_articles="true" %}
 
 Ngoài ra còn có thêm các phép toán nhân với 1 số thực (`multiply:factor`), chia cho 1 số thực khác 0 (`divide:factor`) và bị chia bởi 1 số thực (`dividedBy:factor`). Do các phép chia đều phải kiểm tra số chia có bằng `0` hay không, nên ta có thêm 1 phương thức `isZero` kiểm tra điều kiện `re` và `im` đều bằng `0`. Trường hợp cố gắng chia cho 0, ta sẽ có 1 giá trị mặc định là `ComplexNumber.NaN` có cả `re` và `im` đều là `Double.NaN`
 
@@ -165,6 +185,11 @@ func dividedBy(factor: Double) -> ComplexNumber {
   return result
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-29/swift-5.png"
+   alt="Swift code snippet 5"
+   caption="Thêm các phép toán"
+   instant_articles="true" %}
 
 ## 5. Sử dụng các toán tử ##
 
@@ -199,6 +224,11 @@ func /(c1: ComplexNumber, factor: Double) -> ComplexNumber {
   return c1.divide(factor)
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-29/swift-6.png"
+   alt="Swift code snippet 6"
+   caption="Thêm các toán tử"
+   instant_articles="true" %}
 
 Đối với các toán tử không phải là mặc định, ta có thể định nghĩa mới thông qua các khai báo `operator`, ví dụ:
 
@@ -209,6 +239,11 @@ infix operator * {associativity left precedence 150}
 infix operator / {associativity left precedence 150}
 prefix operator - {}
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-29/swift-7.png"
+   alt="Swift code snippet 7"
+   caption="Khai báo các toán tử"
+   instant_articles="true" %}
 
 Trong đó:
 
