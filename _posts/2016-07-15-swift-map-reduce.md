@@ -45,7 +45,7 @@ let records : [[AnyObject]] = [
 ```
 
 ```ruby
-## Ruby
+# Ruby
 records = [
   [1, "Robert", "Baratheon", "Decreased King", 0],
   [2, "Jofrey", "Baratheon", "King of Westeros", 50000],
@@ -73,9 +73,9 @@ print(allSalaries)      // [0, 50000, 10000, 9000, 8000, 7000, 8500, 6000, 7500,
 ```
 
 ```ruby
-## Ruby
+# Ruby
 all_salaries = records.map {|r| r.last}
-puts(all_salaries)      ### [0, 50000, 10000, 9000, 8000, 7000, 8500, 6000, 7500, 7500]
+puts(all_salaries)      # [0, 50000, 10000, 9000, 8000, 7000, 8500, 6000, 7500, 7500]
 ```
 
 Lúc này ta có `allSalaries` là 1 mảng `Int` chứa giá trị tất cả tiền lương trong 1 tháng của từng người. Tất nhiên ta mới chỉ lấy được dữ liệu chứ chưa biết tổng, vì hàm `map()` không có chức năng tính tổng! Ta sẽ biết tổng số lương cần phải trả trong tháng là bao nhiêu ở phần về hàm `reduce()`
@@ -90,7 +90,7 @@ let goodPays = records.filter { ($0.last as! Int) >= 8000 }
 ```
 
 ```ruby
-## Ruby
+# Ruby
 good_pays = records.select {|r| r.last >= 8000}
 ```
 
@@ -103,9 +103,9 @@ let names = goodPays.map { "\($0[1]) \($0[2])" }  // ["Jofrey Baratheon", "Tyrio
 ```
 
 ```ruby
-## Ruby
+# Ruby
 good_pays = records.select {|r| r.last >= 8000}
-names = good_pays.map {|r| "#{r[1]} ##{r[2]}"}     ### ["Jofrey Baratheon", "Tyrion Lannister", "Eddard Stark", "Daenerys Targaryen", "Cersei Lannister"]
+names = good_pays.map {|r| "#{r[1]} ##{r[2]}"}     # ["Jofrey Baratheon", "Tyrion Lannister", "Eddard Stark", "Daenerys Targaryen", "Cersei Lannister"]
 ```
 
 ### 2.3. Reduce ###
@@ -122,10 +122,10 @@ print(totalPays)        // 113500
 ```
 
 ```ruby
-// Swift
+# Ruby
 all_salaries = records.map {|r| r.last}
 total_pays = all_salaries.reduce(:+)
-puts(total_pays)        ### 113500
+puts(total_pays)        # 113500
 ```
 
 Trong **Swift**, khi muốn `reduce()` một mảng, ta cung cấp 1 giá trị khởi tạo và một **closure** ở tham số `combine`, lặp tuần tự:
@@ -150,7 +150,7 @@ print("Total pays = \(totalPays)")
 
 Khi đó, tại màn hình **Debug**, ta nhận được các dòng in ra như sau:
 
-```shell
+```
 Reduce step: temp = 0, salary = 0
 Reduce step: temp = 0, salary = 50000
 Reduce step: temp = 50000, salary = 10000
@@ -175,9 +175,9 @@ print(goodPayNames)       // Jofrey BaratheonTyrion LannisterEddard StarkDaenery
 ```
 
 ```ruby
-## Ruby
+# Ruby
 good_pay_names = names.reduce(:+)
-puts(good_pay_names)       // Jofrey BaratheonTyrion LannisterEddard StarkDaenerys TargaryenCersei Lannister
+puts(good_pay_names)       # Jofrey BaratheonTyrion LannisterEddard StarkDaenerys TargaryenCersei Lannister
 ```
 
 Tuy nhiên, giá trị trả về thì bị *dính chữ* (`Jofrey BaratheonTyrion LannisterEddard`), ta cần xử lý kỹ hơn chỗ này 1 chút:
@@ -195,11 +195,11 @@ print(goodPayNames)     // Jofrey Baratheon, Tyrion Lannister, Eddard Stark, Dae
 ```
 
 ```ruby
-## Ruby
+# Ruby
 good_pay_names = names.reduce {|temp, name|
   temp.empty? ? name : temp + ", ##{name}"
 }
-puts(good_pay_names)    ### Jofrey Baratheon, Tyrion Lannister, Eddard Stark, Daenerys Targaryen, Cersei Lannister
+puts(good_pay_names)    # Jofrey Baratheon, Tyrion Lannister, Eddard Stark, Daenerys Targaryen, Cersei Lannister
 ```
 
 Giờ đến yêu cầu phức tạp hơn: ta thấy, trong số 10 người xuất hiện những cặp có cùng họ, ví dụ `Baratheon`, `Lannister`,... Giờ ta sẽ tìm cách để nhóm những ai có cùng họ lại:
@@ -219,7 +219,7 @@ print(lastNameGroups)   // ["Stark": ["Eddard"], "Lannister": ["Tyrion", "Cersei
 ```
 
 ```ruby
-## Ruby
+# Ruby
 full_names = records.map {|r| [r[1], r[2]]}
 last_name_groups = full_names.reduce({}) {|temp, full_name|
   first_name, last_name = full_name
@@ -227,7 +227,7 @@ last_name_groups = full_names.reduce({}) {|temp, full_name|
   temp[last_name] << first_name
   temp
 }
-puts(last_name_groups)  ### {"Baratheon"=>["Robert", "Jofrey"], "Lannister"=>["Tyrion", "Cersei"], "Stark"=>["Eddard"], "Targaryen"=>["Daenerys"], "Snow"=>["Jon"], "Drogo"=>["Khal"], "Baelish"=>["Petyr"], "of Lys"=>["Varys"]}
+puts(last_name_groups)  # {"Baratheon"=>["Robert", "Jofrey"], "Lannister"=>["Tyrion", "Cersei"], "Stark"=>["Eddard"], "Targaryen"=>["Daenerys"], "Snow"=>["Jon"], "Drogo"=>["Khal"], "Baelish"=>["Petyr"], "of Lys"=>["Varys"]}
 ```
 
 Ở đây có 1 lưu ý: đó là biến `temp` trong **closure** được khai báo sau từ khóa `var`, tức là biến `temp` này có thể thay đổi được trong quá trình tính toán. Bình thường các tham số của hàm & closure trong **Swift** nếu là **value type** (`Int`, `String`, `Array`, `Dictionary`,...) sẽ không thể thay đổi giá trị trong suốt quá trình làm việc. Khai báo `var` cho phép chúng ta thay đổi.
@@ -267,9 +267,9 @@ print(flatRecords)  // [1, Robert, Baratheon, Decreased King, 0, 2, Jofrey, Bara
 ```
 
 ```ruby
-## Ruby
+# Ruby
 flat_records = records.flatten
-puts(flat_records)  ### [1, "Robert", "Baratheon", "Decreased King", 0, 2, "Jofrey", "Baratheon", "King of Westeros", 50000, 3, "Tyrion", "Lannister", "Hand of the King", 10000, 4, "Eddard", "Stark", "Lord of Winterfell", 9000, 5, "Daenerys", "Targaryen", "Mother of Dragons", 8000, 6, "Jon", "Snow", "Bastard of Lord Stark", 7000, 7, "Cersei", "Lannister", "Queen of Westeros", 8500, 8, "Khal", "Drogo", "Khal of Dothraki", 6000, 9, "Petyr", "Baelish", "Littlefinger", 7500, 10, "Varys", "of Lys", "The Spider", 7500]
+puts(flat_records)  # [1, "Robert", "Baratheon", "Decreased King", 0, 2, "Jofrey", "Baratheon", "King of Westeros", 50000, 3, "Tyrion", "Lannister", "Hand of the King", 10000, 4, "Eddard", "Stark", "Lord of Winterfell", 9000, 5, "Daenerys", "Targaryen", "Mother of Dragons", 8000, 6, "Jon", "Snow", "Bastard of Lord Stark", 7000, 7, "Cersei", "Lannister", "Queen of Westeros", 8500, 8, "Khal", "Drogo", "Khal of Dothraki", 6000, 9, "Petyr", "Baelish", "Littlefinger", 7500, 10, "Varys", "of Lys", "The Spider", 7500]
 ```
 
 Các bạn có thể tải về file [MapReduce.playground & map_reduce.rb][attachment] để cùng xem các ví dụ về **Map-Reduce** đã trình bày trong bài.

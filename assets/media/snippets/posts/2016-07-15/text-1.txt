@@ -1,0 +1,11 @@
+Reduce step: temp = 0, salary = 0
+Reduce step: temp = 0, salary = 50000
+Reduce step: temp = 50000, salary = 10000
+Reduce step: temp = 60000, salary = 9000
+Reduce step: temp = 69000, salary = 8000
+Reduce step: temp = 77000, salary = 7000
+Reduce step: temp = 84000, salary = 8500
+Reduce step: temp = 92500, salary = 6000
+Reduce step: temp = 98500, salary = 7500
+Reduce step: temp = 106000, salary = 7500
+Total pays = 113500

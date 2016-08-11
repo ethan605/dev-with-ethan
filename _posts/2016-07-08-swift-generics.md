@@ -44,7 +44,7 @@ genericsMax(1, 2)       // 2
 genericsMax(2.8, 1.5)   // 2.8
 ```
 
-Như vậy, bằng cú pháp khai báo `<T: Comparable>` ngay sau tên hàm `genericsMax`, ta có thể sử dụng `T` như 1 kiểu dữ liệu hợp lệ. Tuy nhiên, do các phép so sánh (`>`, `>=`, `<`, '<=' và '=') không áp dụng cho mọi kiểu dữ liệu, nên ta cần *hạn chế* bớt các trường hợp có thể của `T` lại.
+Như vậy, bằng cú pháp khai báo `<T: Comparable>` ngay sau tên hàm `genericsMax`, ta có thể sử dụng `T` như 1 kiểu dữ liệu hợp lệ. Tuy nhiên, do các phép so sánh (`>`, `>=`, `<`, `<=` và `=`) không áp dụng cho mọi kiểu dữ liệu, nên ta cần *hạn chế* bớt các trường hợp có thể của `T` lại.
 
 Trong trường hợp này, ta định nghĩa `T` cần phải **conform protocol** tên là `Comparable`. Việc làm này gọi là **constrains** (nghĩa là *ràng buộc*). Khai báo đầy đủ của **Generics constrains** sử dụng từ khóa `where` như sau:
 

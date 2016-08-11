@@ -59,8 +59,8 @@ cipher = OpenSSL::Cipher::AES.new(256, :CBC)
 Sau khi khởi tạo `cipher` (có nghĩa là *mật mã*), ta cần khai báo `cipher` này dùng để *mã hóa* (*encrypt*) hay *giải mã* (*decrypt*):
 
 ```ruby
-cipher.encrypt      ### for encryption
-cipher.decrypt      ### for decryption
+cipher.encrypt      # for encryption
+cipher.decrypt      # for decryption
 ```
 
 Đối với các chế độ `CBC`, `CFB`, `OFB` hay `CTR`, ta cần thêm 1 tham số gọi là `iv` (viết tắt của **initialization vector**). Chỉ duy nhất `ECB` là không sử dụng `iv`, vậy nên theo các chuyên gia, không nên sử dụng chế độ `ECB` trừ khi thật sự rất cần đến nó.
@@ -68,15 +68,15 @@ cipher.decrypt      ### for decryption
 Chúng ta có thể đặt `key` và `iv` của `cipher` bằng 1 String mà chúng ta muốn. Lưu ý là `iv` luôn có độ dài `16` ký tự (vì `16 * 8 = 128 bit`) còn `key` thì có các độ dài `16`, `24`, `32` tương ứng với `128`, `192` hoặc `256` bit:
 
 ```ruby
-cipher.key = "secretkey@dev.ethanify.me(c)2016"         ### 32 bytes = 256 bits
-cipher.iv = "secret_iv(c)2016"                          ### 16 bytes = 128 bits
+cipher.key = "secretkey@dev.ethanify.me(c)2016"         # 32 bytes = 256 bits
+cipher.iv = "secret_iv(c)2016"                          # 16 bytes = 128 bits
 ```
 
 hoặc để cho `cipher` tự sinh ngẫu nhiên:
 
 ```ruby
-key = cipher.random_key             ### "Lf\xE7 \xE3bK\x82\xA9\b\x1D\xFE){\x7F\xB9\x94\x9D\xBDc\x99\xBB\x0E\x15B@\xB9\xBE \xC31d"
-iv = cipher.random_iv               ### "\x96\x86\x93QR\xBE\x00\b\xC9\x90\x18\xF0H\xFB]\f"
+key = cipher.random_key             # "Lf\xE7 \xE3bK\x82\xA9\b\x1D\xFE){\x7F\xB9\x94\x9D\xBDc\x99\xBB\x0E\x15B@\xB9\xBE \xC31d"
+iv = cipher.random_iv               # "\x96\x86\x93QR\xBE\x00\b\xC9\x90\x18\xF0H\xFB]\f"
 ```
 
 **AES** trong **Ruby** cho phép ta chèn thêm nội dung vào đoạn thông điệp mã hóa bằng hàm `update()` và chỉ tính toán giá trị cuối cùng khi gọi hàm `final()`
@@ -92,7 +92,7 @@ Lúc này, `encrypted_content` chứa thông tin mã hóa của chuỗi `"Mã h�
 Có 1 cách đơn giản là chúng ta sẽ *encode* toàn bộ các dữ liệu thô này về dạng **Base64**. Về bản chất, **Base64** không mã hóa thông tin phức tạp như **AES**, mà chỉ tìm cách *biểu diễn* các giá trị dạng binary về dạng String dễ đọc bằng các ký tự chữ & số:
 
 ```ruby
-encrypted_base64 = Base64.encode64(encrypted_content) ### "DVM+VfhAppOtvolyq9WWhFs7AT7skg5RpsN5YVZs33J5Wr/7nUb1IEFPSfeK\n6UGCsDpN1jQbhwayk4gXiEtUgw==\n"
+encrypted_base64 = Base64.encode64(encrypted_content) # "DVM+VfhAppOtvolyq9WWhFs7AT7skg5RpsN5YVZs33J5Wr/7nUb1IEFPSfeK\n6UGCsDpN1jQbhwayk4gXiEtUgw==\n"
 ```
 
 #### 3.2.2. Giải mã ####
@@ -120,7 +120,7 @@ Nếu sử dụng **Base64**, ta cần *decode* dữ liệu biểu diễn bằng
 encrypted_data = Base64.decode64(encrypted_base64)
 
 decrypted_content = decipher.update(encrypted_data)
-decrypted_content << decipher.final         ### Mã hóa đối xứng bằng thuật toán AES-256
+decrypted_content << decipher.final         # Mã hóa đối xứng bằng thuật toán AES-256
 ```
 
 ## 4. Mã hóa bất đối xứng ##
@@ -133,7 +133,7 @@ Thuật toán này được đặt tên theo họ của 3 nhà khoa học đồn
 
 ### 4.2. Sử dụng RSA trong Ruby ###
 
-#### 4.2.1. Khởi tạo cặp public - private key ###
+#### 4.2.1. Khởi tạo cặp public - private key ####
 
 Giống như **AES**, **Ruby** cung cấp sẵn các cài đặt của **RSA** thông qua bộ thư viện `OpenSSL`:
 
@@ -155,7 +155,7 @@ Do **private key** rất nhạy cảm, và thường thì file `private_key.pem`
 
 Các bạn có thể download 2 file này ở [đây][rsa-key-pairs].
 
-#### 4.2.2. Đọc dữ liệu public - private key từ file ###
+#### 4.2.2. Đọc dữ liệu public - private key từ file ####
 
 Do đã lưu vào file, mỗi lần cần dùng, ta phải đọc các dữ liệu từ 2 file này để có được cặp **public key** & **private key** đúng.
 
@@ -176,14 +176,14 @@ private_key = OpenSSL::PKey::RSA.new(private_key_content, pass_phrase)
 **RSA** cung cấp cho chúng ta 2 hàm `public?()` và `private?()` để kiểm tra xem 1 key có đúng là **public key** hay **private key** hay không:
 
 ```ruby
-public_key.public?          ### true
-private_key.public?         ### false
+public_key.public?          # true
+private_key.public?         # false
 
-public_key.private?         ### false
-private_key.private?        ### true
+public_key.private?         # false
+private_key.private?        # true
 ```
 
-#### 4.2.3. Mã hóa - giải mã ###
+#### 4.2.3. Mã hóa - giải mã ####
 
 Để mã hóa 1 thông điệp, ta dùng `public_key`, để giải mã, ta dùng `private_key`:
 
@@ -194,10 +194,10 @@ encrypted_base64 = Base64.encode64(encrypted_data)
 
 ```ruby
 encrypted_data = Base64.decode64(encrypted_base64)
-decrypted_data = private_key.private_decrypt(encrypted_data)        ### Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit
+decrypted_data = private_key.private_decrypt(encrypted_data)        # Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit
 ```
 
-#### 4.2.4. Xác thực điện tử ###
+#### 4.2.4. Xác thực điện tử ####
 
 Ngoài *mã hóa* & *giải mã*, điểm mạnh của **Mã hóa bất đối xứng** là bạn có thể *ký* vào 1 dữ liệu bằng **private key** và người nhận có thể *xác thực* bằng **public key**.
 
@@ -206,7 +206,7 @@ Ngoài *mã hóa* & *giải mã*, điểm mạnh của **Mã hóa bất đối x
 ```ruby
 document = "Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit"
 
-digest = OpenSSL::Digest::SHA256.new            ### empty digest
+digest = OpenSSL::Digest::SHA256.new            # empty digest
 signature = private_key.sign(digest, document)
 signature_base64 = Base64.encode64(signature)
 ```
@@ -217,7 +217,7 @@ Khi nhận được dữ liệu, người dùng tiến hành xác thực:
 digest = OpenSSL::Digest::SHA256.new
 signature = Base64.decode64(signature_base64)
 
-verify_status = public_key.verify(digest, signature, document)          ### true
+verify_status = public_key.verify(digest, signature, document)          # true
 ```
 
 `verify_status` trả về `true` chỉ trong trường hợp `digest`, `signature` và `document` tại đích trùng khớp với dữ liệu tương ứng tại nguồn.
@@ -231,15 +231,15 @@ Các thuật toán **Mã hóa bằng hàm băm** phổ biến nhất hiện nay 
 Để tính `digest` của 1 `message`, ta chỉ cần gọi:
 
 ```ruby
-OpenSSL::Digest::MD5.digest("Mã hóa bằng hàm băm với thuật toán MD5")       ### \xFE\x7F\xBC\x94\xFE\x9E\x94O\x144\xDF\xB0\x97\xADD\xBD
+OpenSSL::Digest::MD5.digest("Mã hóa bằng hàm băm với thuật toán MD5")       # \xFE\x7F\xBC\x94\xFE\x9E\x94O\x144\xDF\xB0\x97\xADD\xBD
 ```
 
 Cũng giống như **AES** hay **RSA**, mặc định các thuật toán này trả về các giá trị dạng binary. Tuy nhiên bộ thư viện `Digest` cung cấp luôn cho chúng ta 2 phương pháp *encode* là `hexdigest` và `base64digest`:
 
 ```ruby
-OpenSSL::Digest::MD5.hexdigest("Mã hóa bằng hàm băm với thuật toán MD5")    ### fe7fbc94fe9e944f1434dfb097ad44bd
+OpenSSL::Digest::MD5.hexdigest("Mã hóa bằng hàm băm với thuật toán MD5")    # fe7fbc94fe9e944f1434dfb097ad44bd
 
-OpenSSL::Digest::MD5.base64digest("Mã hóa bằng hàm băm với thuật toán MD5") ### /n+8lP6elE8UNN+wl61EvQ==
+OpenSSL::Digest::MD5.base64digest("Mã hóa bằng hàm băm với thuật toán MD5") # /n+8lP6elE8UNN+wl61EvQ==
 ```
 
 Ngoài ra, ta cũng có thể dùng hàm `update()` hoặc toán tử `<<` để chèn thêm các nội dung mà ta muốn mã hóa:
@@ -248,8 +248,8 @@ Ngoài ra, ta cũng có thể dùng hàm `update()` hoặc toán tử `<<` để
 digest = OpenSSL::Digest::MD5.new
 digest.update("Mã hóa bằng hàm băm")
 digest << " với thuật toán MD5"
-digest.hexdigest                ### fe7fbc94fe9e944f1434dfb097ad44bd
-digest.base64digest             ### /n+8lP6elE8UNN+wl61EvQ==
+digest.hexdigest                # fe7fbc94fe9e944f1434dfb097ad44bd
+digest.base64digest             # /n+8lP6elE8UNN+wl61EvQ==
 ```
 
 #### Salt ####
@@ -264,9 +264,9 @@ Có nhiều cách sử dụng **salt**, dưới đây là 1 ví dụ: với mỗ
 require 'securerandom'
 
 password = "password@dev.ethanify.me"
-salt = SecureRandom.base64(8)               ### ruvewNfnOlA=
+salt = SecureRandom.base64(8)                                         # ruvewNfnOlA=
 
-encrypted_password = OpenSSL::Digest::MD5.hexdigest(password + salt) ### 0ed88631a7ec520edb71ad513b2b1a25
+encrypted_password = OpenSSL::Digest::MD5.hexdigest(password + salt)  # 0ed88631a7ec520edb71ad513b2b1a25
 ```
 
 Như vậy, thay vì chúng ta lưu **MD5** của `password` (là `b47f5aae2b8344569d8e0831906867ce`), ta sẽ lưu cả `salt` và **MD5** của `password + salt` (lúc này là `0ed88631a7ec520edb71ad513b2b1a25`, hoàn toàn không có mối liên hệ gì với **MD5** của `password` thuần).
@@ -281,17 +281,17 @@ Cách sử dụng của **SHA** không khác với **MD5**:
 digest = OpenSSL::Digest::SHA256.new
 digest.update("Mã hóa bằng hàm băm")
 digest << " với thuật toán MD5"
-digest.hexdigest                ### 2e22dfb0aed5c8b078a13b996790b522bad45b4207009bb32daf571776a75808
+digest.hexdigest                # 2e22dfb0aed5c8b078a13b996790b522bad45b4207009bb32daf571776a75808
 
 digest = OpenSSL::Digest::SHA384.new
 digest.update("Mã hóa bằng hàm băm")
 digest << " với thuật toán MD5"
-digest.hexdigest                ### d526adc561a59241c5d864f65a684a02f6c8f27c53a522177a6e709e5dd3a3f1
+digest.hexdigest                # d526adc561a59241c5d864f65a684a02f6c8f27c53a522177a6e709e5dd3a3f1
 
 digest = OpenSSL::Digest::SHA512.new
 digest.update("Mã hóa bằng hàm băm")
 digest << " với thuật toán MD5"
-digest.hexdigest                ### 0953e45472e0d2e0a668c2812358d6a29d8277c86a7ff0d120be2db84f0f021d5afd44b26bc6d5f25dfdcf8b605c5c18f66c1cc831168f4a954c861b1e97f751
+digest.hexdigest                # 0953e45472e0d2e0a668c2812358d6a29d8277c86a7ff0d120be2db84f0f021d5afd44b26bc6d5f25dfdcf8b605c5c18f66c1cc831168f4a954c861b1e97f751
 ```
 
 [rsa-key-pairs]:        {{ site.url }}/assets/downloads/misc/2016-07-07-rsa-key-pairs.zip

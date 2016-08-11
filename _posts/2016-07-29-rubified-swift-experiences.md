@@ -47,7 +47,7 @@ Lập tức ta sẽ gặp lỗi **Value of type 'Element' can never be nil, comp
 
 ```swift
 extension Array where Element: Equatable {
-  ...
+  // ...
 }
 ```
 
@@ -76,7 +76,7 @@ Chúng ta đã biết `Optional` là 1 kiểu **[Generics][generics]**, và tron
 
 ```swift
 public enum Optional<Wrapped> : _Reflectable, NilLiteralConvertible {
-  ...
+  // ...
 }
 ```
 

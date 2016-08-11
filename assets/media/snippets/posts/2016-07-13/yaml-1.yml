@@ -1,0 +1,3 @@
+# secrets.yml
+cookies:
+  secret: "oauth-demo@dev.ethanify.me"

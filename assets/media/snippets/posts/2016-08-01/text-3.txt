@@ -1,0 +1,4 @@
+A - mutualData = 1
+C - mutualData = 4
+D - mutualData = 10
+B - mutualData = 10

@@ -1,0 +1,4 @@
+# secrets.yml
+google:
+  client_id: "255460691335-h45t6k92hhu0nr6ejajtojm5a1XXXXXX.apps.googleusercontent.com"
+  client_secret: "-yayDVQCDFTSCuF9slXXXXXX"
