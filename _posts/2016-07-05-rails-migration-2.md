@@ -30,6 +30,11 @@ $ rails generate migration AddDeliveryFieldsToMessage is_sent:boolean is_deliver
       invoke  active_record
       create    db/migrate/20160705090219_add_delivery_fields_to_message.rb
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/shell-1.png"
+   alt="Shell snippet 1"
+   caption="Sinh file migration"
+   instant_articles="true" %}
 
 và nhận được kết quả là file `db/migrate/20160705090219_add_delivery_fields_to_message.rb` như sau:
 
@@ -43,6 +48,11 @@ class AddDeliveryFieldsToMessage < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-1.png"
+   alt="Ruby code snippet 1"
+   caption="File migration tự động sinh"
+   instant_articles="true" %}
 
 **Rails generator** tự động nhận diện lệnh **Migration** có cấu trúc `AddXXXToYYY` là chúng ta đang thêm các trường vào 1 Model có tên là `YYY`, vậy nên nó sẽ sinh ra các dòng `add_column :messages` như ở trên.
 
@@ -60,6 +70,11 @@ class AddDeliveryToMessage < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-2.png"
+   alt="Ruby code snippet 2"
+   caption="Sử dụng block change_table"
+   instant_articles="true" %}
 
 Ở đây, chúng ta dùng block `change_table` để tiến hành sửa nhiều trường trong cùng bảng `messages`, thay vì lệnh nào cũng phải khai báo bảng này. Ngoài ra, chúng ta còn có thể thêm các tùy chọn như `null: false` hay `default: true` để khai báo các trường này không được phép nhận giá trị `null`, và giá trị mặc định sẽ là `true` hoặc `false` tùy theo từng trường.
 
@@ -78,6 +93,11 @@ class ChangeMessageIsReadField < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-3.png"
+   alt="Ruby code snippet 3"
+   caption="Sử dụng lệnh rename_column"
+   instant_articles="true" %}
 
 hoặc sử dụng block `change_table`:
 
@@ -90,6 +110,11 @@ class ChangeMessageIsReadField < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-4.png"
+   alt="Ruby code snippet 4"
+   caption="Sử dụng block change_table"
+   instant_articles="true" %}
 
 #### 3.3.2. Đổi kiểu dữ liệu ####
 
@@ -104,6 +129,11 @@ class ChangeMessageIsSeenField < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-5.png"
+   alt="Ruby code snippet 5"
+   caption="Sử dụng lệnh change_column"
+   instant_articles="true" %}
 
 Với block `change_table`:
 
@@ -116,6 +146,11 @@ class ChangeMessageIsSeenField < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-6.png"
+   alt="Ruby code snippet 6"
+   caption="Sử dụng block change_table"
+   instant_articles="true" %}
 
 #### 3.3.3. Đặt giá trị mặc định ####
 
@@ -128,6 +163,11 @@ class ChangeMessageIsSentDefault < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-7.png"
+   alt="Ruby code snippet 7"
+   caption="Sử dụng lệnh change_column_default"
+   instant_articles="true" %}
 
 #### 3.3.4. Đặt giá trị khác `null` ####
 
@@ -140,6 +180,11 @@ class ChangeMessageIsSentNull < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-8.png"
+   alt="Ruby code snippet 8"
+   caption="Sử dụng lệnh change_column_null"
+   instant_articles="true" %}
 
 ***Lưu ý:*** lệnh này nhận 1 tham số `true` hoặc `false` thể hiện rằng trường này có thể nhận giá trị `null` hay không, tương đương với query trong PostgreSQL là `SET NOT NULL` nếu `false` hoặc không gì cả nếu `true`.
 
@@ -156,6 +201,11 @@ class RemoveIsSeenFromMessage < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-9.png"
+   alt="Ruby code snippet 9"
+   caption="Sử dụng lệnh remove_column"
+   instant_articles="true" %}
 
 Với block `change_table`
 
@@ -168,12 +218,22 @@ class RemoveIsSeenFromMessage < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-10.png"
+   alt="Ruby code snippet 10"
+   caption="Sử dụng block change_table"
+   instant_articles="true" %}
 
 Cũng giống như tạo mới trường dữ liệu, **command line tools** cũng nhận ra cấu trúc `RemoveXXXFromYYY` khi ta gọi lệnh `rails generate migration`:
 
 ```shell
 $ rails generate migration RemoveIsSeenFromMessage is_seen:integer
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/shell-2.png"
+   alt="Shell snippet 2"
+   caption="Sinh file migration tự động cho lệnh remove"
+   instant_articles="true" %}
 
 ### 3.5. Đánh index cho các trường trong Model ###
 
@@ -188,6 +248,11 @@ class IndexingMessageFields < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-11.png"
+   alt="Ruby code snippet 11"
+   caption="Sử dụng lệnh add_index"
+   instant_articles="true" %}
 
 Với block `change_table`:
 
@@ -200,6 +265,11 @@ class IndexingMessageFields < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-05/ruby-12.png"
+   alt="Ruby code snippet 12"
+   caption="Sử dụng block change_table"
+   instant_articles="true" %}
 
 ***Lưu ý:*** lệnh này chấp nhận nhiều tham số, thể hiện rằng ta muốn đánh index nhiều trường khác nhau cùng 1 lúc.
 

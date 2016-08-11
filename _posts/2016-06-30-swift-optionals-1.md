@@ -28,6 +28,11 @@ var optionalInt: Int? = nil
 originalInt = 14
 optionalInt = 15
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-30/swift-1.png"
+   alt="Swift code snippet 1"
+   caption="Khai báo Optional"
+   instant_articles="true" %}
 
 Lúc này, biến `originalInt` có kiểu thuần `Int`, và việc gán nó bằng `nil` gây lỗi `Nil cannot initialize specified type 'Int'`, trong khi biến `optionalInt` có kiểu *optional* `Int?`, không có lỗi gì xảy ra nếu được gán bằng `nil`. Ngoài điểm này ra, 2 biến này hoàn toàn bình đẳng trong các phép gán giá trị `Int` bình thường.
 
@@ -44,6 +49,11 @@ optionalInt = 10
 print(optionalInt)                      // Optional(10)
 "optionalInt = \(optionalInt)"          // "optionalInt = Optional(10)"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-30/swift-2.png"
+   alt="Swift code snippet 2"
+   caption="Sử dụng Optional"
+   instant_articles="true" %}
 
 Như vậy, đối với kiểu **Optional**, mọi giá trị khác `nil` đều được đặt trong 1 đối tượng `Optional(...)`. Việc này **Swift** gọi là **wrap** (*gói*), tức là do không biết 1 giá trị **Optional** có giá trị hay không, ta cứ *gói* vào cho chắc chắn.
 
@@ -57,6 +67,11 @@ optionalInt = 10
 print(optionalInt!)                     // 10
 "optionalInt = \(optionalInt)"          // "optionalInt = 10"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-30/swift-3.png"
+   alt="Swift code snippet 3"
+   caption="Lỗi unwrap giá trị nil"
+   instant_articles="true" %}
 
 ***Lưu ý:*** nếu cố tình **unwrap** một biến `nil`, ta sẽ gặp lỗi `fatal error: unexpectedly found nil while unwrapping an Optional value`
 
@@ -72,6 +87,11 @@ autoUnwrap = 10
 print(autoUnwrap)                       // 10
 "optionalInt = \(autoUnwrap)"           // "optionalInt = 10"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-30/swift-4.png"
+   alt="Swift code snippet 4"
+   caption="Unwrap tự động"
+   instant_articles="true" %}
 
 Tất nhiên, khi ta **unwrap tự động** 1 biến `nil` thì vẫn nhận được thông báo lỗi `fatal error: unexpectedly found nil while unwrapping an Optional value` như thường, vì bản chất việc này là ẩn dấu `!` mỗi lần sử dụng biến mà thôi
 
@@ -90,6 +110,11 @@ if let checkedInt = optionalInt {
   "no value for checkedInt"
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-06-30/swift-5.png"
+   alt="Swift code snippet 5"
+   caption="Optional binding"
+   instant_articles="true" %}
 
 Tại dòng số **3**, ta tiến hành **binding** biến `optionalInt` vào 1 biến tạm tên là `checkedInt`:
 

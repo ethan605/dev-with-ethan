@@ -2,11 +2,11 @@ $ rails generate
 Usage: rails generate GENERATOR [args] [options]
 
 General options:
-  -h, [--help]     ### Print generator's options and usage
-  -p, [--pretend]  ### Run but do not make any changes
-  -f, [--force]    ### Overwrite files that already exist
-  -s, [--skip]     ### Skip files that already exist
-  -q, [--quiet]    ### Suppress status output
+  -h, [--help]     # Print generator's options and usage
+  -p, [--pretend]  # Run but do not make any changes
+  -f, [--force]    # Overwrite files that already exist
+  -s, [--skip]     # Skip files that already exist
+  -q, [--quiet]    # Suppress status output
 
 Please choose a generator below.
 

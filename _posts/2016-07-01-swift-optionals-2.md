@@ -30,6 +30,11 @@ extension Int {
 var number: Int = 10
 number.add(2).multiply(5)                   // (10 + 2) * 5 = 60
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-01/swift-1.png"
+   alt="Swift code snippet 1"
+   caption="Method chaining"
+   instant_articles="true" %}
 
 Ở đây, ta viết thêm 2 phương thức `add()` và `multiply()` cho kiểu `Int` để cộng và nhân 1 số nguyên với 1 số nguyên khác, kết quả trả ra 1 số nguyên (cách làm này gọi là viết **Extension**, tôi sẽ đề cập ở 1 bài khác). Sau khi khai báo 2 hàm, với mỗi số nguyên kiểu `Int`, ta có thể gọi `add()` và `mutiply()` theo cú pháp `number.add()` hoặc `number.multiply()`.
 
@@ -52,6 +57,11 @@ extension Int {
 
 number.divide(0)?.add(10)
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-01/swift-2.png"
+   alt="Swift code snippet 2"
+   caption="Thêm hàm divide()"
+   instant_articles="true" %}
 
 Phép chia cần 1 điều kiện là số chia (*divisor*) cần phải khác `0`. Các trường hợp số chia bằng `0` đều dẫn đến lỗi *chia cho `0`* hoặc *vô cùng*. Nếu muốn trả về 1 kết quả `nil`, ta khai báo kiểu trả về của phương thức `divide()` là `Int?`, tức là `Int` nhưng có thể nhận giá trị `nil`.
 
@@ -66,6 +76,11 @@ if result != nil {
   result = result!.add(10)
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-01/swift-3.png"
+   alt="Swift code snippet 3"
+   caption="Unwrap bình thường"
+   instant_articles="true" %}
 
 **Cách thứ 2:** Sử dụng **optional chaining**
 
@@ -74,6 +89,11 @@ number = 10
 number.divide(0)?.add(10).multiply(5)         // nil
 number.divide(3)?.add(10).multiply(5)         // 65
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-01/swift-4.png"
+   alt="Swift code snippet 4"
+   caption="Optional chaining"
+   instant_articles="true" %}
 
 Lúc này, **Swift** sẽ kiểm tra xem `divide()` có trả về giá trị `nil` hay không:
 
@@ -93,6 +113,11 @@ public class NSDictionary : NSObject, NSCopying, NSMutableCopying, NSSecureCodin
   // ...
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-01/swift-5.png"
+   alt="Swift code snippet 5"
+   caption="Khai báo NSArray & NSDictionary"
+   instant_articles="true" %}
 
 Như vậy, ta hoàn toàn có thể khai báo 1 `Dictionary` như sau mà không gặp lỗi:
 
@@ -103,6 +128,11 @@ var json: [String: NSObject?] = [
   "nil": nil
 ]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-01/swift-6.png"
+   alt="Swift code snippet 6"
+   caption="Khởi tạo Dictionary với giá trị nil"
+   instant_articles="true" %}
 
 Khi đó, nếu gọi `json["array"]`, ta sẽ nhận được 1 giá trị kiểu `NSObject`. Ta cần đổi nó về `NSArray` để gọi được các phương thức dành riêng cho `NSArray`, ví dụ như `count()`. Lúc này, ta phải làm 1 động tác gọi là **ép kiểu** (tiếng Anh: **value casting**):
 
@@ -110,12 +140,22 @@ Khi đó, nếu gọi `json["array"]`, ta sẽ nhận được 1 giá trị ki�
 let optionalArray = json["array"] as? NSArray
 let unwrappedArray = json["array"] as! NSArray
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-01/swift-7.png"
+   alt="Swift code snippet 7"
+   caption="Ép kiểu"
+   instant_articles="true" %}
 
 Lúc này, `optionalArray` có kiểu `NSArray?`, còn `unwrappedArray` có kiểu `NSArray`. Tất nhiên, trong trường hợp cố gắng **unwrap** `json["nil"]`:
 
 ```swift
 json["nil"] as! NSArray
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-01/swift-8.png"
+   alt="Swift code snippet 8"
+   caption="Cố tình unwrap giá trị nil"
+   instant_articles="true" %}
 
 ta sẽ gặp lỗi
 
@@ -123,8 +163,6 @@ ta sẽ gặp lỗi
    filename="/assets/media/posts/swift/2016-07-01-casting-nil-value-error.png"
    alt="Casting nil value error"
    caption="Lỗi Casting nil value" %}
-
-![Lỗi ép kiểu với giá trị nil][casting-nil-value-error]
 
 Mời các bạn tải về file [Optionals.playground][attachment] để cùng xem các ví dụ về **Optional** trong **Swift**.
 

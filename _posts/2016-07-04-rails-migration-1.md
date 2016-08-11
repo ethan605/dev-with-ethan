@@ -70,11 +70,11 @@ $ rails generate
 Usage: rails generate GENERATOR [args] [options]
 
 General options:
-  -h, [--help]     ### Print generator's options and usage
-  -p, [--pretend]  ### Run but do not make any changes
-  -f, [--force]    ### Overwrite files that already exist
-  -s, [--skip]     ### Skip files that already exist
-  -q, [--quiet]    ### Suppress status output
+  -h, [--help]     # Print generator's options and usage
+  -p, [--pretend]  # Run but do not make any changes
+  -f, [--force]    # Overwrite files that already exist
+  -s, [--skip]     # Skip files that already exist
+  -q, [--quiet]    # Suppress status output
 
 Please choose a generator below.
 
@@ -122,6 +122,11 @@ TestUnit:
   test_unit:plugin
   test_unit:scaffold
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/shell-1.png"
+   alt="Shell snippet 1"
+   caption="Rails generators"
+   instant_articles="true" %}
 
 Đây là bộ công cụ cực kỳ hữu dụng vì nó làm giúp chúng ta hầu hết các phần đơn giản như: tạo các file với tên theo chuẩn, có sẵn các đoạn mã cơ bản để khởi tạo. Lệnh này cũng có cách viết tắt là `rails g` thay cho viết đầy đủ là `rails generate`
 
@@ -133,6 +138,11 @@ $ rails generate model conversation title:string from_user:references to_user:re
       create    db/migrate/20160704073539_create_conversations.rb
       create    app/models/conversation.rb
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/shell-2.png"
+   alt="Shell snippet 2"
+   caption="Generate model"
+   instant_articles="true" %}
 
 Tuy nhiên lệnh này chỉ tạo ra Model, chúng ta sẽ cần đến nhiều thành phần hơn:
 
@@ -156,6 +166,11 @@ $ rails generate scaffold conversation title:string from_user:references to_user
       invoke  scaffold_controller
       create    app/controllers/conversations_controller.rb
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/shell-3.png"
+   alt="Shell snippet 3"
+   caption="Generate model với scaffold"
+   instant_articles="true" %}
 
 Mặc định, `rails generate` sẽ tạo ra rất nhiều các file phục vụ các tính năng khác nhau, ta có thể cấu hình bật/tắt các tính năng này bằng cách thêm lệnh `config.generators` trong file `configs/application.rb`:
 
@@ -176,6 +191,11 @@ module SecretMessengerApi
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/ruby-1.png"
+   alt="Ruby code snippet 1"
+   caption="Cấu hình generators"
+   instant_articles="true" %}
 
 (trong trường hợp này, chúng ta sẽ không sinh ra bất kỳ file nào phục vụ cho web front-end như `template_engine`, `stylesheets`, `javascripts`,...)
 
@@ -194,6 +214,11 @@ class CreateConversations < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/ruby-2.png"
+   alt="Ruby code snippet 2"
+   caption="File migration tự động sinh"
+   instant_articles="true" %}
 
 Ở đây chúng ta có 1 class tên là `CreateConversations`, kế thừa từ `ActiveRecord::Migration[5.0]`. Class này có 1 hàm tên `change`, với nội dung là tạo mới (`create_table`) một bảng tên là `conversations`, trong bảng `conversations`:
 
@@ -217,6 +242,11 @@ class CreateConversations < ActiveRecord::Migration[5.0]
   end
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/ruby-3.png"
+   alt="Ruby code snippet 3"
+   caption="Thêm quan hệ belongs_to"
+   instant_articles="true" %}
 
 Ngoài ra, trong file `app/models/conversation.rb`, chúng ta cũng có nội dung như sau:
 
@@ -226,6 +256,11 @@ class Conversation < ApplicationRecord
   belongs_to :to_user
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/ruby-6.png"
+   alt="Ruby code snippet 6"
+   caption="Quan hệ mặc định trong model"
+   instant_articles="true" %}
 
 Lúc này, **Active Record** sẽ hiểu rằng, `Conversation` có quan hệ `n-1` với 2 Model `FromUser` và `ToUser`. Trong khi chúng ta chỉ có 1 Model là `User` mà thôi. Để **Active Record** hiểu đúng, ta cần sửa lại như sau:
 
@@ -235,12 +270,22 @@ class Conversation < ApplicationRecord
   belongs_to :to_user, class_name: "User"
 end
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/ruby-4.png"
+   alt="Ruby code snippet 4"
+   caption="Thêm quan hệ trong model"
+   instant_articles="true" %}
 
 Cuối cùng, ta chạy lệnh `migrate` để thực hiện các thay đổi:
 
 ```shell
 $ rails db:migrate
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-04/shell-4.png"
+   alt="Shell snippet 4"
+   caption="Chạy lệnh migrate"
+   instant_articles="true" %}
 
 Trong bài viết [sau][part-2], ta sẽ làm việc sâu hơn với **Migration** trong **Rails** với các thao tác thêm mới, đổi tên, đổi kiểu dữ liệu, đặt giá trị mặc định, xóa trường & đánh index cho các trường trong Model.
 
