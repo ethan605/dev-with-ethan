@@ -1,4 +1,4 @@
-<figure data-feedback="fb:likes, fb:comments">
+<figure data-feedback="fb:likes, fb:comments, fb:shares" {% if include.instant_articles %}class="instant-articles"{% endif %}>
   <img src="{{ site.url }}{{ include.filename }}" alt="{{ include.alt }}"> 
   <figcaption class="op-vertical-below op-center op-medium">
     {{ include.caption | markdownify | remove: '<p>' | remove: '</p>'}}

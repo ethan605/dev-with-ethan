@@ -12,12 +12,16 @@ figure {
     max-width: 100%;
   }
 
-  figcaption {
-    margin-top: -20px;
-  }
+  // figcaption {
+  //   margin-top: -20px;
+  // }
 
   figcaption, figcaption * {
     font-style: italic;
     font-size: 15px !important;
   }
+}
+
+figure.instant-articles {
+  display: none;
 }
