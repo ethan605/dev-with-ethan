@@ -43,6 +43,11 @@ let records : [[AnyObject]] = [
   [10, "Varys", "of Lys", "The Spider", 7500]
 ]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-1.png"
+   alt="Swift code snippet 1"
+   caption="Khai báo records (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
@@ -59,6 +64,11 @@ records = [
   [10, "Varys", "of Lys", "The Spider", 7500]
 ]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-1.png"
+   alt="Ruby code snippet 1"
+   caption="Khai báo records (Ruby)"
+   instant_articles="true" %}
 
 Ta gọi là các **records**, mỗi **record** bao gồm 1 mảng các giá trị theo thứ tự đại diện cho **Id**, **First name** (tên), **Last name** (họ), **Title** (chức danh) và **Salary** (lương tháng) của 1 người cụ thể.
 
@@ -71,12 +81,22 @@ Ta gọi là các **records**, mỗi **record** bao gồm 1 mảng các giá tr�
 let allSalaries = records.map { $0.last as! Int }
 print(allSalaries)      // [0, 50000, 10000, 9000, 8000, 7000, 8500, 6000, 7500, 7500]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-2.png"
+   alt="Swift code snippet 2"
+   caption="Sử dụng hàm map (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
 all_salaries = records.map {|r| r.last}
 puts(all_salaries)      # [0, 50000, 10000, 9000, 8000, 7000, 8500, 6000, 7500, 7500]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-2.png"
+   alt="Ruby code snippet 2"
+   caption="Sử dụng hàm map (Ruby)"
+   instant_articles="true" %}
 
 Lúc này ta có `allSalaries` là 1 mảng `Int` chứa giá trị tất cả tiền lương trong 1 tháng của từng người. Tất nhiên ta mới chỉ lấy được dữ liệu chứ chưa biết tổng, vì hàm `map()` không có chức năng tính tổng! Ta sẽ biết tổng số lương cần phải trả trong tháng là bao nhiêu ở phần về hàm `reduce()`
 
@@ -88,11 +108,21 @@ Tiếp đến, ta muốn *lọc* ra tất cả những người nhận *nhiều*
 // Swift
 let goodPays = records.filter { ($0.last as! Int) >= 8000 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-3.png"
+   alt="Swift code snippet 3"
+   caption="Sử dụng hàm filter (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
 good_pays = records.select {|r| r.last >= 8000}
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-3.png"
+   alt="Ruby code snippet 3"
+   caption="Sử dụng hàm select (Ruby)"
+   instant_articles="true" %}
 
 Tuy nhiên như thế này thì chỉ có được các **records**, ta sẽ kết hợp với hàm `map()` để lấy ra tên người:
 
@@ -101,12 +131,22 @@ Tuy nhiên như thế này thì chỉ có được các **records**, ta sẽ k�
 let goodPays = records.filter { ($0.last as! Int) >= 8000 }
 let names = goodPays.map { "\($0[1]) \($0[2])" }  // ["Jofrey Baratheon", "Tyrion Lannister", "Eddard Stark", "Daenerys Targaryen", "Cersei Lannister"]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-4.png"
+   alt="Swift code snippet 4"
+   caption="Sử dụng kết hợp filter & map (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
 good_pays = records.select {|r| r.last >= 8000}
 names = good_pays.map {|r| "#{r[1]} ##{r[2]}"}     # ["Jofrey Baratheon", "Tyrion Lannister", "Eddard Stark", "Daenerys Targaryen", "Cersei Lannister"]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-4.png"
+   alt="Ruby code snippet 4"
+   caption="Sử dụng kết hợp select & map (Ruby)"
+   instant_articles="true" %}
 
 ### 2.3. Reduce ###
 
@@ -120,6 +160,11 @@ let allSalaries = records.map { $0.last as! Int }
 let totalPays = allSalaries.reduce(0, combine: +)
 print(totalPays)        // 113500
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-5.png"
+   alt="Swift code snippet 5"
+   caption="Sử dụng map & reduce (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
@@ -127,6 +172,11 @@ all_salaries = records.map {|r| r.last}
 total_pays = all_salaries.reduce(:+)
 puts(total_pays)        # 113500
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-5.png"
+   alt="Ruby code snippet 5"
+   caption="Sử dụng map & reduce (Ruby)"
+   instant_articles="true" %}
 
 Trong **Swift**, khi muốn `reduce()` một mảng, ta cung cấp 1 giá trị khởi tạo và một **closure** ở tham số `combine`, lặp tuần tự:
 
@@ -147,6 +197,11 @@ let totalPays = allSalaries.reduce(0) { (temp, salary) in
 }
 print("Total pays = \(totalPays)")
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-6.png"
+   alt="Swift code snippet 6"
+   caption="Viết lại map & reduce (Swift)"
+   instant_articles="true" %}
 
 Khi đó, tại màn hình **Debug**, ta nhận được các dòng in ra như sau:
 
@@ -163,6 +218,11 @@ Reduce step: temp = 98500, salary = 7500
 Reduce step: temp = 106000, salary = 7500
 Total pays = 113500
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/text-1.png"
+   alt="Text snippet 1"
+   caption="Kết quả reduce"
+   instant_articles="true" %}
 
 Ta có tổng cộng 10 dòng `Reduce step:`, tại mỗi dòng, biến `salary` là phần tử tại vị trí tương ứng, còn biến `temp` được cập nhật mới, là tổng của phép tính ở trước.
 
@@ -173,12 +233,22 @@ Tương tự, ta cũng có thể sử dụng `combine: +` với mảng các giá
 let goodPayNames = names.reduce("", combine: +)
 print(goodPayNames)       // Jofrey BaratheonTyrion LannisterEddard StarkDaenerys TargaryenCersei Lannister
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-7.png"
+   alt="Swift code snippet 7"
+   caption="Reduce với tham số combine (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
 good_pay_names = names.reduce(:+)
 puts(good_pay_names)       # Jofrey BaratheonTyrion LannisterEddard StarkDaenerys TargaryenCersei Lannister
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-6.png"
+   alt="Ruby code snippet 6"
+   caption="Reduce với tham số (Ruby)"
+   instant_articles="true" %}
 
 Tuy nhiên, giá trị trả về thì bị *dính chữ* (`Jofrey BaratheonTyrion LannisterEddard`), ta cần xử lý kỹ hơn chỗ này 1 chút:
 
@@ -193,6 +263,11 @@ let goodPayNames = names.reduce("") { (temp, name) in
 }
 print(goodPayNames)     // Jofrey Baratheon, Tyrion Lannister, Eddard Stark, Daenerys Targaryen, Cersei Lannister
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-8.png"
+   alt="Swift code snippet 8"
+   caption="Xử lý dính chữ trong reduce (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
@@ -201,6 +276,11 @@ good_pay_names = names.reduce {|temp, name|
 }
 puts(good_pay_names)    # Jofrey Baratheon, Tyrion Lannister, Eddard Stark, Daenerys Targaryen, Cersei Lannister
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-7.png"
+   alt="Ruby code snippet 7"
+   caption="Xử lý dính chữ trong reduce (Ruby)"
+   instant_articles="true" %}
 
 Giờ đến yêu cầu phức tạp hơn: ta thấy, trong số 10 người xuất hiện những cặp có cùng họ, ví dụ `Baratheon`, `Lannister`,... Giờ ta sẽ tìm cách để nhóm những ai có cùng họ lại:
 
@@ -217,6 +297,11 @@ let lastNameGroups = fullNames.reduce([String: [String]]()) { (var temp: [String
 
 print(lastNameGroups)   // ["Stark": ["Eddard"], "Lannister": ["Tyrion", "Cersei"], "of Lys": ["Varys"], "Targaryen": ["Daenerys"], "Baratheon": ["Robert", "Jofrey"], "Drogo": ["Khal"], "Snow": ["Jon"], "Baelish": ["Petyr"]]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-9.png"
+   alt="Swift code snippet 9"
+   caption="Dùng reduce nhóm người theo họ (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
@@ -229,6 +314,11 @@ last_name_groups = full_names.reduce({}) {|temp, full_name|
 }
 puts(last_name_groups)  # {"Baratheon"=>["Robert", "Jofrey"], "Lannister"=>["Tyrion", "Cersei"], "Stark"=>["Eddard"], "Targaryen"=>["Daenerys"], "Snow"=>["Jon"], "Drogo"=>["Khal"], "Baelish"=>["Petyr"], "of Lys"=>["Varys"]}
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-8.png"
+   alt="Ruby code snippet 8"
+   caption="Dùng reduce nhóm người theo họ (Ruby)"
+   instant_articles="true" %}
 
 Ở đây có 1 lưu ý: đó là biến `temp` trong **closure** được khai báo sau từ khóa `var`, tức là biến `temp` này có thể thay đổi được trong quá trình tính toán. Bình thường các tham số của hàm & closure trong **Swift** nếu là **value type** (`Int`, `String`, `Array`, `Dictionary`,...) sẽ không thể thay đổi giá trị trong suốt quá trình làm việc. Khai báo `var` cho phép chúng ta thay đổi.
 
@@ -253,6 +343,11 @@ let lastNameGroups = fullNames.reduce([String: [String]]()) { (temp: [String: [S
   return temp
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-10.png"
+   alt="Swift code snippet 10"
+   caption="Sửa từ khóa var trong block reduce (Swift)"
+   instant_articles="true" %}
 
 Lúc này ta tạo ra 1 biến **local** cũng tên là `temp`, khác với tham số `temp`, nhưng biến `temp` này có thể thay đổi được giá trị và tiến hành các tính toán như bình thường.
 
@@ -265,12 +360,22 @@ Hàm cuối cùng trong series này là `flatMap()`, cách dùng tương đối 
 let flatRecords = records.flatMap { $0 }
 print(flatRecords)  // [1, Robert, Baratheon, Decreased King, 0, 2, Jofrey, Baratheon, King of Westeros, 50000, 3, Tyrion, Lannister, Hand of the King, 10000, 4, Eddard, Stark, Lord of Winterfell, 9000, 5, Daenerys, Targaryen, Mother of Dragons, 8000, 6, Jon, Snow, Bastard of Lord Stark, 7000, 7, Cersei, Lannister, Queen of Westeros, 8500, 8, Khal, Drogo, Khal of Dothraki, 6000, 9, Petyr, Baelish, Littlefinger, 7500, 10, Varys, of Lys, The Spider, 7500]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/swift-11.png"
+   alt="Swift code snippet 11"
+   caption="Sử dụng hàm flatMap (Swift)"
+   instant_articles="true" %}
 
 ```ruby
 # Ruby
 flat_records = records.flatten
 puts(flat_records)  # [1, "Robert", "Baratheon", "Decreased King", 0, 2, "Jofrey", "Baratheon", "King of Westeros", 50000, 3, "Tyrion", "Lannister", "Hand of the King", 10000, 4, "Eddard", "Stark", "Lord of Winterfell", 9000, 5, "Daenerys", "Targaryen", "Mother of Dragons", 8000, 6, "Jon", "Snow", "Bastard of Lord Stark", 7000, 7, "Cersei", "Lannister", "Queen of Westeros", 8500, 8, "Khal", "Drogo", "Khal of Dothraki", 6000, 9, "Petyr", "Baelish", "Littlefinger", 7500, 10, "Varys", "of Lys", "The Spider", 7500]
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-15/ruby-9.png"
+   alt="Ruby code snippet 9"
+   caption="Sử dụng hàm flatten (Ruby)"
+   instant_articles="true" %}
 
 Các bạn có thể tải về file [MapReduce.playground & map_reduce.rb][attachment] để cùng xem các ví dụ về **Map-Reduce** đã trình bày trong bài.
 
