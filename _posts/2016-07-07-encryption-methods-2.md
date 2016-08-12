@@ -56,7 +56,7 @@ require 'openssl'
 cipher = OpenSSL::Cipher::AES.new(256, :CBC)
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-1.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-1.png"
    alt="Ruby code snippet 1"
    caption="Khai báo sử dụng OpenSSL & AES"
    instant_articles="true" %}
@@ -68,7 +68,7 @@ cipher.encrypt      # for encryption
 cipher.decrypt      # for decryption
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-2.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-2.png"
    alt="Ruby code snippet 2"
    caption="Đặt chế độ mã hóa / giải mã"
    instant_articles="true" %}
@@ -82,7 +82,7 @@ cipher.key = "secretkey@dev.ethanify.me(c)2016"         # 32 bytes = 256 bits
 cipher.iv = "secret_iv(c)2016"                          # 16 bytes = 128 bits
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-3.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-3.png"
    alt="Ruby code snippet 3"
    caption="Cài đặt tham số key & iv"
    instant_articles="true" %}
@@ -94,7 +94,7 @@ key = cipher.random_key             # "Lf\xE7 \xE3bK\x82\xA9\b\x1D\xFE){\x7F\xB9
 iv = cipher.random_iv               # "\x96\x86\x93QR\xBE\x00\b\xC9\x90\x18\xF0H\xFB]\f"
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-4.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-4.png"
    alt="Ruby code snippet 4"
    caption="Sinh ngẫu nhiên tham số key & iv"
    instant_articles="true" %}
@@ -107,7 +107,7 @@ encrypted_content << cipher.update(" bằng thuật toán AES-256")
 encrypted_content << cipher.final
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-5.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-5.png"
    alt="Ruby code snippet 5"
    caption="Mã hóa thông điệp"
    instant_articles="true" %}
@@ -120,7 +120,7 @@ Có 1 cách đơn giản là chúng ta sẽ *encode* toàn bộ các dữ liệu
 encrypted_base64 = Base64.encode64(encrypted_content) # "DVM+VfhAppOtvolyq9WWhFs7AT7skg5RpsN5YVZs33J5Wr/7nUb1IEFPSfeK\n6UGCsDpN1jQbhwayk4gXiEtUgw==\n"
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-6.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-6.png"
    alt="Ruby code snippet 6"
    caption="Encode Base64"
    instant_articles="true" %}
@@ -137,7 +137,7 @@ decipher.key = "secretkey@dev.ethanify.me(c)2016"
 decipher.iv = "secret_iv(c)2016"
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-7.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-7.png"
    alt="Ruby code snippet 7"
    caption="Cài đặt chế độ giải mã"
    instant_articles="true" %}
@@ -149,7 +149,7 @@ decrypted_content = decipher.update(encrypted_content)
 decrypted_content << decipher.final
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-8.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-8.png"
    alt="Ruby code snippet 8"
    caption="Giải mã thông điệp"
    instant_articles="true" %}
@@ -163,7 +163,7 @@ decrypted_content = decipher.update(encrypted_data)
 decrypted_content << decipher.final         # Mã hóa đối xứng bằng thuật toán AES-256
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-9.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-9.png"
    alt="Ruby code snippet 9"
    caption="Giải mã thông điệp có dùng Base64"
    instant_articles="true" %}
@@ -194,7 +194,7 @@ secured_key = key.export(cipher, pass_phrase)
 File.write("private_key.pem", secured_key)
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-10.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-10.png"
    alt="Ruby code snippet 10"
    caption="Khởi tạo public & private key"
    instant_articles="true" %}
@@ -216,7 +216,7 @@ public_key_content = File.read("public_key.pem")
 public_key = OpenSSL::PKey::RSA.new(public_key_content)
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-11.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-11.png"
    alt="Ruby code snippet 11"
    caption="Đọc file public key không mã hóa"
    instant_articles="true" %}
@@ -228,7 +228,7 @@ private_key_content = File.read("private_key.pem")
 private_key = OpenSSL::PKey::RSA.new(private_key_content, pass_phrase)
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-12.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-12.png"
    alt="Ruby code snippet 12"
    caption="Đọc file public key có mã hóa"
    instant_articles="true" %}
@@ -243,7 +243,7 @@ public_key.private?         # false
 private_key.private?        # true
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-13.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-13.png"
    alt="Ruby code snippet 13"
    caption="Kiểm tra tính public / private của key"
    instant_articles="true" %}
@@ -257,7 +257,7 @@ encrypted_data = public_key.public_encrypt("Mã hóa bất đối xứng bằng 
 encrypted_base64 = Base64.encode64(encrypted_data)
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-14.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-14.png"
    alt="Ruby code snippet 14"
    caption="Mã hóa thông điệp bằng public key"
    instant_articles="true" %}
@@ -269,7 +269,7 @@ encrypted_data = Base64.decode64(encrypted_base64)
 decrypted_data = private_key.private_decrypt(encrypted_data)        # Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-15.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-15.png"
    alt="Ruby code snippet 15"
    caption="Giải mã thông điệp bằng private key"
    instant_articles="true" %}
@@ -288,7 +288,7 @@ signature = private_key.sign(digest, document)
 signature_base64 = Base64.encode64(signature)
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-16.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-16.png"
    alt="Ruby code snippet 16"
    caption="Tạo chữ ký và ký vào dữ liệu"
    instant_articles="true" %}
@@ -302,7 +302,7 @@ signature = Base64.decode64(signature_base64)
 verify_status = public_key.verify(digest, signature, document)          # true
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-17.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-17.png"
    alt="Ruby code snippet 17"
    caption="Xác thực dữ liệu"
    instant_articles="true" %}
@@ -321,7 +321,7 @@ Các thuật toán **Mã hóa bằng hàm băm** phổ biến nhất hiện nay 
 OpenSSL::Digest::MD5.digest("Mã hóa bằng hàm băm với thuật toán MD5")       # \xFE\x7F\xBC\x94\xFE\x9E\x94O\x144\xDF\xB0\x97\xADD\xBD
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-18.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-18.png"
    alt="Ruby code snippet 18"
    caption="Tính MD5 digest (dạng binary)"
    instant_articles="true" %}
@@ -334,7 +334,7 @@ OpenSSL::Digest::MD5.hexdigest("Mã hóa bằng hàm băm với thuật toán MD
 OpenSSL::Digest::MD5.base64digest("Mã hóa bằng hàm băm với thuật toán MD5") # /n+8lP6elE8UNN+wl61EvQ==
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-19.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-19.png"
    alt="Ruby code snippet 19"
    caption="Tính MD5 digest (dạng Hex & Base64)"
    instant_articles="true" %}
@@ -349,7 +349,7 @@ digest.hexdigest                # fe7fbc94fe9e944f1434dfb097ad44bd
 digest.base64digest             # /n+8lP6elE8UNN+wl61EvQ==
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-20.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-20.png"
    alt="Ruby code snippet 20"
    caption="Chèn thêm nội dung muốn mã hóa"
    instant_articles="true" %}
@@ -371,7 +371,7 @@ salt = SecureRandom.base64(8)                                         # ruvewNfn
 encrypted_password = OpenSSL::Digest::MD5.hexdigest(password + salt)  # 0ed88631a7ec520edb71ad513b2b1a25
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-21.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-21.png"
    alt="Ruby code snippet 21"
    caption="Thêm salt vào mật khẩu để mã hóa"
    instant_articles="true" %}
@@ -401,7 +401,7 @@ digest << " với thuật toán MD5"
 digest.hexdigest                # 0953e45472e0d2e0a668c2812358d6a29d8277c86a7ff0d120be2db84f0f021d5afd44b26bc6d5f25dfdcf8b605c5c18f66c1cc831168f4a954c861b1e97f751
 ```
 {% include figure.html
-   filename="/assets/media/snippets/2016-07-07/ruby-22.png"
+   filename="/assets/media/snippets/images/2016-07-07/ruby-22.png"
    alt="Ruby code snippet 22"
    caption="Tính digest bằng SHA 256, 384 & 512-bit"
    instant_articles="true" %}
