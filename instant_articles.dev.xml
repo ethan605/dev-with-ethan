@@ -43,7 +43,7 @@ layout: null
                     {% if post.featured_image %}
                       <img src="{{ post.featured_image }}">
                     {% else %}
-                      <img src="{{ site.url }}/assets/media/ethanify.png">
+                      <img src="{{ site.url }}/assets/media/ia-header-art.png">
                     {% endif %}
                     <figcaption>{{ post.instant_title | xml_escape }}</figcaption>
                   </figure>
