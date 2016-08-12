@@ -21,6 +21,11 @@ Rõ ràng với các trường hợp mà phần tử có kiểu xác định (nh
 ```swift
 let array: [AnyObject?] = [1, 2, "3", 4.0, nil, 5]
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-1.png"
+   alt="Swift code snippet 1"
+   caption="Khởi tạo mảng optional"
+   instant_articles="true" %}
 
 Kiểu của `array` là `AnyObject?`, tức là tất tần tật mọi thứ (không phải dạng tập hợp như `Array` hay `Dictionary`) đều có thể làm phần tử được, *kể cả* `nil`!. Vấn đề nằm ở chỗ khai báo extension cho hàm `compact()`:
 
@@ -31,6 +36,11 @@ extension Array {
   }
 }
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-2.png"
+   alt="Swift code snippet 2"
+   caption="Khai báo hàm compact"
+   instant_articles="true" %}
 
 và gọi `array.compact()` thì không có gì thay đổi cả! Thử in ra các giá trị `$0` và so sánh nó với `nil` xem sao:
 
@@ -42,6 +52,11 @@ public func compact() -> [Element] {
   }
 }
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-3.png"
+   alt="Swift code snippet 3"
+   caption="Khai báo hàm filter"
+   instant_articles="true" %}
 
 Lập tức ta sẽ gặp lỗi **Value of type 'Element' can never be nil, comparision isn't allowed**. Tức là mặc dù ta gọi `compact()` trên 1 `Array` gồm toàn phần tử `Optional`, nhưng hàm trong extension thì không nhận ra điều đó. Ta cũng biết khai báo extension trong **Swift** có thể định nghĩa thêm các điều kiện ràng buộc, ví dụ như:
 
@@ -50,14 +65,24 @@ extension Array where Element: Equatable {
   // ...
 }
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-4.png"
+   alt="Swift code snippet 4"
+   caption="Khai báo extension với phần tử Equatable"
+   instant_articles="true" %}
 
 thì có nghĩa là các phần tử (`Element`) của `Array` này phải *conform* protocol tên là `Equatable`. Nhưng vấn đề ở chỗ: không có cách nào để thông báo với **Swift** rằng chúng ta muốn xử lý các mảng có các phần tử kiểu `Optional` cả, do vậy khai báo như sau:
 
 ```swift
 extension Array where Element: Optional {
-  ...
+  // ...
 }
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-5.png"
+   alt="Swift code snippet 5"
+   caption="Khai báo extension với phần tử Optional"
+   instant_articles="true" %}
 
 sẽ gặp lỗi **Reference to generic type 'Optional' requires arguments in <...>**. Lý do chính là các kiểu đứng sau `where Element: ...` phải là protocol, chứ không thể là 1 type. Mà `Optional` thì lại là 1 type! May phước sau 1 hồi **Google** & **StackOverflow**, ta biết được rằng cần phải đi đường vòng 1 chút: tạo ra 1 protocol có tên là `OptionalType` để thể hiện kiểu `Optional` như sau:
 
@@ -71,6 +96,11 @@ extension Optional: OptionalType {
   public var optional: Wrapped? { return self }
 }
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-6.png"
+   alt="Swift code snippet 6"
+   caption="Khai báo extension với phần tử OptionalType"
+   instant_articles="true" %}
 
 Chúng ta đã biết `Optional` là 1 kiểu **[Generics][generics]**, và trong khai báo của `Optional` ta có:
 
@@ -79,6 +109,11 @@ public enum Optional<Wrapped> : _Reflectable, NilLiteralConvertible {
   // ...
 }
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-7.png"
+   alt="Swift code snippet 7"
+   caption="Khai báo của kiểu Optional"
+   instant_articles="true" %}
 
 Tức là `Optional` có nhiệm vụ *bao bọc* (wrap) một kiểu `Wrapped` nào đó (có thể là `Int`, `Double`, `String` hay thậm chí `AnyObject`). Vậy ta sẽ thêm 1 thuộc tính tên là `optional` để trả về bản thân giá trị của `Optional`, nhưng có 1 kiểu là `Optional`, chứ không phải kiểu `Element` như ở trên (so sánh `Element` với `nil` thì luôn *fail*, nhưng so sánh `Optional` với `nil` thì hợp lệ).
 
@@ -91,6 +126,11 @@ extension Array where Element: OptionalType {
   }
 }
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-8.png"
+   alt="Swift code snippet 8"
+   caption="Khai báo hàm compact"
+   instant_articles="true" %}
 
 Ở dòng `3`, ta không so sánh trực tiếp `$0 != nil`, mà ta so sánh `$0.optional != nil`, tức là về bản chất thì vẫn là so sánh 1 giá trị `Optional` với `nil`, nhưng về hình thức thì ta đi đường vòng qua thuộc tính `optional`.
 
@@ -109,6 +149,11 @@ extension Array where Element: OptionalType {
   }
 }
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-9.png"
+   alt="Swift code snippet 9"
+   caption="Khai báo hàm unwrapped"
+   instant_articles="true" %}
 
 Hàm này có chức năng **unwrap** toàn bộ các phần tử trong mảng, và xử lý 2 trường hợp:
 
@@ -129,6 +174,11 @@ print(array.unwrapped())            // nil
 array = [1, 2, "3", 4.0, 5]
 print(array.unwrapped())            // Optional[1, 2, 3, 4, 5]
 ```
+{% include figure.html
+   filename="assets/media/snippets/images/2016-07-29/swift-10.png"
+   alt="Swift code snippet 10"
+   caption="Dùng thử hàm unwrapped"
+   instant_articles="true" %}
 
 [rubified-swift-created]:        {{ site.url }}{% post_url 2016-07-22-rubified-swift-created %}
 [generics]:                      {{ site.url }}{% post_url 2016-07-08-swift-generics %}
