@@ -55,6 +55,11 @@ require 'openssl'
 
 cipher = OpenSSL::Cipher::AES.new(256, :CBC)
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-1.png"
+   alt="Ruby code snippet 1"
+   caption="Khai báo sử dụng OpenSSL & AES"
+   instant_articles="true" %}
 
 Sau khi khởi tạo `cipher` (có nghĩa là *mật mã*), ta cần khai báo `cipher` này dùng để *mã hóa* (*encrypt*) hay *giải mã* (*decrypt*):
 
@@ -62,6 +67,11 @@ Sau khi khởi tạo `cipher` (có nghĩa là *mật mã*), ta cần khai báo `
 cipher.encrypt      # for encryption
 cipher.decrypt      # for decryption
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-2.png"
+   alt="Ruby code snippet 2"
+   caption="Đặt chế độ mã hóa / giải mã"
+   instant_articles="true" %}
 
 Đối với các chế độ `CBC`, `CFB`, `OFB` hay `CTR`, ta cần thêm 1 tham số gọi là `iv` (viết tắt của **initialization vector**). Chỉ duy nhất `ECB` là không sử dụng `iv`, vậy nên theo các chuyên gia, không nên sử dụng chế độ `ECB` trừ khi thật sự rất cần đến nó.
 
@@ -71,6 +81,11 @@ Chúng ta có thể đặt `key` và `iv` của `cipher` bằng 1 String mà ch�
 cipher.key = "secretkey@dev.ethanify.me(c)2016"         # 32 bytes = 256 bits
 cipher.iv = "secret_iv(c)2016"                          # 16 bytes = 128 bits
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-3.png"
+   alt="Ruby code snippet 3"
+   caption="Cài đặt tham số key & iv"
+   instant_articles="true" %}
 
 hoặc để cho `cipher` tự sinh ngẫu nhiên:
 
@@ -78,6 +93,11 @@ hoặc để cho `cipher` tự sinh ngẫu nhiên:
 key = cipher.random_key             # "Lf\xE7 \xE3bK\x82\xA9\b\x1D\xFE){\x7F\xB9\x94\x9D\xBDc\x99\xBB\x0E\x15B@\xB9\xBE \xC31d"
 iv = cipher.random_iv               # "\x96\x86\x93QR\xBE\x00\b\xC9\x90\x18\xF0H\xFB]\f"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-4.png"
+   alt="Ruby code snippet 4"
+   caption="Sinh ngẫu nhiên tham số key & iv"
+   instant_articles="true" %}
 
 **AES** trong **Ruby** cho phép ta chèn thêm nội dung vào đoạn thông điệp mã hóa bằng hàm `update()` và chỉ tính toán giá trị cuối cùng khi gọi hàm `final()`
 
@@ -86,6 +106,11 @@ encrypted_content = cipher.update("Mã hóa đối xứng")
 encrypted_content << cipher.update(" bằng thuật toán AES-256")
 encrypted_content << cipher.final
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-5.png"
+   alt="Ruby code snippet 5"
+   caption="Mã hóa thông điệp"
+   instant_articles="true" %}
 
 Lúc này, `encrypted_content` chứa thông tin mã hóa của chuỗi `"Mã hóa đối xứng bằng thuật toán AES-256"`, nhưng ở dạng các **hexcode**. Đây là do trong quá trình mã hóa / giải mã, **AES** làm việc với các data thô ở dạng binary, chứ không phải String, vậy nên thông tin này sẽ khó đọc và thường là khó truyền đi qua Internet (dễ mất mát).
 
@@ -94,6 +119,11 @@ Có 1 cách đơn giản là chúng ta sẽ *encode* toàn bộ các dữ liệu
 ```ruby
 encrypted_base64 = Base64.encode64(encrypted_content) # "DVM+VfhAppOtvolyq9WWhFs7AT7skg5RpsN5YVZs33J5Wr/7nUb1IEFPSfeK\n6UGCsDpN1jQbhwayk4gXiEtUgw==\n"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-6.png"
+   alt="Ruby code snippet 6"
+   caption="Encode Base64"
+   instant_articles="true" %}
 
 #### 3.2.2. Giải mã ####
 
@@ -106,6 +136,11 @@ decipher.decrypt
 decipher.key = "secretkey@dev.ethanify.me(c)2016"
 decipher.iv = "secret_iv(c)2016"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-7.png"
+   alt="Ruby code snippet 7"
+   caption="Cài đặt chế độ giải mã"
+   instant_articles="true" %}
 
 Cũng giống như khi mã hóa, giải mã bằng **AES** cũng có thể thực hiện từng phần bằng hàm `update()` và kết thúc bằng `final()`:
 
@@ -113,6 +148,11 @@ Cũng giống như khi mã hóa, giải mã bằng **AES** cũng có thể thự
 decrypted_content = decipher.update(encrypted_content)
 decrypted_content << decipher.final
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-8.png"
+   alt="Ruby code snippet 8"
+   caption="Giải mã thông điệp"
+   instant_articles="true" %}
 
 Nếu sử dụng **Base64**, ta cần *decode* dữ liệu biểu diễn bằng **Base64** trước:
 
@@ -122,6 +162,11 @@ encrypted_data = Base64.decode64(encrypted_base64)
 decrypted_content = decipher.update(encrypted_data)
 decrypted_content << decipher.final         # Mã hóa đối xứng bằng thuật toán AES-256
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-9.png"
+   alt="Ruby code snippet 9"
+   caption="Giải mã thông điệp có dùng Base64"
+   instant_articles="true" %}
 
 ## 4. Mã hóa bất đối xứng ##
 
@@ -148,6 +193,11 @@ pass_phrase = "rsa@dev.ethanify.me(c)2016"
 secured_key = key.export(cipher, pass_phrase)
 File.write("private_key.pem", secured_key)
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-10.png"
+   alt="Ruby code snippet 10"
+   caption="Khởi tạo public & private key"
+   instant_articles="true" %}
 
 Ở đây, chúng ta dùng 1 **RSA** `key` có độ lớn `4096 bit`. Do cả **public key** và **private key** đều lớn và cần được dùng đi dùng lại nhiều lần, nên chúng ta sẽ ghi ra file, ở đây là `public_key.pem` và `private_key.pem`. **PEM** là viết tắt của **Privacy-enhanced Electronic Mail**, có định dạng là 1 file text với nội dung nằm giữa 2 dòng `-----BEGIN CERTIFICATE-----` và `-----END CERTIFICATE-----`.
 
@@ -165,6 +215,11 @@ Do đã lưu vào file, mỗi lần cần dùng, ta phải đọc các dữ li�
 public_key_content = File.read("public_key.pem")
 public_key = OpenSSL::PKey::RSA.new(public_key_content)
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-11.png"
+   alt="Ruby code snippet 11"
+   caption="Đọc file public key không mã hóa"
+   instant_articles="true" %}
 
 Để đọc 1 key file đã bị mã hóa:
 
@@ -172,6 +227,11 @@ public_key = OpenSSL::PKey::RSA.new(public_key_content)
 private_key_content = File.read("private_key.pem")
 private_key = OpenSSL::PKey::RSA.new(private_key_content, pass_phrase)
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-12.png"
+   alt="Ruby code snippet 12"
+   caption="Đọc file public key có mã hóa"
+   instant_articles="true" %}
 
 **RSA** cung cấp cho chúng ta 2 hàm `public?()` và `private?()` để kiểm tra xem 1 key có đúng là **public key** hay **private key** hay không:
 
@@ -182,26 +242,43 @@ private_key.public?         # false
 public_key.private?         # false
 private_key.private?        # true
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-13.png"
+   alt="Ruby code snippet 13"
+   caption="Kiểm tra tính public / private của key"
+   instant_articles="true" %}
 
 #### 4.2.3. Mã hóa - giải mã ####
 
-Để mã hóa 1 thông điệp, ta dùng `public_key`, để giải mã, ta dùng `private_key`:
+Để mã hóa 1 thông điệp, ta dùng `public_key`:
 
 ```ruby
 encrypted_data = public_key.public_encrypt("Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit")
 encrypted_base64 = Base64.encode64(encrypted_data)
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-14.png"
+   alt="Ruby code snippet 14"
+   caption="Mã hóa thông điệp bằng public key"
+   instant_articles="true" %}
+
+Để giải mã, ta dùng `private_key`:
 
 ```ruby
 encrypted_data = Base64.decode64(encrypted_base64)
 decrypted_data = private_key.private_decrypt(encrypted_data)        # Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-15.png"
+   alt="Ruby code snippet 15"
+   caption="Giải mã thông điệp bằng private key"
+   instant_articles="true" %}
 
 #### 4.2.4. Xác thực điện tử ####
 
 Ngoài *mã hóa* & *giải mã*, điểm mạnh của **Mã hóa bất đối xứng** là bạn có thể *ký* vào 1 dữ liệu bằng **private key** và người nhận có thể *xác thực* bằng **public key**.
 
-Đầu tiên, chúng ta sẽ định nghĩa 1 `digest` và *ký* vào dữ liệu bằng `digest này`:
+Đầu tiên, chúng ta sẽ định nghĩa 1 `digest` và *ký* vào dữ liệu bằng `digest` này
 
 ```ruby
 document = "Mã hóa bất đối xứng bằng thuật toán RSA 4096 bit"
@@ -210,6 +287,11 @@ digest = OpenSSL::Digest::SHA256.new            # empty digest
 signature = private_key.sign(digest, document)
 signature_base64 = Base64.encode64(signature)
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-16.png"
+   alt="Ruby code snippet 16"
+   caption="Tạo chữ ký và ký vào dữ liệu"
+   instant_articles="true" %}
 
 Khi nhận được dữ liệu, người dùng tiến hành xác thực:
 
@@ -219,6 +301,11 @@ signature = Base64.decode64(signature_base64)
 
 verify_status = public_key.verify(digest, signature, document)          # true
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-17.png"
+   alt="Ruby code snippet 17"
+   caption="Xác thực dữ liệu"
+   instant_articles="true" %}
 
 `verify_status` trả về `true` chỉ trong trường hợp `digest`, `signature` và `document` tại đích trùng khớp với dữ liệu tương ứng tại nguồn.
 
@@ -233,6 +320,11 @@ Các thuật toán **Mã hóa bằng hàm băm** phổ biến nhất hiện nay 
 ```ruby
 OpenSSL::Digest::MD5.digest("Mã hóa bằng hàm băm với thuật toán MD5")       # \xFE\x7F\xBC\x94\xFE\x9E\x94O\x144\xDF\xB0\x97\xADD\xBD
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-18.png"
+   alt="Ruby code snippet 18"
+   caption="Tính MD5 digest (dạng binary)"
+   instant_articles="true" %}
 
 Cũng giống như **AES** hay **RSA**, mặc định các thuật toán này trả về các giá trị dạng binary. Tuy nhiên bộ thư viện `Digest` cung cấp luôn cho chúng ta 2 phương pháp *encode* là `hexdigest` và `base64digest`:
 
@@ -241,6 +333,11 @@ OpenSSL::Digest::MD5.hexdigest("Mã hóa bằng hàm băm với thuật toán MD
 
 OpenSSL::Digest::MD5.base64digest("Mã hóa bằng hàm băm với thuật toán MD5") # /n+8lP6elE8UNN+wl61EvQ==
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-19.png"
+   alt="Ruby code snippet 19"
+   caption="Tính MD5 digest (dạng Hex & Base64)"
+   instant_articles="true" %}
 
 Ngoài ra, ta cũng có thể dùng hàm `update()` hoặc toán tử `<<` để chèn thêm các nội dung mà ta muốn mã hóa:
 
@@ -251,6 +348,11 @@ digest << " với thuật toán MD5"
 digest.hexdigest                # fe7fbc94fe9e944f1434dfb097ad44bd
 digest.base64digest             # /n+8lP6elE8UNN+wl61EvQ==
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-20.png"
+   alt="Ruby code snippet 20"
+   caption="Chèn thêm nội dung muốn mã hóa"
+   instant_articles="true" %}
 
 #### Salt ####
 
@@ -268,6 +370,11 @@ salt = SecureRandom.base64(8)                                         # ruvewNfn
 
 encrypted_password = OpenSSL::Digest::MD5.hexdigest(password + salt)  # 0ed88631a7ec520edb71ad513b2b1a25
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-21.png"
+   alt="Ruby code snippet 21"
+   caption="Thêm salt vào mật khẩu để mã hóa"
+   instant_articles="true" %}
 
 Như vậy, thay vì chúng ta lưu **MD5** của `password` (là `b47f5aae2b8344569d8e0831906867ce`), ta sẽ lưu cả `salt` và **MD5** của `password + salt` (lúc này là `0ed88631a7ec520edb71ad513b2b1a25`, hoàn toàn không có mối liên hệ gì với **MD5** của `password` thuần).
 
@@ -293,6 +400,11 @@ digest.update("Mã hóa bằng hàm băm")
 digest << " với thuật toán MD5"
 digest.hexdigest                # 0953e45472e0d2e0a668c2812358d6a29d8277c86a7ff0d120be2db84f0f021d5afd44b26bc6d5f25dfdcf8b605c5c18f66c1cc831168f4a954c861b1e97f751
 ```
+{% include figure.html
+   filename="/assets/media/snippets/2016-07-07/ruby-22.png"
+   alt="Ruby code snippet 22"
+   caption="Tính digest bằng SHA 256, 384 & 512-bit"
+   instant_articles="true" %}
 
 [rsa-key-pairs]:        {{ site.url }}/assets/downloads/misc/2016-07-07-rsa-key-pairs.zip
 [part-1]:               {{ site.url }}{% post_url 2016-07-06-encryption-methods-1 %}
