@@ -14,7 +14,7 @@ layout: null
     <author>
       <name>{{ site.author.fullname }}</name>
     </author>
-    {% for post in site.posts %}
+    {% for post in site.posts limit:3 %}
       <item>
         <title>{{ post.instant_title | xml_escape }}</title>
         <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
