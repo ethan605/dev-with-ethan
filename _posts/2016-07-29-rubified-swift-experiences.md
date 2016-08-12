@@ -97,8 +97,8 @@ extension Optional: OptionalType {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-6.png"
-   alt="Swift code snippet 6"
+   filename="assets/media/snippets/images/2016-07-29/swift-5.png"
+   alt="Swift code snippet 5"
    caption="Khai báo extension với phần tử OptionalType"
    instant_articles="true" %}
 
@@ -110,8 +110,8 @@ public enum Optional<Wrapped> : _Reflectable, NilLiteralConvertible {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-7.png"
-   alt="Swift code snippet 7"
+   filename="assets/media/snippets/images/2016-07-29/swift-6.png"
+   alt="Swift code snippet 6"
    caption="Khai báo của kiểu Optional"
    instant_articles="true" %}
 

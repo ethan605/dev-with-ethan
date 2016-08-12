@@ -1,5 +1,9 @@
-var array: [AnyObject?] = [1, 2, "3", 4.0, nil, 5]
-print(array.unwrapped())            // nil
-
-array = [1, 2, "3", 4.0, 5]
-print(array.unwrapped())            // Optional[1, 2, 3, 4, 5]
+extension Array where Element: OptionalType {
+  public func unwrapped() -> [Element.Wrapped]? {
+    let initial = Optional<[Element.Wrapped]>([])
+    
+    return self.reduce(initial) { (reduced, element) in
+      reduced.flatMap { (arr) in element.optional.map { a + [$0] } }
+    }
+  }
+}
