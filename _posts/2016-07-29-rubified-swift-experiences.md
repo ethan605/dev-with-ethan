@@ -22,7 +22,7 @@ Rõ ràng với các trường hợp mà phần tử có kiểu xác định (nh
 let array: [AnyObject?] = [1, 2, "3", 4.0, nil, 5]
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-1.png"
+   filename="/assets/media/snippets/images/2016-07-29/swift-1.png"
    alt="Swift code snippet 1"
    caption="Khởi tạo mảng optional"
    instant_articles="true" %}
@@ -37,7 +37,7 @@ extension Array {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-2.png"
+   filename="/assets/media/snippets/images/2016-07-29/swift-2.png"
    alt="Swift code snippet 2"
    caption="Khai báo hàm compact"
    instant_articles="true" %}
@@ -53,7 +53,7 @@ public func compact() -> [Element] {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-3.png"
+   filename="/assets/media/snippets/images/2016-07-29/swift-3.png"
    alt="Swift code snippet 3"
    caption="Khai báo hàm filter"
    instant_articles="true" %}
@@ -66,7 +66,7 @@ extension Array where Element: Equatable {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-4.png"
+   filename="/assets/media/snippets/images/2016-07-29/swift-4.png"
    alt="Swift code snippet 4"
    caption="Khai báo extension với phần tử Equatable"
    instant_articles="true" %}
@@ -79,7 +79,7 @@ extension Array where Element: Optional {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-5.png"
+   filename="/assets/media/snippets/images/2016-07-29/swift-5.png"
    alt="Swift code snippet 5"
    caption="Khai báo extension với phần tử Optional"
    instant_articles="true" %}
@@ -97,8 +97,8 @@ extension Optional: OptionalType {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-5.png"
-   alt="Swift code snippet 5"
+   filename="/assets/media/snippets/images/2016-07-29/swift-6.png"
+   alt="Swift code snippet 6"
    caption="Khai báo extension với phần tử OptionalType"
    instant_articles="true" %}
 
@@ -110,8 +110,8 @@ public enum Optional<Wrapped> : _Reflectable, NilLiteralConvertible {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-6.png"
-   alt="Swift code snippet 6"
+   filename="/assets/media/snippets/images/2016-07-29/swift-7.png"
+   alt="Swift code snippet 7"
    caption="Khai báo của kiểu Optional"
    instant_articles="true" %}
 
@@ -127,7 +127,7 @@ extension Array where Element: OptionalType {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-8.png"
+   filename="/assets/media/snippets/images/2016-07-29/swift-8.png"
    alt="Swift code snippet 8"
    caption="Khai báo hàm compact"
    instant_articles="true" %}
@@ -150,7 +150,7 @@ extension Array where Element: OptionalType {
 }
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-9.png"
+   filename="/assets/media/snippets/images/2016-07-29/swift-9.png"
    alt="Swift code snippet 9"
    caption="Khai báo hàm unwrapped"
    instant_articles="true" %}
@@ -175,7 +175,7 @@ array = [1, 2, "3", 4.0, 5]
 print(array.unwrapped())            // Optional[1, 2, 3, 4, 5]
 ```
 {% include figure.html
-   filename="assets/media/snippets/images/2016-07-29/swift-10.png"
+   filename="/assets/media/snippets/images/2016-07-29/swift-10.png"
    alt="Swift code snippet 10"
    caption="Dùng thử hàm unwrapped"
    instant_articles="true" %}
