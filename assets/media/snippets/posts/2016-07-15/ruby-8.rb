@@ -6,4 +6,11 @@ last_name_groups = full_names.reduce({}) {|temp, full_name|
   temp[last_name] << first_name
   temp
 }
-puts(last_name_groups)  # {"Baratheon"=>["Robert", "Jofrey"], "Lannister"=>["Tyrion", "Cersei"], "Stark"=>["Eddard"], "Targaryen"=>["Daenerys"], "Snow"=>["Jon"], "Drogo"=>["Khal"], "Baelish"=>["Petyr"], "of Lys"=>["Varys"]}
+puts(last_name_groups)  # {"Baratheon"=>["Robert", "Jofrey"],
+                        # "Lannister"=>["Tyrion", "Cersei"],
+                        # "Stark"=>["Eddard"],
+                        # "Targaryen"=>["Daenerys"],
+                        # "Snow"=>["Jon"],
+                        # "Drogo"=>["Khal"],
+                        # "Baelish"=>["Petyr"],
+                        # "of Lys"=>["Varys"]}

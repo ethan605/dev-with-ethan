@@ -8,4 +8,11 @@ let lastNameGroups = fullNames.reduce([String: [String]]()) { (var temp: [String
   return temp
 }
 
-print(lastNameGroups)   // ["Stark": ["Eddard"], "Lannister": ["Tyrion", "Cersei"], "of Lys": ["Varys"], "Targaryen": ["Daenerys"], "Baratheon": ["Robert", "Jofrey"], "Drogo": ["Khal"], "Snow": ["Jon"], "Baelish": ["Petyr"]]
+print(lastNameGroups)   // ["Stark": ["Eddard"],
+                        // "Lannister": ["Tyrion", "Cersei"],
+                        // "of Lys": ["Varys"],
+                        // "Targaryen": ["Daenerys"],
+                        // "Baratheon": ["Robert", "Jofrey"],
+                        // "Drogo": ["Khal"],
+                        // "Snow": ["Jon"],
+                        // "Baelish": ["Petyr"]]
