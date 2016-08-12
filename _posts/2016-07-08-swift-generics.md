@@ -28,6 +28,11 @@ func max(number1: Double, _ number2: Double) -> Double {
 max(1, 2)               // 2
 max(2.8, 1.5)           // 2.8
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-1.png"
+   alt="Swift code snippet 1"
+   caption="Khai báo các hàm max"
+   instant_articles="true" %}
 
 Mặc dù phải định nghĩa nhiều hàm như vậy, nhưng đến lúc gọi hàm, ta chỉ gọi duy nhất 1 lần `max()` cho từng kiểu dữ liệu. Với **Generics**, chúng ta có thể rút ngắn sự phiền toán này lại.
 
@@ -43,6 +48,11 @@ func genericsMax<T: Comparable>(number1: T, _ number2: T) -> T {
 genericsMax(1, 2)       // 2
 genericsMax(2.8, 1.5)   // 2.8
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-2.png"
+   alt="Swift code snippet 2"
+   caption="Khai báo các hàm generics"
+   instant_articles="true" %}
 
 Như vậy, bằng cú pháp khai báo `<T: Comparable>` ngay sau tên hàm `genericsMax`, ta có thể sử dụng `T` như 1 kiểu dữ liệu hợp lệ. Tuy nhiên, do các phép so sánh (`>`, `>=`, `<`, `<=` và `=`) không áp dụng cho mọi kiểu dữ liệu, nên ta cần *hạn chế* bớt các trường hợp có thể của `T` lại.
 
@@ -53,6 +63,11 @@ func genericsMax<T where T: Comparable>(number1: T, _ number2: T) -> T {
   return number1 > number2 ? number1 : number2
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-3.png"
+   alt="Swift code snippet 3"
+   caption="Khai báo constrains dạng đầy đủ"
+   instant_articles="true" %}
 
 tức là ta muốn khai báo hàm `genericsMax()` sẽ làm việc trên 1 kiểu **Generics** là `T`, nhưng `T` chỉ nằm trong những kiểu có **conform protocol** tên là `Comparable`. Việc này đồng nghĩa với khi gọi `genericsMax("1", "2")` thì vẫn được, nhưng gọi `genericsMax([1], [2])` thì sẽ báo lỗi **Cannot invoke 'genericsMax' with an argument list of type ([Int], [Int])**
 
@@ -71,6 +86,11 @@ func genericsMax<T: Comparable>(number1: T, _ number2: T) -> T {
   return number1 > number2 ? number1 : number2
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-4.png"
+   alt="Swift code snippet 4"
+   caption="Xử lý kiểu dữ liệu khác nhau"
+   instant_articles="true" %}
 
 Trong trường hợp này, chúng ta kiểu tra xem `T` có phải là `Double` hay không, nếu đúng thì in ra 1 dòng **Compare Double numbers _number1_ & _number2_**.
 
@@ -84,6 +104,11 @@ let result: Double = genericsMax(1, 2)
 // Alternatively
 genericsMax(1, 2) as Double
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-5.png"
+   alt="Swift code snippet 5"
+   caption="Ép kiểu khi gọi hàm generics"
+   instant_articles="true" %}
 
 Do ta khai báo kiểu trả về của `genericsMax()` cũng là `T`, nên nếu ta thông báo với trình biên dịch là ta muốn trả về kiểu `Double` thì trong thân hàm, `T` sẽ nhận kiểu `Double`
 
@@ -113,20 +138,30 @@ class Person: Base {
 class Animal: Base {
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-6.png"
+   alt="Swift code snippet 6"
+   caption="Khai báo kiểu dữ liệu kế thừa"
+   instant_articles="true" %}
 
 Ta có 3 class `Base`, `Person` và `Animal`. Đây là 1 ví dụ điển hình để demo các tính năng **kế thừa** của 1 ngôn ngữ **Hướng đối tượng** (*Object-Oriented Programming*). Ở đây chúng ta sẽ chỉ xét đến khả năng sử dụng các kiểu dữ liệu `Base`, `Person`, `Animal` như biến số.
 
 Tại `Base`, ta định nghĩa 1 **class function** là `announce()`, có nhiệm vụ trả ra 1 `String` cho biết chúng ta đang sử dụng kiểu dữ liệu nào, và 1 **instance function** tên là `greet()` cũng có nhiệm vụ trả ra 1 `String`, nhưng là 1 *lời chào* từ chính kiểu dữ liệu đó:
 
 ```swift
-Base.announce()         \\ "Using class Base"
-Person.announce()       \\ "Using class Person"
-Animal.announce()       \\ "Using class Animal"
+Base.announce()         // "Using class Base"
+Person.announce()       // "Using class Person"
+Animal.announce()       // "Using class Animal"
 
-Base().greet()          \\ "Hi, I'm a Base"
-Person().greet()        \\ "Hi, I'm a Person"
-Animal().greet()        \\ "Hi, I'm a Animal"
+Base().greet()          // "Hi, I'm a Base"
+Person().greet()        // "Hi, I'm a Person"
+Animal().greet()        // "Hi, I'm a Animal"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-7.png"
+   alt="Swift code snippet 7"
+   caption="Lệnh gọi các hàm giống nhau từ các class kế thừa"
+   instant_articles="true" %}
 
 Giờ giả sử ta có 1 hàm **Generics** tên là `objectGreeting()`, nhận vào 1 tham số `classType` là 1 trong 3 kiểu `Base`, `Person` & `Animal`, có nhiệm vụ: với mỗi kiểu giá trị tương ứng thì tạo 1 **instance** và gọi hàm `greet()`.
 
@@ -136,10 +171,15 @@ func objectGreeting<T: Base>(classType: T.Type) -> String {
   return classType.init().greet()
 }
 
-objectGreeting(Base.self)           \\ "Hi, I'm a Base"
-objectGreeting(Person.self)         \\ "Hi, I'm a Person"
-objectGreeting(Animal.self)         \\ "Hi, I'm a Animal"
+objectGreeting(Base.self)           // "Hi, I'm a Base"
+objectGreeting(Person.self)         // "Hi, I'm a Person"
+objectGreeting(Animal.self)         // "Hi, I'm a Animal"
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-8.png"
+   alt="Swift code snippet 8"
+   caption="Sử dụng hàm objectGreeting"
+   instant_articles="true" %}
 
 Lúc này, khi gọi hàm `objectGreeting()` với các tham số lần lượt là `Base.self`, `Person.self` & `Animal.self`, ta sẽ nhận được các *lời chào* tương ứng.
 
@@ -148,9 +188,14 @@ Có 1 điểm đặc biệt ở đây, là do việc tạo 1 object `classType.i
 ```swift
 class Base: NSObject {
   required override init() {}
-  ...
+  // ...
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-08/swift-9.png"
+   alt="Swift code snippet 9"
+   caption="Định nghĩa hàm required init"
+   instant_articles="true" %}
 
 Các bạn có thể tải về file [Generics.playground][attachment] để cùng xem các ví dụ về **Generics** đã trình bày trong bài.
 
