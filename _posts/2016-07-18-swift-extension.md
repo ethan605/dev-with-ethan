@@ -33,6 +33,11 @@ extension String {
 "12.1".toInt()              // 12
 "12.9".toInt()              // 13
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-18/swift-1.png"
+   alt="Swift code snippet 1"
+   caption="Khai báo extension cho String"
+   instant_articles="true" %}
 
 Tất cả những hàm chúng ta muốn định nghĩa mới sẽ nằm trong từ khóa `extension String`. Trong trường hợp này, chúng ta sử dụng 'NSNumberFormatter' để chuyển đổi bản thân String đang gọi, truy cập qua từ khóa `self` sang dạng `Double` thông qua thuộc tính `number.doubleValue`, làm tròn và đổi thành số dạng `Int`.
 
@@ -69,6 +74,11 @@ extension String {
 "12.1".toInt(false)         // 12
 "12.9".toInt(false)         // 12
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-18/swift-2.png"
+   alt="Swift code snippet 2"
+   caption="Khai báo thêm extension cho String"
+   instant_articles="true" %}
 
 Lúc này, cả 3 giá trị `12`, `12.1` & `12.9` khi gọi `toInt(false)` đều trả về giá trị `Int` là `12`.
 
@@ -91,6 +101,11 @@ extension String {
   }
 }
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-18/swift-3.png"
+   alt="Swift code snippet 3"
+   caption="Khai báo hàm toInt"
+   instant_articles="true" %}
 
 ## 2. Định nghĩa subscript ##
 
@@ -114,6 +129,11 @@ extension String {
 "Swift Extension"[11...17]          // "sion"
 "Swift Extension"[16...17]          // ""
 ```
+{% include figure.html
+   filename="/assets/media/snippets/images/2016-07-18/swift-4.png"
+   alt="Swift code snippet 4"
+   caption="Khai báo và cách dùng subscript"
+   instant_articles="true" %}
 
 Để định nghĩa 1 **subscript**, ta dùng cú pháp `subscript(range: Range<Int>) -> String`, có nghĩa là ta sẽ dùng cú pháp `string[1...3]` để trả về String con của String gốc. Có 1 điểm hay là trong hàm này chúng ta sẽ xử lý các trường hợp ngoại lệ: `startIndex` vượt quá độ dài của String, `endIndex` vượt quá độ dài của String,... và trả về các String con tương ứng.
 
