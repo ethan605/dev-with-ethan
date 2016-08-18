@@ -41,9 +41,9 @@ layout: null
                   <address>{{ site.author.fullname }}</address>
                   <figure>
                     {% if post.featured_image %}
-                      <img src="{{ post.featured_image }}">
+                      <img src="{{ post.featured_image | prepend: site.url }}">
                     {% else %}
-                      <img src="{{ site.url }}/assets/media/ia-header-art.png">
+                    <img src="{{ '/assets/media/ia-header-art.png' | prepend: site.url }}">
                     {% endif %}
                     <figcaption>{{ post.instant_title | xml_escape }}</figcaption>
                   </figure>

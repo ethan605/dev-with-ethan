@@ -27,10 +27,10 @@
   <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
 	<!-- If article has a cover photo -->
-	{% if page.coverPhoto %}
-		<meta itemprop="image" content="{{ page.coverPhoto }}">
-		<meta property="og:image" content="{{ page.coverPhoto }}">
-		<meta name="twitter:image" content="{{ page.coverPhoto }}">
+	{% if page.featured_image %}
+		<meta itemprop="image" content="{{ page.featured_image | prepend: site.url}}">
+		<meta property="og:image" content="{{ page.featured_image | prepend: site.url}}">
+		<meta name="twitter:image" content="{{ page.featured_image | prepend: site.url}}">
   {% else %}
 		<meta itemprop="image" content="{{ '/assets/media/fb-preview.png' | prepend: site.url }}">
 		<meta property="og:image" content="{{ '/assets/media/fb-preview.png' | prepend: site.url }}">
