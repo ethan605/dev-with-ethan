@@ -20,12 +20,18 @@
 	<meta name="author" content="{{ site.author.name }}">
 	<meta name="generator" content="Jekyll v{{ jekyll.version }}">
 
-	{% if page.featured_image %}
-    <!-- Article has a cover photo -->
+	{% if page.preview_image %}
+    <!-- Article has a preview image -->
+		<meta itemprop="image" content="{{ page.preview_image | prepend: site.url}}">
+		<meta property="og:image" content="{{ page.preview_image | prepend: site.url}}">
+		<meta name="twitter:image" content="{{ page.preview_image | prepend: site.url}}">
+  {% elsif page.featured_image %}
+    <!-- Article has a featured image -->
 		<meta itemprop="image" content="{{ page.featured_image | prepend: site.url}}">
 		<meta property="og:image" content="{{ page.featured_image | prepend: site.url}}">
 		<meta name="twitter:image" content="{{ page.featured_image | prepend: site.url}}">
   {% else %}
+    <!-- Use site's default preview image -->
 		<meta itemprop="image" content="{{ '/assets/media/fb-preview.png' | prepend: site.url }}">
 		<meta property="og:image" content="{{ '/assets/media/fb-preview.png' | prepend: site.url }}">
 		<meta name="twitter:image" content="{{ '/assets/media/fb-preview.png' | prepend: site.url }}">

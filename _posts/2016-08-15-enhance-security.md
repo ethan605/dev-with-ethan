@@ -8,7 +8,7 @@ tags: [blog, security, 'cảnh giác', 'bảo mật']
 comments: true
 instant_title: Nâng cao ý thức cảnh giác và bảo mật trên mạng!
 instant_kicker: Thế giới Công nghệ
-featured_image: /assets/media/featured-images/otp-2fa.png
+featured_image: /assets/media/featured-images/2016-08-15-featured.png
 ---
 
 Khoảng 1 năm trước, mình đọc được 1 bài viết (không nhớ nguồn) về 1 kỹ sư CNTT, tuy anh đã rất cẩn thận đối với các giao thức bảo mật (luôn sử dụng 2FA khi có thể), nhưng cuối cùng vẫn bị tấn công vào điểm yếu nhất: SMS OTP.
