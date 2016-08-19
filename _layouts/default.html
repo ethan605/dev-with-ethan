@@ -4,30 +4,24 @@
   <meta charset="UTF-8">
 
   {% seo %}
-  <!-- Google+ author meta -->
+
+  <!-- Google+ -->
   <link rel="author" href="https://plus.google.com/+ThanhNguyen605"/>
+  <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% elsif site.name %}{{ site.name }}{% endif %}">
+  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
   <!-- Enable responsive viewport -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   {% if site.facebook.page %}<meta property="fb:pages" content="{{ site.facebook.page }}" />{% endif %}
   
-  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-
 	<!-- Meta for robots -->
 	<meta name="revisit-after" content="1 days">
 	<meta name="robots" content="index, follow">
 	<meta name="author" content="{{ site.author.name }}">
 	<meta name="generator" content="Jekyll v{{ jekyll.version }}">
 
-	<!-- Google+ -->
-	<meta itemprop="name" content="{% if page.title %}{{ page.title }}{% elsif site.name %}{{ site.name }}{% endif %}">
-  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-
-	<!-- If article has a cover photo -->
 	{% if page.featured_image %}
+    <!-- Article has a cover photo -->
 		<meta itemprop="image" content="{{ page.featured_image | prepend: site.url}}">
 		<meta property="og:image" content="{{ page.featured_image | prepend: site.url}}">
 		<meta name="twitter:image" content="{{ page.featured_image | prepend: site.url}}">
@@ -60,7 +54,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="description" content="{{ site.description }}">
-  <meta name="author" content="{{ site.author.name }}">
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="apple-mobile-web-app-capable" content="yes">
