@@ -10,7 +10,11 @@ redirect_from:
   - /tutorials/2016/06/29/swift-complex-number
 instant_title: Cách biểu diễn số Phức
 instant_kicker: Ngôn ngữ Swift
+preview_image: /assets/media/featured-images/2016-06-29-preview.png
+featured_image: /assets/media/featured-images/2016-06-29-header.png
 ---
+
+Swift là 1 ngôn ngữ mới mẻ, mạnh mẽ & đang dần phổ biến. Sử dụng thành thạo Swift giúp chúng ta dễ dàng hơn trong việc tự tạo ra những cấu trúc dữ liệu mới, kết hợp một cách hiệu quả với các toán tử để biểu diễn các công thức dưới dạng tự nhiên nhất.
 
 ## 1. Phát biểu bài toán ##
 
