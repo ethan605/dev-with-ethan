@@ -8,6 +8,8 @@ tags: [swift, optional, type, 'ký pháp ?', 'question mark', 'ký pháp !', 'ex
 comments: true
 instant_title: Optional nâng cao
 instant_kicker: Ngôn ngữ Swift
+preview_image: /assets/media/featured-images/2016-06-30-preview.png
+featured_image: /assets/media/featured-images/2016-06-30-header.png
 ---
 
 *... tiếp theo bài viết [[Swift] Kiểu giá trị Optional - Các cách khai báo & sử dụng][part-1]*
