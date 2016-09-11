@@ -8,6 +8,8 @@ tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
 instant_title: Tạo mới Models với Active Record
 instant_kicker: Ruby on Rails
+preview_image: /assets/media/featured-images/2016-07-04-preview.png
+featured_image: /assets/media/featured-images/2016-07-04-header.png
 ---
 
 ## 1. Active Record ##

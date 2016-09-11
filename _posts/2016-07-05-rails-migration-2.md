@@ -8,6 +8,8 @@ tags: [ruby, rails, postgre, sql, migration, 'active record']
 comments: true
 instant_title: Các thao tác với Migration
 instant_kicker: Ruby on Rails
+preview_image: /assets/media/featured-images/2016-07-05-preview.png
+featured_image: /assets/media/featured-images/2016-07-05-header.png
 ---
 
 *... tiếp theo bài viết [\[Ruby on Rails\] Migration trong Rails: Tạo mới Models với Active Record][part-1]*
