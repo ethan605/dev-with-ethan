@@ -1,4 +1,13 @@
 #!/usr/bin/env ruby
+
+=begin
+Setup instructions:
+
+  * Pygments: `sudo pip install Pygments`
+  * Python image libraries: `sudo pip install pillow`
+
+=end
+
 require 'pathname'
 require 'fileutils'
 
